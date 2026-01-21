@@ -530,6 +530,129 @@
     }
 
     // ==========================================================================
+    // CONTACT POPUP FOR FIRST-TIME VISITORS
+    // ==========================================================================
+
+    function initContactPopup() {
+      var popup = document.getElementById('xconnect-contact-popup');
+      if (!popup) return;
+
+      var STORAGE_KEY = 'xconnect_popup_dismissed';
+      var POPUP_DELAY = 3000; // Show popup after 3 seconds
+
+      // Check if user has already dismissed or submitted the popup
+      if (localStorage.getItem(STORAGE_KEY)) {
+        return;
+      }
+
+      // Show popup after delay
+      setTimeout(function() {
+        showPopup();
+      }, POPUP_DELAY);
+
+      function showPopup() {
+        popup.classList.add('is-active');
+        document.body.style.overflow = 'hidden';
+        
+        // Focus the first input for accessibility
+        var firstInput = popup.querySelector('input');
+        if (firstInput) {
+          setTimeout(function() {
+            firstInput.focus();
+          }, 300);
+        }
+      }
+
+      function hidePopup() {
+        popup.classList.remove('is-active');
+        document.body.style.overflow = '';
+        localStorage.setItem(STORAGE_KEY, 'true');
+      }
+
+      // Close button handler
+      var closeBtn = popup.querySelector('.xconnect-contact-popup__close');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', hidePopup);
+      }
+
+      // Skip button handler
+      var skipBtn = popup.querySelector('.xconnect-contact-popup__skip');
+      if (skipBtn) {
+        skipBtn.addEventListener('click', hidePopup);
+      }
+
+      // Overlay click handler
+      var overlay = popup.querySelector('.xconnect-contact-popup__overlay');
+      if (overlay) {
+        overlay.addEventListener('click', hidePopup);
+      }
+
+      // Escape key handler
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && popup.classList.contains('is-active')) {
+          hidePopup();
+        }
+      });
+
+      // Form submission handler
+      var form = popup.querySelector('.xconnect-contact-popup__form');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          var submitBtn = form.querySelector('.xconnect-contact-popup__submit');
+          var statusElement = popup.querySelector('.xconnect-contact-popup__status');
+          var originalText = submitBtn.textContent;
+
+          // Validate required fields
+          var name = form.querySelector('input[name="popup_name"]');
+          var email = form.querySelector('input[name="popup_email"]');
+          var phone = form.querySelector('input[name="popup_phone"]');
+
+          if (!name.value.trim() || !email.value.trim() || !phone.value.trim()) {
+            if (statusElement) {
+              statusElement.textContent = 'Please fill in all required fields.';
+              statusElement.className = 'xconnect-contact-popup__status xconnect-contact-popup__status--error';
+            }
+            return;
+          }
+
+          // Email validation
+          var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email.value.trim())) {
+            if (statusElement) {
+              statusElement.textContent = 'Please enter a valid email address.';
+              statusElement.className = 'xconnect-contact-popup__status xconnect-contact-popup__status--error';
+            }
+            return;
+          }
+
+          // Show loading state
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending...';
+
+          // Simulate form submission (replace with actual API call)
+          setTimeout(function() {
+            // Show success message
+            if (statusElement) {
+              statusElement.textContent = 'Thank you! We\'ll get in touch with you soon.';
+              statusElement.className = 'xconnect-contact-popup__status xconnect-contact-popup__status--success';
+            }
+
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+            form.reset();
+
+            // Close popup after success
+            setTimeout(function() {
+              hidePopup();
+            }, 2000);
+          }, 1500);
+        });
+      }
+    }
+
+    // ==========================================================================
     // INITIALIZE ALL MODULES
     // ==========================================================================
 
@@ -544,6 +667,7 @@
       initExternalLinks();
       initScrollAnimations();
       initPerformanceMonitoring();
+      initContactPopup();
 
       // Log initialization in development
       if (window.location.hostname === 'localhost' || window.location.hostname.includes('dev')) {
