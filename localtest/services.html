@@ -1,1144 +1,567 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head></head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Explore XConnectDC services: IT consulting, network infrastructure, cybersecurity, cloud solutions, and managed IT services."
-    />
-    <title>Services | XConnectDC</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="XConnectDC Services - Data Center Solutions, OPGW Connectivity, Network Infrastructure, and Managed Services for enterprises.">
+  <title>Services | XConnectDC</title>
 
-    <!--</title> Shared CSS (mirrors localtest/index.html) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
-      rel="stylesheet"
-    />
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
 
-    <link rel="stylesheet" href="./css/global.css" />
-    <link rel="stylesheet" href="./css/components.css" />
+  <!-- Google Fonts - Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- AOS (optional, used in WPCode plan) -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <!-- AOS (Animate On Scroll) Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <!-- Page-specific (Services) styles: copied from WPCode 14-services-styles.css to keep localtest self-contained -->
-    <style>
-      /* ==========================================================================</style>
-         SERVICES HERO SECTION
-         ========================================================================== */
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
 
-      .xconnect-services-hero {
-        position: relative;
-        min-height: 50vh;
-        display: flex;
-        align-items: center;
-        padding: calc(var(--header-height, 80px) + var(--spacing-16, 4rem)) 0 var(--spacing-16, 4rem);
-        overflow: hidden;
-        margin-top: calc(-1 * var(--header-height, 80px));
+  <style>
+    /* Services Page Specific Styles */
+    .xconnect-services-hero {
+      position: relative;
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      padding: calc(var(--header-height, 80px) + var(--spacing-12, 3rem)) 0 var(--spacing-12, 3rem);
+      overflow: hidden;
+      margin-top: calc(-1 * var(--header-height, 80px));
+    }
+
+    .xconnect-services-hero__bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, var(--color-navy, #0b1d3a) 0%, #0e2544 40%, #123054 70%, var(--color-primary-dark, #1a5fb5) 100%);
+      z-index: 0;
+    }
+
+    .xconnect-services-hero__content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .xconnect-services-hero__badge {
+      display: inline-flex;
+      background: rgba(77, 163, 255, 0.15);
+      border: 1px solid rgba(77, 163, 255, 0.3);
+      color: var(--color-primary-light, #4da3ff);
+      padding: var(--spacing-2, 0.5rem) var(--spacing-5, 1.25rem);
+      border-radius: var(--radius-full, 9999px);
+      font-size: var(--font-size-sm, 0.875rem);
+      font-weight: var(--font-weight-semibold, 600);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--spacing-6, 1.5rem);
+    }
+
+    .xconnect-services-hero__title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: var(--font-weight-bold, 700);
+      color: var(--color-white, #ffffff);
+      margin: 0 0 var(--spacing-5, 1.25rem) 0;
+    }
+
+    .xconnect-services-hero__title-highlight {
+      background: linear-gradient(135deg, var(--color-primary-light, #4da3ff) 0%, #ffffff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .xconnect-services-hero__text {
+      font-size: var(--font-size-lg, 1.125rem);
+      color: rgba(255, 255, 255, 0.85);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* Services Grid */
+    .xconnect-services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-8, 2rem);
+    }
+
+    @media (min-width: 768px) {
+      .xconnect-services-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
+    }
 
-      /* Background */
-      .xconnect-services-hero__bg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 0;
-      }
+    /* Service Block */
+    .xconnect-service-block {
+      background-color: var(--color-white, #ffffff);
+      border-radius: var(--radius-2xl, 1.5rem);
+      padding: var(--spacing-10, 2.5rem);
+      border: 1px solid var(--color-border-light, #f1f5f9);
+      transition: all var(--transition-base, 250ms ease);
+    }
 
-      .xconnect-services-hero__bg-gradient {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(
-          135deg,
-          var(--color-navy, #0b1d3a) 0%,
-          #0e2544 40%,
-          #123054 70%,
-          var(--color-primary-dark, #1a5fb5) 100%
-        );
-      }
+    .xconnect-service-block:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgba(11, 29, 58, 0.15);
+    }
 
-      .xconnect-services-hero__bg-pattern {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-image:
-          radial-gradient(circle at 20% 80%, rgba(77, 163, 255, 0.08) 0%, transparent 40%),
-          radial-gradient(circle at 80% 20%, rgba(31, 111, 210, 0.08) 0%, transparent 40%);
-      }
+    .xconnect-service-block__icon {
+      width: 72px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--color-primary, #1f6fd2) 0%, var(--color-accent, #4da3ff) 100%);
+      border-radius: var(--radius-xl, 1rem);
+      margin-bottom: var(--spacing-6, 1.5rem);
+      color: var(--color-white, #ffffff);
+      box-shadow: 0 8px 20px rgba(31, 111, 210, 0.3);
+    }
 
-      /* Content */
-      .xconnect-services-hero__content {
-        position: relative;
-        z-index: 1;
-        text-align: center;
-        max-width: 850px;
-        margin: 0 auto;
-      }
+    .xconnect-service-block__title {
+      font-size: var(--font-size-2xl, 1.5rem);
+      font-weight: var(--font-weight-bold, 700);
+      color: var(--color-text-dark, #0f172a);
+      margin: 0 0 var(--spacing-4, 1rem) 0;
+    }
 
-      .xconnect-services-hero__badge {
-        display: inline-flex;
-        align-items: center;
-        background: rgba(77, 163, 255, 0.15);
-        border: 1px solid rgba(77, 163, 255, 0.3);
-        color: var(--color-primary-light, #4da3ff);
-        padding: var(--spacing-2, 0.5rem) var(--spacing-5, 1.25rem);
-        border-radius: var(--radius-full, 9999px);
-        font-size: var(--font-size-sm, 0.875rem);
-        font-weight: var(--font-weight-semibold, 600);
-        text-transform: uppercase;
-        letter-spacing: var(--letter-spacing-wider, 0.05em);
-        margin-bottom: var(--spacing-6, 1.5rem);
-      }
+    .xconnect-service-block__text {
+      font-size: var(--font-size-base, 1rem);
+      color: var(--color-text-muted, #475569);
+      line-height: 1.625;
+      margin: 0 0 var(--spacing-6, 1.5rem) 0;
+    }
 
-      .xconnect-services-hero__title {
-        font-size: var(--font-size-5xl, clamp(2.25rem, 2rem + 2.5vw, 3.25rem));
-        font-weight: var(--font-weight-bold, 700);
-        line-height: var(--line-height-tight, 1.2);
-        color: var(--color-white, #ffffff);
-        margin: 0 0 var(--spacing-6, 1.5rem) 0;
-        letter-spacing: var(--letter-spacing-tight, -0.025em);
-      }
+    .xconnect-service-block__features {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
 
-      .xconnect-services-hero__title-highlight {
-        background: linear-gradient(135deg, var(--color-primary-light, #4da3ff) 0%, #ffffff 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
+    .xconnect-service-block__features li {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-3, 0.75rem);
+      font-size: var(--font-size-sm, 0.875rem);
+      color: var(--color-text-body, #334155);
+      margin-bottom: var(--spacing-3, 0.75rem);
+    }
 
-      .xconnect-services-hero__text {
-        font-size: var(--font-size-lg, 1.125rem);
-        line-height: var(--line-height-relaxed, 1.625);
-        color: rgba(255, 255, 255, 0.85);
-        margin: 0;
-        max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
-      }
+    .xconnect-service-block__features li svg {
+      flex-shrink: 0;
+      color: var(--color-success, #10b981);
+    }
 
-      /* ==========================================================================
-         SERVICES LIST SECTION
-         ========================================================================== */
+    /* CTA Section */
+    .xconnect-services-cta {
+      background: linear-gradient(135deg, var(--color-navy, #0b1d3a) 0%, var(--color-primary-dark, #1a5fb5) 100%);
+      padding: var(--spacing-16, 4rem) 0;
+      text-align: center;
+    }
 
-      .xconnect-services-list {
-        background-color: var(--color-white, #ffffff);
-      }
+    .xconnect-services-cta__content {
+      max-width: 700px;
+      margin: 0 auto;
+    }
 
-      /* ==========================================================================
-         SERVICE BLOCK STYLES
-         ========================================================================== */
+    .xconnect-services-cta__title {
+      font-size: var(--font-size-3xl, clamp(1.875rem, 1.5rem + 1.875vw, 2.5rem));
+      font-weight: var(--font-weight-bold, 700);
+      color: var(--color-white, #ffffff);
+      margin: 0 0 var(--spacing-4, 1rem) 0;
+    }
 
-      .xconnect-service-block {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: var(--spacing-10, 2.5rem);
-        align-items: center;
-        padding: var(--spacing-12, 3rem) 0;
-        border-bottom: 1px solid var(--color-border-light, #f1f5f9);
-      }
+    .xconnect-services-cta__text {
+      font-size: var(--font-size-lg, 1.125rem);
+      color: rgba(255, 255, 255, 0.85);
+      margin: 0 0 var(--spacing-8, 2rem) 0;
+    }
 
-      .xconnect-service-block:last-child {
-        border-bottom: none;
-      }
+    .xconnect-services-cta__buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--spacing-4, 1rem);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="xconnect-header" id="xconnect-header">
+    <div class="xconnect-header__wrapper">
+      <div class="xconnect-container">
+        <nav class="xconnect-nav">
+          <a href="index.html" class="xconnect-logo" aria-label="XConnectDC Home">
+            <img src="assets/images/logo.svg" alt="XConnectDC Logo" class="xconnect-logo__image" width="180" height="45">
+          </a>
 
-      @media (min-width: 1024px) {
-        .xconnect-service-block {
-          grid-template-columns: 1fr 1fr;
-          gap: var(--spacing-16, 4rem);
-          padding: var(--spacing-16, 4rem) 0;
-        }
-      }
-
-      /* Reverse Layout */
-      @media (min-width: 1024px) {
-        .xconnect-service-block--reverse .xconnect-service-block__content {
-          order: 2;
-        }
-
-        .xconnect-service-block--reverse .xconnect-service-block__visual {
-          order: 1;
-        }
-      }
-
-      /* Content */
-      .xconnect-service-block__content {
-        max-width: 550px;
-      }
-
-      @media (min-width: 1024px) {
-        .xconnect-service-block--reverse .xconnect-service-block__content {
-          margin-left: auto;
-        }
-      }
-
-      /* Label */
-      .xconnect-service-block__label {
-        display: inline-block;
-        font-size: var(--font-size-sm, 0.875rem);
-        font-weight: var(--font-weight-bold, 700);
-        color: var(--color-primary, #1f6fd2);
-        background-color: rgba(31, 111, 210, 0.1);
-        padding: var(--spacing-1, 0.25rem) var(--spacing-3, 0.75rem);
-        border-radius: var(--radius-md, 0.5rem);
-        margin-bottom: var(--spacing-4, 1rem);
-      }
-
-      /* Title */
-      .xconnect-service-block__title {
-        font-size: var(--font-size-3xl, clamp(1.75rem, 1.5rem + 1.25vw, 2.25rem));
-        font-weight: var(--font-weight-bold, 700);
-        color: var(--color-text-dark, #0f172a);
-        margin: 0 0 var(--spacing-4, 1rem) 0;
-        line-height: var(--line-height-tight, 1.2);
-      }
-
-      /* Text */
-      .xconnect-service-block__text {
-        font-size: var(--font-size-base, 1rem);
-        color: var(--color-text-muted, #475569);
-        line-height: var(--line-height-relaxed, 1.625);
-        margin: 0 0 var(--spacing-6, 1.5rem) 0;
-      }
-
-      /* Features List */
-      .xconnect-service-block__features {
-        list-style: none;
-        margin: 0 0 var(--spacing-8, 2rem) 0;
-        padding: 0;
-      }
-
-      .xconnect-service-block__features li {
-        display: flex;
-        align-items: flex-start;
-        gap: var(--spacing-3, 0.75rem);
-        font-size: var(--font-size-base, 1rem);
-        color: var(--color-text-body, #334155);
-        margin-bottom: var(--spacing-3, 0.75rem);
-        line-height: var(--line-height-normal, 1.5);
-      }
-
-      .xconnect-service-block__features li:last-child {
-        margin-bottom: 0;
-      }
-
-      .xconnect-service-block__features li svg {
-        flex-shrink: 0;
-        margin-top: 3px;
-        color: var(--color-success, #10b981);
-      }
-
-      /* ==========================================================================
-         SERVICE BLOCK VISUAL
-         ========================================================================== */
-
-      .xconnect-service-block__visual {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .xconnect-service-block__icon-wrap {
-        width: 200px;
-        height: 200px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(135deg, rgba(31, 111, 210, 0.08) 0%, rgba(77, 163, 255, 0.12) 100%);
-        border-radius: var(--radius-2xl, 1.5rem);
-        color: var(--color-primary, #1f6fd2);
-        position: relative;
-        transition: all var(--transition-base, 250ms ease);
-      }
-
-      .xconnect-service-block__icon-wrap::before {
-        content: "";
-        position: absolute;
-        top: -20px;
-        left: -20px;
-        right: -20px;
-        bottom: -20px;
-        background: linear-gradient(135deg, rgba(31, 111, 210, 0.03) 0%, rgba(77, 163, 255, 0.05) 100%);
-        border-radius: var(--radius-2xl, 1.5rem);
-        z-index: -1;
-      }
-
-      .xconnect-service-block:hover .xconnect-service-block__icon-wrap {
-        transform: scale(1.05);
-        box-shadow: 0 20px 40px rgba(31, 111, 210, 0.15);
-      }
-
-      @media (min-width: 1024px) {
-        .xconnect-service-block__icon-wrap {
-          width: 280px;
-          height: 280px;
-        }
-
-        .xconnect-service-block__icon-wrap svg {
-          width: 80px;
-          height: 80px;
-        }
-      }
-
-      /* ==========================================================================
-         SERVICES CTA SECTION
-         ========================================================================== */
-
-      .xconnect-services-cta {
-        background: linear-gradient(135deg, var(--color-navy, #0b1d3a) 0%, var(--color-primary-dark, #1a5fb5) 100%);
-        text-align: center;
-        padding: var(--spacing-16, 4rem) 0;
-      }
-
-      .xconnect-services-cta__content {
-        max-width: 700px;
-        margin: 0 auto;
-      }
-
-      .xconnect-services-cta__title {
-        font-size: var(--font-size-3xl, clamp(1.75rem, 1.5rem + 1.25vw, 2.25rem));
-        font-weight: var(--font-weight-bold, 700);
-        color: var(--color-white, #ffffff);
-        margin: 0 0 var(--spacing-4, 1rem) 0;
-        line-height: var(--line-height-tight, 1.2);
-      }
-
-      .xconnect-services-cta__text {
-        font-size: var(--font-size-lg, 1.125rem);
-        color: rgba(255, 255, 255, 0.85);
-        margin: 0 0 var(--spacing-8, 2rem) 0;
-        line-height: var(--line-height-relaxed, 1.625);
-      }
-
-      .xconnect-services-cta__buttons {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: var(--spacing-4, 1rem);
-      }
-
-      /* ==========================================================================
-         RESPONSIVE ADJUSTMENTS
-         ========================================================================== */
-
-      @media (max-width: 767px) {
-        .xconnect-services-hero {
-          min-height: auto;
-          padding-top: calc(var(--header-height, 80px) + var(--spacing-12, 3rem));
-          padding-bottom: var(--spacing-12, 3rem);
-        }
-
-        .xconnect-services-hero__title {
-          font-size: clamp(1.75rem, 7vw, 2.25rem);
-        }
-
-        .xconnect-services-hero__title br {
-          display: none;
-        }
-
-        .xconnect-services-hero__text {
-          font-size: var(--font-size-base, 1rem);
-        }
-
-        .xconnect-service-block {
-          padding: var(--spacing-8, 2rem) 0;
-        }
-
-        .xconnect-service-block__title {
-          font-size: var(--font-size-2xl, 1.5rem);
-        }
-
-        .xconnect-service-block__icon-wrap {
-          width: 160px;
-          height: 160px;
-        }
-
-        .xconnect-service-block__icon-wrap svg {
-          width: 56px;
-          height: 56px;
-        }
-
-        .xconnect-services-cta__buttons {
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .xconnect-services-cta__buttons .xconnect-btn {
-          width: 100%;
-          max-width: 280px;
-          justify-content: center;
-        }
-      }
-
-      @media (min-width: 768px) and (max-width: 1023px) {
-        .xconnect-service-block__content {
-          max-width: 100%;
-        }
-
-        .xconnect-service-block__icon-wrap {
-          width: 220px;
-          height: 220px;
-        }
-      }
-
-      /* ==========================================================================
-         ANIMATION SUPPORT
-         ========================================================================== */
-
-      /* Reduced motion support */
-      @media (prefers-reduced-motion: reduce) {
-        .xconnect-service-block__icon-wrap {
-          transition: none;
-        }
-
-        .xconnect-service-block:hover .xconnect-service-block__icon-wrap {
-          transform: none;
-        }
-      }
-
-      /* High contrast mode support */
-      @media (prefers-contrast: high) {
-        .xconnect-services-hero__title {
-          color: #ffffff;
-        }
-
-        .xconnect-services-hero__text {
-          color: rgba(255, 255, 255, 0.95);
-        }
-
-        .xconnect-service-block__title {
-          color: #000000;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <!-- Shared Header -->
-    <header class="xconnect-header" role="banner</body>">
-      <div class="xconnect-container xconnect-header__container">
-        <div class="xconnect-header__inner">
-          <nav class="xconnect-nav" aria-label="Primary navigation">
-            <a class="xconnect-nav__brand" href="./index.html" aria-label="XConnectDC Home">
-              <img
-                src="./assets/images/logo.svg"
-                alt="XConnectDC"
-                width="160"
-                height="40"
-                loading="eager"
-                decoding="async"
-              />
-            </a>
-
-            <ul class="xconnect-nav__links" role="list">
-              <li><a href="./index.html">Home</a></li>
-              <li><a href="./about.html">About</a></li>
-              <li><a href="./services.html" aria-current="page">Services</a></li>
-              <li><a href="./contact.html">Contact</a></li>
-            </ul>
-
-            <div class="xconnect-nav__cta">
-              <a class="xconnect-btn xconnect-btn--primary xconnect-btn--sm" href="./contact.html">Get a Quote</a>
-            </div>
-
-            <button class="xconnect-nav__toggle" type="button" aria-label="Toggle mobile menu" aria-expanded="false">
-              <span></span><span></span><span></span>
-            </button>
-          </nav>
-        </div>
-      </div>
-
-      <div class="xconnect-mobile-menu" hidden>
-        <div class="xconnect-container xconnect-mobile-menu__container">
-          <ul class="xconnect-mobile</div>-menu__links" role="list">
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./about.html">About</a></li>
-            <li><a href="./services.html" aria-current="page">Services</a></li>
-            <li><a href="./contact.html">Contact</a></li>
+          <ul class="xconnect-nav__menu" id="xconnect-nav-menu">
+            <li class="xconnect-nav__item">
+              <a href="index.html" class="xconnect-nav__link" data-nav="home">Home</a>
+            </li>
+            <li class="xconnect-nav__item">
+              <a href="about.html" class="xconnect-nav__link" data-nav="about">About</a>
+            </li>
+            <li class="xconnect-nav__item">
+              <a href="services.html" class="xconnect-nav__link is-active" data-nav="services">Services</a>
+            </li>
+            <li class="xconnect-nav__item">
+              <a href="contact.html" class="xconnect-nav__link" data-nav="contact">Contact</a>
+            </li>
           </ul>
 
-          <div class="xconnect-mobile-menu__cta">
-            <a class="xconnect-btn xconnect-btn--primary xconnect-btn--lg" href="./contact.html">Get a Quote</a>
+          <div class="xconnect-nav__cta">
+            <a href="contact.html" class="xconnect-btn xconnect-btn--primary xconnect-nav__cta-btn">Get in Touch</a>
+          </div>
+
+          <button class="xconnect-nav__toggle" id="xconnect-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span class="xconnect-nav__toggle-bar"></span>
+            <span class="xconnect-nav__toggle-bar"></span>
+            <span class="xconnect-nav__toggle-bar"></span>
+          </button>
+        </nav>
+      </div>
+    </div>
+
+    <div class="xconnect-mobile-menu" id="xconnect-mobile-menu" aria-hidden="true">
+      <div class="xconnect-mobile-menu__content">
+        <ul class="xconnect-mobile-menu__list">
+          <li class="xconnect-mobile-menu__item"><a href="index.html" class="xconnect-mobile-menu__link">Home</a></li>
+          <li class="xconnect-mobile-menu__item"><a href="about.html" class="xconnect-mobile-menu__link">About</a></li>
+          <li class="xconnect-mobile-menu__item"><a href="services.html" class="xconnect-mobile-menu__link is-active">Services</a></li>
+          <li class="xconnect-mobile-menu__item"><a href="contact.html" class="xconnect-mobile-menu__link">Contact</a></li>
+        </ul>
+        <div class="xconnect-mobile-menu__cta">
+          <a href="contact.html" class="xconnect-btn xconnect-btn--primary xconnect-btn--lg">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="xconnect-header-spacer"></div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="xconnect-services-hero">
+      <div class="xconnect-services-hero__bg"></div>
+      <div class="xconnect-container">
+        <div class="xconnect-services-hero__content">
+          <div class="xconnect-services-hero__badge" data-aos="fade-up">Our Services</div>
+          <h1 class="xconnect-services-hero__title" data-aos="fade-up" data-aos-delay="100">
+            Enterprise Infrastructure<br>
+            <span class="xconnect-services-hero__title-highlight">Solutions That Scale</span>
+          </h1>
+          <p class="xconnect-services-hero__text" data-aos="fade-up" data-aos-delay="200">
+            From world-class data centers to high-speed connectivity, we deliver the infrastructure your business needs to thrive in the digital age.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="xconnect-section" id="services">
+      <div class="xconnect-container">
+        <div class="xconnect-services-grid">
+          <div class="xconnect-service-block" id="data-center" data-aos="fade-up" data-aos-delay="0">
+            <div class="xconnect-service-block__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" viewBox="0 0 256 256">
+                <path d="M88,88a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H96A8,8,0,0,1,88,88Zm8,40h64a8,8,0,0,0,0-16H96a8,8,0,0,0,0,16ZM232,56V200a16,16,0,0,1-16,16H40a16,16,0,0,1-16-16V56A16,16,0,0,1,40,40H216A16,16,0,0,1,232,56ZM40,152H216V56H40Zm0,48H216V168H40Z"></path>
+              </svg>
+            </div>
+            <h2 class="xconnect-service-block__title">Data Center Solutions</h2>
+            <p class="xconnect-service-block__text">
+              State-of-the-art Tier III+ data center facilities designed for maximum reliability, security, and efficiency. Our 50MW capacity data centers provide the foundation for your digital infrastructure.
+            </p>
+            <ul class="xconnect-service-block__features">
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                <span>99.999% uptime SLA guarantee</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                <span>N+1 redundant power and cooling</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                <span>24/7 on-site security and monitoring</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                <span>Flexible colocation options</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="xconnect-service-block" id="opgw" data-aos="fade-up" data-aos-delay="100">
+            <div class="xconnect-service-block__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" viewBox="0 0 256 256">
+                <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm40-104H136V72a8,8,0,0,0-16,0v48a8,8,0,0,0,8,8h40a8,8,0,0,0,0-16Z"></path>
+              </svg>
+            </div>
+            <h2 class="xconnect-service-block__title">OPGW Connectivity</h2>
+            <p class="xconnect-service-block__text">
+              Leverage our extensive 14,941 km fiber network spanning 13 districts with 28.8 Tbps capacity. Our OPGW infrastructure provides ultra-reliable, high-speed connectivity for mission-critical applications.
+            </p>
+            <ul class="xconnect-service-block__features">
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                <span>14,941 km fiber optic network</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                <span>28.8 Tbps total network capacity</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                <span>Coverage across 13 districts</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                <span>Dark fiber and lit services available</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="xconnect-service-block" id="network" data-aos="fade-up" data-aos-delay="200">
+            <div class="xconnect-service-block__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" viewBox="0 0 256 256">
+                <path d="M232,128a8,8,0,0,1-8,8H204.94l-37.78,75.58A8,8,0,0,1,160,216h-.4a8,8,0,0,1-7.08-5.14L95.35,60.76,63.28,131.31A8,8,0,0,1,56,136H24a8,8,0,0,1,0-16H50.85L88.72,36.69a8,8,0,0,1,14.76.46l57.51,151,31.85-63.72A8,8,0,0,1,200,120h24A8,8,0,0,1,232,128Z"></path>
+              </svg>
+            </div>
+            <h2 class="xconnect-service-block__title">Network Infrastructure</h2>
+            <p class="xconnect-service-block__text">
+              Enterprise-grade networking solutions including SD-WAN, MPLS, and dedicated circuits. Our network infrastructure ensures seamless connectivity for your business operations.
+            </p>
+            <ul class="xconnect-service-block__features">
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                <span>SD-WAN and MPLS solutions</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                <span>Dedicated internet access (DIA)</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                <span>Private line and ethernet services</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                <span>Multi-carrier connectivity options</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="xconnect-service-block" id="managed" data-aos="fade-up" data-aos-delay="300">
+            <div class="xconnect-service-block__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" viewBox="0 0 256 256">
+                <path d="M160,40A88.09,88.09,0,0,0,81.29,88.67,64,64,0,1,0,72,216h88a88,88,0,0,0,0-176Zm0,160H72a48,48,0,0,1,0-96h4a88.09,88.09,0,0,0-.79,12,87.62,87.62,0,0,0,1.44,16H72a32,32,0,0,0,0,64h88a72,72,0,1,1,0-144,72,72,0,0,1,0,144Z"></path>
+              </svg>
+            </div>
+            <h2 class="xconnect-service-block__title">Managed Services</h2>
+            <p class="xconnect-service-block__text">
+              24/7 NOC monitoring, proactive maintenance, and expert support to keep your infrastructure running smoothly. Let our team handle the complexity while you focus on your business.
+            </p>
+            <ul class="xconnect-service-block__features">
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                <span>24/7 Network Operations Center</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                <span>Proactive monitoring and alerting</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                <span>Incident response and resolution</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                <span>Dedicated account management</span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-    </header>
+    </section>
 
-    <div class="xconnect-header-spacer" aria-hidden="true"></div>
-
-    <main id="main-content">
-      <!-- Services Hero (matches WPCode snippet class names) -->
-      <section class="xconnect-services-hero xconnect-section xconnect-section--dark" data-aos="fade-up">
-        <div class="xconnect-services-hero__bg" aria-hidden="true">
-          <div class="xconnect-services-hero__bg-gradient"></div>
-          <div class="xconnect-services-hero__bg-pattern"></div>
-        </div>
-
-        <div class="xconnect-container xconnect-services-hero__content">
-          <div class="xconnect-services-hero__badge">
-            <span>Our Services</span>
-          </div>
-
-          <h1 class="x</span>connect-services-hero__title">
-            Reliable IT solutions for
-            <br />
-            <span class="xconnect-services-hero__title-highlight">modern businesses</span>
-          </h1>
-
-          <p class="xconnect-services-hero__text">
-            From network infrastructure and cybersecurity to cloud and managed IT, XConnectDC helps you build, secure,
-            and scale your technology with confidence.
+    <!-- CTA Section -->
+    <section class="xconnect-services-cta">
+      <div class="xconnect-container">
+        <div class="xconnect-services-cta__content" data-aos="fade-up">
+          <h2 class="xconnect-services-cta__title">Ready to Transform Your Infrastructure?</h2>
+          <p class="xconnect-services-cta__text">
+            Connect with our experts to discuss your requirements and discover how XConnectDC can power your digital transformation.
           </p>
-        </div>
-      </section>
-
-      <!-- Services List -->
-      <section class="xconnect-services-list xconnect-section">
-        <div class="xconnect-container">
-          <!-- Helper: checkmark icon -->
-          <!-- Service 01 -->
-          <div class="xconnect-service-block" data-aos="fade-up">
-            <div class="xconnect-service-block__content">
-              <div class="xconnect-service-block__label">Service 01</div>
-              <h2 class="xconnect-service-block__title">IT Consulting & Strategy</h2>
-              <p class="xconnect-service-block__text">
-                Align technology with business outcomes. We assess your current environment, identify risks and
-                opportunities, and deliver a practical roadmap.
-              </p>
-
-              <ul class="xconnect-service-block__features" role="list">
-                <li>
-                  <svg width="18" height="18" viewBox="0</li> 0 24 24" fill="none" aria-hidden="true">
-                    <path
-                      d="M20 6L9 17l-5-5"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <span>Current-state assessment and gap analysis</span</span>>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24</li> 24" fill="none" aria-hidden="true">
-                    <path
-                      d="M20 6L9 17l-5-5"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <span>IT roadmap with prioritized initiatives</span>
-                </li</span>>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"></li>
-                    <path
-                      d="M20 6L9 17l-5-5"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <span>Vendor selection and project oversight</span>
-                </li>
-                <li>
-                  <svg</span> width="18" height="18" viewBox="0 0 24</li> 24" fill="none" aria-hidden="true">
-                    <path
-                      d="M20 6L9 17l-5-5"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <span>Cost optimization and lifecycle planning</span>
-                </li>
-              </ul></span>
-
-              <a class="xconnect-btn xconnect-btn--primary" href="./contact.html">
-                <span>Talk to an expert</span>
-                <svg</span> width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path
-                    d="M5 12h14M13 5l7 7-7 7"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </a>
-            </div>
-
-            <div class="xconnect-service-block__visual" aria-hidden="true">
-              <div class="xconnect-service-block__icon-wrap">
-                <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M12 2l8 4v6c0 5-3.2 9.4-8 10-4.8-.6-8-5-8-10V6l8-4z"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M8.5 12.5l2.1 2.1L15.7 9.5"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-
-          <!-- Service 02 -->
-          <div class="xconnect-service-block xconnect-service-block--reverse" data-aos="fade-up">
-            <div class="xconnect-service-block__content">
-              <div class="xconnect-service-block__label">Service 02</div>
-              <h2 class="xconnect-service-block__title">Network Infrastructure</h2>
-              <p class="xconnect-service-block__text">
-                Design and implement resilient networks that keep your teams connected—on-prem, hybrid, and remote.
-              </p>
-
-              <ul class="xconnect-service-block__features" role="list">
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24</li>" fill="none" aria-hidden="true">
-                    <path
-                      d="M20 6L9 17l-5-5"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <span>Structured cabling, switching, and routing</span></span>
-                </li>
-                <li>
-                  <svg width="18" height</li>="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path
-                      d="M20 6L9 17l-5-5"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <span>Wi‑Fi design, surveys, and optimization</span></span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0</li> 24 24" fill="none" aria-hidden="true">
-                    <path
-                      d="M20 6L9 17l-5-5"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <span>Firewall setup and network segmentation</span>
-                </li>
-                <</span>li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path
-                      d="M20 6L9 17l-5-5"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <span>Monitoring, performance, and troubleshooting</span>
-                </li>
-              </ul>
-
-              <a class="</span>xconnect-btn xconnect-btn--primary" href="./contact.html">
-                <span>Request a network assessment</span</span>>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path
-                    d="M5 12h14M13 5l7 7-7 7"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </a>
-            </div>
-
-            <div class="xconnect-service-block__visual" aria-hidden="true">
-              <div class="xconnect-service-block__icon-wrap">
-                <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M4 7h16v4H4V7zM4 13h10v4H4v-4z"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M18 17v-2m0-8v2"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-
-          <!-- Service 03 -->
-          <div class="xconnect-service-block" data-aos="fade-up">
-            <div class="xconnect-service-block__content">
-              <div class="xconnect-service-block__label">Service 03</div>
-              <h2 class="xconnect-service-block__title">Cybersecurity</h2>
-              <p class="xconnect-service-block__text">
-                Reduce risk with layered security controls, practical policies, and ongoing monitoring tailored to your
-                environment.
-              </p>
-
-              <ul class="xconnect-service-block__features" role="list">
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"</li> aria-hidden="true">
-                    <path
-                      d="M20 6L9 17l-5-5"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <span>Security posture reviews and remediation</span>
-                </li>
-                <li>
-                  <svg width="18</span>" height="18" viewBox="0 0 24</li> 24" fill="none" aria-hidden="true">
-                    <path
-                      d="M20 6L9 17l-5-5"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <span>Endpoint protection and patch strategy</span>
-                </li>
-                <li>
-                  <svg width="18" height</span>="18" viewBox="0 0 24 24"</li> fill="none" aria-hidden="true">
-                    <path
-                      d="M20 6L9 17l-5-5"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <span>Identity, MFA, and access controls</span>
-                </li></span>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24</li> 24" fill="none" aria-hidden="true">
-                    <path
-                      d="M20 6L9 17l-5-5"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <span>Incident response planning and guidance</span>
-                </li>
-              </ul>
-
-              <a class="x</span>connect-btn xconnect-btn--primary" href="./contact.html">
-                <span>Discuss security needs</span>
-                <svg width="18" height="18" viewBox</span>="0 0 24 24" fill="none" aria-hidden="true">
-                  <path
-                    d="M5 12h14M13 5l7 7-7 7"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </a>
-            </div>
-
-            <div class="xconnect-service-block__visual" aria-hidden="true">
-              <div class="xconnect-service-block__icon-wrap">
-                <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M12 2l8 4v6c0 5-3.2 9.4-8 10-4.8-.6-8-5-8-10V6l8-4z"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M9 12a3 3 0 016 0v2H9v-2z"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-
-          <!-- Service 04 -->
-          <div class="xconnect-service-block xconnect-service-block--reverse" data-aos="fade-up">
-            <div class="xconnect-service-block__content">
-              <div class="xconnect-service-block__label">Service 04</div>
-              <h2 class="xconnect-service-block__title">Cloud & Collaboration</h2>
-              <p class="xconnect-service-block__text">
-                Make work simpler with secure cloud foundations, email and collaboration, backup, and identity best
-                practices.
-              </p>
-
-              <ul class="xconnect-service-block__features" role="list">
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria</li>-hidden="true">
-                    <path
-                      d="M20 6L9 17l-5-5"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <span>Cloud migration planning and execution</span>
-                </li>
-                <li>
-                  <svg width="18" height="18"</span> viewBox="0 0 24 24" fill="none" aria</li>-hidden="true">
-                    <path
-                      d="M20 6L9 17l-5-5"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <span>Microsoft 365 / Google Workspace enablement</span>
-                </li>
-                <</span>li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path
-                      d="M20 6L9 17l-5-5"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <span>Backup, retention, and recovery strategy</span></span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0</li> 0 24 24" fill="none" aria-hidden="true">
-                    <path
-                      d="M20 6L9 17l-5-5"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <span>Secure identity configuration (MFA, conditional access)</span>
-                </li>
-              </ul></span>
-
-              <a class="xconnect-btn xconnect-btn--primary" href="./contact.html">
-                <span>Plan your cloud move</span>
-                <svg width="18" height="18" viewBox="0 0</span> 24 24" fill="none" aria-hidden="true">
-                  <path
-                    d="M5 12h14M13 5l7 7-7 7"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </a>
-            </div>
-
-            <div class="xconnect-service-block__visual" aria-hidden="true">
-              <div class="xconnect-service-block__icon-wrap">
-                <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M7 18a4 4 0 01.8-7.9A5 5 0 0117.9 12H18a3 3 0 010 6H7z"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-
-          <!-- Service 05 -->
-          <div class="xconnect-service-block" data-aos="fade-up">
-            <div class="xconnect-service-block__content">
-              <div class="xconnect-service-block__label">Service 05</div>
-              <h2 class="xconnect-service-block__title">Managed IT Services</h2>
-              <p class="xconnect-service-block__text">
-                Proactive support and maintenance to keep systems healthy, users productive, and incidents resolved fast.
-              </p>
-
-              <ul class="xconnect-service-block__features" role="list">
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="</li>none" aria-hidden="true">
-                    <path
-                      d="M20 6L9 17l-5-5"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <span>Helpdesk, monitoring, and ticketing</span>
-                </li>
-                <</span>li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path
-                      d="M20 6L9 17l-5-5"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <span>Patch management and device standards</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" view</span>Box="0 0 24 24" fill="none" aria-hidden</li>="true">
-                    <path
-                      d="M20 6L9 17l-5-5"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <span>Backup monitoring and recovery testing</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0</span> 0 24 24" fill="none" aria-hidden="true</li>">
-                    <path
-                      d="M20 6L9 17l-5-5"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <span>Quarterly reviews and continuous improvement</span>
-                </li>
-              </ul>
-
-              <a class="xconnect-btn xconnect-btn--primary" href</span>="./contact.html">
-                <span>Explore managed IT</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="</span>none" aria-hidden="true">
-                  <path
-                    d="M5 12h14M13 5l7 7-7 7"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </a>
-            </div>
-
-            <div class="xconnect-service-block__visual" aria-hidden="true">
-              <div class="xconnect-service-block__icon-wrap">
-                <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M12 15a3 3 0 100-6 3 3 0 000 6z"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M19.4 15a7.9 7.9 0 00.1-1l2-1.5-2-3.5-2.4.6a8.1 8.1 0 00-1.7-1L15 6h-6l-.4 2.6a8.1 8.1 0 00-1.7 1L4.5 9l-2 3.5L4.5 14a7.9 7.9 0 00.1 1l-2 1.5 2 3.5 2.4-.6a8.1 8.1 0 001.7 1L9 22h6l.4-2.6a8.1 8.1 0 001.7-1l2.4.6 2-3.5-2.1-1.5z"
-                    stroke="currentColor"
-                    stroke-width="1.2"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-            </div>
+          <div class="xconnect-services-cta__buttons">
+            <a href="contact.html" class="xconnect-btn xconnect-btn--white xconnect-btn--lg">
+              <span>Get a Quote</span>
+            </a>
+            <a href="about.html" class="xconnect-btn xconnect-btn--outline-white xconnect-btn--lg">
+              <span>Learn About Us</span>
+            </a>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
+  </main>
 
-      <!-- Services CTA -->
-      <section class="xconnect-services-cta xconnect-section xconnect-section--dark" data-aos="fade-up">
-        <div class="xconnect-container">
-          <div class="xconnect-services-cta__content">
-            <h2 class="xconnect-services-cta__title">Ready to strengthen your IT?</h2>
-            <p class="xconnect-services-cta__text">
-              Tell us what you’re trying to achieve and we’ll recommend the most practical next steps.
-            </p>
-
-            <div class="xconnect-services-cta__buttons">
-              <a class="xconnect-btn xconnect-btn--white xconnect-btn--lg" href="./contact.html">Contact Us</a>
-              <a class="xconnect-btn xconnect-btn--outline-white xconnect-btn--lg" href="./about.html">Learn About Us</a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- Shared Footer -->
-    <footer class="xconnect-footer" role="contentinfo">
+  <!-- Footer -->
+  <footer class="xconnect-footer">
+    <div class="xconnect-footer__main">
       <div class="xconnect-container">
         <div class="xconnect-footer__grid">
-          <div class="xconnect-footer__brand">
-            <a href="./index.html" aria-label="XConnectDC Home">
-              <img
-                src="./assets/images/logo-white.svg"
-                alt="XConnectDC"
-                width="160"
-                height="40"
-                loading="lazy"
-                decoding="async"
-              />
+          <div class="xconnect-footer__col xconnect-footer__col--brand">
+            <a href="index.html" class="xconnect-footer__logo" aria-label="XConnectDC Home">
+              <img src="assets/images/logo-white.svg" alt="XConnectDC Logo" class="xconnect-footer__logo-img" width="160" height="40">
             </a>
-            <p>Enterprise-grade IT solutions and consulting for organizations that need reliability, security, and clarity.</p</p>>
-
-            <div class="xconnect-footer__social" aria-label="Social links">
-              <a href="#" aria-label="LinkedIn" rel="noopener noreferrer">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path
-                    d="M6.5 9.5V19H3.5V9.5h3zM5 8.2A1.8 1.8 0 115 4.6a1.8 1.8 0 010 3.6zM20.5 19h-3v-5.3c0-1.3-.5-2.2-1.7-2.2-1 0-1.5.7-1.8 1.3-.1.2-.1.6-.1.9V19h-3s.04-8.3 0-9.5h3v1.3c.4-.6 1.2-1.5 3-1.5 2.2 0 3.7 1.4 3.7 4.4V19z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </a>
-              <a href="#" aria-label="Twitter/X" rel="noopener noreferrer">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path
-                    d="M18.6 2H22l-7.4 8.5L23 22h-6.6l-5.2-6.8L5.3 22H2l8-9.2L1 2h6.7l4.7 6.2L18.6 2zm-1.2 18h1.9L6.6 3.9H4.6L17.4 20z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </a>
-              <a href="#" aria-label="YouTube" rel="noopener noreferrer">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path
-                    d="M21.8 7.2s-.2-1.5-.9-2.2c-.9-.9-2-.9-2.5-1C15.9 3.6 12 3.6 12 3.6h0s-3.9 0-6.4.4c-.5.1-1.6.1-2.5 1-.7.7-.9 2.2-.9 2.2S2 9 2 10.8v1.7c0 1.8.2 3.6.2 3.6s.2 1.5.9 2.2c.9.9 2.1.9 2.6 1 1.9.2 8.3.4 8.3.4s3.9 0 6.4-.4c.5-.1 1.6-.1 2.5-1 .7-.7.9-2.2.9-2.2s.2-1.8.2-3.6v-1.7C22 9 21.8 7.2 21.8 7.2zM10 14.9V8.6l6 3.2-6 3.1z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </a>
-            </div>
+            <p class="xconnect-footer__description">
+              XConnectDC is a technology-driven infrastructure solutions provider specializing in data center, network, and OPGW connectivity services.
+            </p>
           </div>
 
           <div class="xconnect-footer__col">
-            <h4>Company</h4>
-            <ul role="list">
-              <li><a href="./about.html">About</a></li>
-              <li</h4>><a href="./services.html">Services</a></li>
-              <li><a href="./contact.html">Contact</a></li>
-              <li><a href="./index.html#industries">Industries</a></li>
+            <h4 class="xconnect-footer__heading">Quick Links</h4>
+            <ul class="xconnect-footer__links">
+              <li><a href="index.html" class="xconnect-footer__link">Home</a></li>
+              <li><a href="about.html" class="xconnect-footer__link">About Us</a></li>
+              <li><a href="services.html" class="xconnect-footer__link">Services</a></li>
+              <li><a href="contact.html" class="xconnect-footer__link">Contact</a></li>
             </ul>
           </div>
 
           <div class="xconnect-footer__col">
-            <h4>Services</h4>
-            <ul role="list">
-              <li><a href="./services.html">IT Consulting</a></li>
-              <li><</h4>a href="./services.html">Network Infrastructure</a></li>
-              <li><a href="./services.html">Cybersecurity</a></li>
-              <li><a href="./services.html">Cloud Solutions</a></li>
-              <li><a href="./services.html">Managed IT</a></li>
-              <li><a href="./services.html">Project Delivery</a></li>
+            <h4 class="xconnect-footer__heading">Our Services</h4>
+            <ul class="xconnect-footer__links">
+              <li><a href="services.html#data-center" class="xconnect-footer__link">Data Center Solutions</a></li>
+              <li><a href="services.html#opgw" class="xconnect-footer__link">OPGW Connectivity</a></li>
+              <li><a href="services.html#network" class="xconnect-footer__link">Network Infrastructure</a></li>
+              <li><a href="services.html#managed" class="xconnect-footer__link">Managed Services</a></li>
             </ul>
           </div>
 
           <div class="xconnect-footer__col">
-            <h4>Contact</h4>
-            <ul role="list" class="xconnect-footer__contact">
-              <li</h4>>
-                <div aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M12 21s7-4.4 7-11a7 7 0 10-14 0c0 6.6 7 11 7 11z"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    />
-                    <path d="M12 10.5a2 2 0 110-4 2 2 0 010 4z" fill="currentColor" />
+            <h4 class="xconnect-footer__heading">Contact Us</h4>
+            <ul class="xconnect-footer__contact">
+              <li class="xconnect-footer__contact-item">
+                <div class="xconnect-footer__contact-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 256 256">
+                    <path d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z"></path>
                   </svg>
                 </div>
-                <span>Washington, DC</span>
+                <span>Amaravati, Andhra Pradesh, India</span>
               </li>
-              <li>
-                <div aria-hidden="true">
-                  <svg</span> width="18" height="18" viewBox="0 0 24 24"</li> fill="none">
-                    <path
-                      d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.6 19.6 0 01-6-6A19.8 19.8 0 012 4.2 2 2 0 014 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.6a2 2 0 01-.4 2.1L8.6 9.6a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.4c.8.3 1.7.5 2.6.6a2 2 0 011.7 2.3z"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </div>
-                <a href="tel:+12025550123">+1 (202) 555-0123</a>
-              </li>
-              <li>
-                <div aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0</li> 0 24 24" fill="none">
-                    <path d="M4 4h16v16H4V4z" stroke="currentColor" stroke-width="2" />
-                    <path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+              <li class="xconnect-footer__contact-item">
+                <div class="xconnect-footer__contact-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 256 256">
+                    <path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"></path>
                   </svg>
                 </div>
                 <a href="mailto:info@xconnectdc.com">info@xconnectdc.com</a>
               </li>
-              <li>
-                <div aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0</li> 0 24 24" fill="none">
-                    <path d="M12 8v4l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                    <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" />
-                  </svg>
-                </div>
-                <span>Mon–Fri:</span> 9:00am–6:00pm</span>
-              </li>
             </ul>
           </div>
         </div>
+      </div>
+    </div>
 
-        <div class="xconnect-footer__bottom">
-          <p>© <span id="year"></span> XConnectDC</p>. All rights reserved.</p>
+    <div class="xconnect-footer__bottom">
+      <div class="xconnect-container">
+        <div class="xconnect-footer__bottom-content">
+          <p class="xconnect-footer__copyright">
+            &copy; <span id="current-year">2024</span> XConnectDC. All rights reserved.
+          </p>
           <div class="xconnect-footer__legal">
-            <a href="#">Privacy</a>
-            <span aria-hidden="true">•</span>
-            <a href="#">Terms</a>
+            <a href="#" class="xconnect-footer__legal-link">Privacy Policy</a>
+            <span class="xconnect-footer__legal-divider">|</span>
+            <a href="#" class="xconnect-footer__legal-link">Terms of Service</a>
           </div>
         </div>
       </div>
-    </footer>
+    </div>
+  </footer>
 
-    <button class="xconnect-back-to-top" type="button" aria-label="Back to top">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M12 5l7 7H5l7-7z" fill="currentColor" />
-      </svg>
-    </button>
+  <!-- Back to Top Button -->
+  <button class="xconnect-back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+      <path d="M205.66,138.34a8,8,0,0,1-11.32,11.32L136,91.31V216a8,8,0,0,1-16,0V91.31l-58.34,58.35a8,8,0,0,1-11.32-11.32l72-72a8,8,0,0,1,11.32,0Z"></path>
+    </svg>
+  </button>
 
-    <!-- Shared JS -->
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script src="./js/main.js"></script>
-    <script>
-      if (window.AOS) {
-        window.AOS.init({
-          once: true,
-          duration: 700,</script>
-          easing: "ease-out-cubic",
-          offset: 80,
-        });
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Global JavaScript -->
+  <script src="js/main.js"></script>
+
+  <!-- Initialize AOS -->
+  <script>
+    AOS.init({
+      duration: 700,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 50
+    });
+
+    // Update copyright year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Header scroll behavior
+    const header = document.getElementById('xconnect-header');
+    const navToggle = document.getElementById('xconnect-nav-toggle');
+    const mobileMenu = document.getElementById('xconnect-mobile-menu');
+    const backToTop = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        header.classList.add('is-scrolled');
+      } else {
+        header.classList.remove('is-scrolled');
       }
-    </script>
-  </body>
+
+      if (window.scrollY > 500) {
+        backToTop.classList.add('is-visible');
+      } else {
+        backToTop.classList.remove('is-visible');
+      }
+    });
+
+    // Mobile menu toggle
+    navToggle.addEventListener('click', function() {
+      const isOpen = mobileMenu.classList.contains('is-open');
+      if (isOpen) {
+        mobileMenu.classList.remove('is-open');
+        navToggle.classList.remove('is-active');
+        document.body.classList.remove('mobile-menu-open');
+      } else {
+        mobileMenu.classList.add('is-open');
+        navToggle.classList.add('is-active');
+        document.body.classList.add('mobile-menu-open');
+      }
+    });
+
+    // Close mobile menu when clicking links
+    document.querySelectorAll('.xconnect-mobile-menu__link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('is-open');
+        navToggle.classList.remove('is-active');
+        document.body.classList.remove('mobile-menu-open');
+      });
+    });
+
+    // Back to top button
+    backToTop.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
 </html>
