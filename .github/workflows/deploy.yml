@@ -1,4 +1,13 @@
 # GitHub Pages Deployment Workflow for XConnectDC Local Test Site
+#
+# PREREQUISITE: Before this workflow can run successfully, you MUST enable
+# GitHub Pages in your repository settings:
+#   1. Go to Settings → Pages
+#   2. Under "Build and deployment", select "GitHub Actions" as the Source
+#
+# Without this configuration, the workflow will fail with "Get Pages site failed"
+# or "Not Found" errors.
+#
 name: Deploy to GitHub Pages
 
 on:
@@ -31,6 +40,9 @@ jobs:
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
+        with:
+          # Specify we're deploying a static HTML site (not Jekyll)
+          static_site_generator: none
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
