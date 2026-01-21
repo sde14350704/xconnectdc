@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Learn about XConnectDC - A technology-driven infrastructure solutions provider specializing in data center, network, and OPGW connectivity services.">
-  <title>About Us | XConnectDC</title>
+  <meta name="description" content="XCONNECT Datacenters Pvt Ltd - A next-generation digital infrastructure company focused on building secure, scalable, and future-ready data center and connectivity platforms in India.">
+  <title>About Us | XCONNECT Datacenters</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/favicon.png">
@@ -23,12 +23,14 @@
 
   <style>
     /* About Page Specific Styles */
+    
+    /* Section 1: Hero */
     .xconnect-about-hero {
       position: relative;
-      min-height: 50vh;
+      min-height: 60vh;
       display: flex;
       align-items: center;
-      padding: calc(var(--header-height, 80px) + var(--spacing-12, 3rem)) 0 var(--spacing-12, 3rem);
+      padding: calc(var(--header-height, 80px) + var(--spacing-16, 4rem)) 0 var(--spacing-16, 4rem);
       overflow: hidden;
       margin-top: calc(-1 * var(--header-height, 80px));
     }
@@ -43,11 +45,25 @@
       z-index: 0;
     }
 
+    .xconnect-about-hero__bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        radial-gradient(circle at 20% 80%, rgba(77, 163, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(31, 111, 210, 0.15) 0%, transparent 50%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234da3ff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 1;
+    }
+
     .xconnect-about-hero__content {
       position: relative;
       z-index: 1;
       text-align: center;
-      max-width: 850px;
+      max-width: 900px;
       margin: 0 auto;
     }
 
@@ -66,10 +82,11 @@
     }
 
     .xconnect-about-hero__title {
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: var(--font-weight-bold, 700);
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      font-weight: var(--font-weight-extrabold, 800);
       color: var(--color-white, #ffffff);
-      margin: 0 0 var(--spacing-5, 1.25rem) 0;
+      margin: 0 0 var(--spacing-6, 1.5rem) 0;
+      line-height: 1.15;
     }
 
     .xconnect-about-hero__title-highlight {
@@ -82,211 +99,636 @@
     .xconnect-about-hero__text {
       font-size: var(--font-size-lg, 1.125rem);
       color: rgba(255, 255, 255, 0.85);
-      max-width: 700px;
+      max-width: 750px;
       margin: 0 auto;
-      line-height: 1.7;
+      line-height: 1.75;
     }
 
-    /* Mission Vision Section */
-    .xconnect-mv {
+    /* Section 2: Company Overview */
+    .xconnect-overview {
       background-color: var(--color-white, #ffffff);
     }
 
-    .xconnect-mv__grid {
+    .xconnect-overview__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-12, 3rem);
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .xconnect-overview__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-16, 4rem);
+      }
+    }
+
+    .xconnect-overview__content {
+      max-width: 600px;
+    }
+
+    .xconnect-overview__text {
+      font-size: var(--font-size-lg, 1.125rem);
+      color: var(--color-text-body, #334155);
+      line-height: 1.75;
+      margin-bottom: var(--spacing-6, 1.5rem);
+    }
+
+    .xconnect-overview__text:last-child {
+      margin-bottom: 0;
+    }
+
+    .xconnect-overview__illustration {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .xconnect-overview__visual {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      border-radius: var(--radius-2xl, 1.5rem);
+      background: linear-gradient(135deg, rgba(31, 111, 210, 0.08) 0%, rgba(77, 163, 255, 0.12) 100%);
+      padding: var(--spacing-12, 3rem);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .xconnect-overview__visual svg {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      color: var(--color-primary, #1f6fd2);
+      opacity: 0.9;
+    }
+
+    /* Section 3: Vision & Mission */
+    .xconnect-vm {
+      background-color: var(--color-background, #f7f9fc);
+    }
+
+    .xconnect-vm__grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: var(--spacing-8, 2rem);
     }
 
     @media (min-width: 1024px) {
-      .xconnect-mv__grid {
+      .xconnect-vm__grid {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--spacing-10, 2.5rem);
       }
     }
 
-    .xconnect-mv__card {
-      background-color: var(--color-background, #f7f9fc);
+    .xconnect-vm__card {
+      background-color: var(--color-white, #ffffff);
       border-radius: var(--radius-2xl, 1.5rem);
       padding: var(--spacing-10, 2.5rem);
       border: 1px solid var(--color-border-light, #f1f5f9);
       transition: all var(--transition-base, 250ms ease);
     }
 
-    .xconnect-mv__card:hover {
+    .xconnect-vm__card:hover {
       transform: translateY(-6px);
       box-shadow: 0 25px 50px -12px rgba(11, 29, 58, 0.15);
     }
 
-    .xconnect-mv__icon {
-      width: 80px;
-      height: 80px;
+    .xconnect-vm__icon {
+      width: 72px;
+      height: 72px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, rgba(31, 111, 210, 0.1) 0%, rgba(77, 163, 255, 0.15) 100%);
+      background: linear-gradient(135deg, var(--color-primary, #1f6fd2) 0%, var(--color-accent, #4da3ff) 100%);
       border-radius: var(--radius-xl, 1rem);
       margin-bottom: var(--spacing-6, 1.5rem);
-      color: var(--color-primary, #1f6fd2);
+      color: var(--color-white, #ffffff);
+      box-shadow: 0 8px 20px rgba(31, 111, 210, 0.3);
     }
 
-    .xconnect-mv__card--vision .xconnect-mv__icon {
-      background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(52, 211, 153, 0.15) 100%);
-      color: var(--color-success, #10b981);
+    .xconnect-vm__card--mission .xconnect-vm__icon {
+      background: linear-gradient(135deg, var(--color-success, #10b981) 0%, #34d399 100%);
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
     }
 
-    .xconnect-mv__label {
+    .xconnect-vm__label {
       font-size: var(--font-size-sm, 0.875rem);
       font-weight: var(--font-weight-semibold, 600);
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
       color: var(--color-primary, #1f6fd2);
       margin-bottom: var(--spacing-3, 0.75rem);
     }
 
-    .xconnect-mv__card--vision .xconnect-mv__label {
+    .xconnect-vm__card--mission .xconnect-vm__label {
       color: var(--color-success, #10b981);
     }
 
-    .xconnect-mv__title {
+    .xconnect-vm__title {
       font-size: var(--font-size-2xl, 1.5rem);
       font-weight: var(--font-weight-bold, 700);
       color: var(--color-text-dark, #0f172a);
       margin: 0 0 var(--spacing-4, 1rem) 0;
     }
 
-    .xconnect-mv__text {
+    .xconnect-vm__text {
       font-size: var(--font-size-base, 1rem);
       color: var(--color-text-muted, #475569);
-      line-height: 1.625;
+      line-height: 1.7;
       margin: 0 0 var(--spacing-6, 1.5rem) 0;
     }
 
-    .xconnect-mv__list {
+    .xconnect-vm__list {
       list-style: none;
       margin: 0;
       padding: 0;
     }
 
-    .xconnect-mv__list li {
+    .xconnect-vm__list li {
       display: flex;
       align-items: flex-start;
       gap: var(--spacing-3, 0.75rem);
       font-size: var(--font-size-sm, 0.875rem);
       color: var(--color-text-body, #334155);
       margin-bottom: var(--spacing-3, 0.75rem);
+      line-height: 1.6;
     }
 
-    .xconnect-mv__list li svg {
+    .xconnect-vm__list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .xconnect-vm__list li svg {
       flex-shrink: 0;
-      margin-top: 2px;
+      margin-top: 3px;
       color: var(--color-success, #10b981);
     }
 
-    /* Values Section */
-    .xconnect-values {
-      background-color: var(--color-background, #f7f9fc);
+    /* Section 4: NLD Hub */
+    .xconnect-nld {
+      background-color: var(--color-white, #ffffff);
     }
 
-    .xconnect-values__grid {
+    .xconnect-nld__content {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .xconnect-nld__description {
+      font-size: var(--font-size-lg, 1.125rem);
+      color: var(--color-text-body, #334155);
+      line-height: 1.75;
+      margin-bottom: var(--spacing-8, 2rem);
+    }
+
+    .xconnect-nld__features {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-4, 1rem);
+      text-align: left;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 640px) {
+      .xconnect-nld__features {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .xconnect-nld__feature {
+      background: linear-gradient(135deg, rgba(31, 111, 210, 0.05) 0%, rgba(77, 163, 255, 0.08) 100%);
+      border-radius: var(--radius-lg, 0.75rem);
+      padding: var(--spacing-5, 1.25rem);
+      text-align: center;
+    }
+
+    .xconnect-nld__feature-text {
+      font-size: var(--font-size-sm, 0.875rem);
+      font-weight: var(--font-weight-medium, 500);
+      color: var(--color-text-dark, #0f172a);
+      margin: 0;
+    }
+
+    /* Section 5: Strategic Importance */
+    .xconnect-strategic {
+      background: linear-gradient(135deg, var(--color-navy, #0b1d3a) 0%, #132844 50%, var(--color-primary-dark, #1a5fb5) 100%);
+      color: var(--color-white, #ffffff);
+    }
+
+    .xconnect-strategic__grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: var(--spacing-6, 1.5rem);
     }
 
     @media (min-width: 640px) {
-      .xconnect-values__grid {
+      .xconnect-strategic__grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (min-width: 1024px) {
-      .xconnect-values__grid {
-        grid-template-columns: repeat(4, 1fr);
+      .xconnect-strategic__grid {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
 
-    .xconnect-value-card {
-      background-color: var(--color-white, #ffffff);
+    .xconnect-strategic__card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: var(--radius-xl, 1rem);
-      padding: var(--spacing-8, 2rem) var(--spacing-6, 1.5rem);
-      border: 1px solid var(--color-border-light, #f1f5f9);
+      padding: var(--spacing-6, 1.5rem);
       transition: all var(--transition-base, 250ms ease);
-      text-align: center;
     }
 
-    .xconnect-value-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 25px 50px -12px rgba(11, 29, 58, 0.15);
+    .xconnect-strategic__card:hover {
+      background: rgba(255, 255, 255, 0.12);
+      transform: translateY(-4px);
     }
 
-    .xconnect-value-card__icon {
-      width: 64px;
-      height: 64px;
+    .xconnect-strategic__icon {
+      width: 48px;
+      height: 48px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, rgba(31, 111, 210, 0.1) 0%, rgba(77, 163, 255, 0.1) 100%);
+      background: linear-gradient(135deg, var(--color-primary-light, #4da3ff) 0%, var(--color-primary, #1f6fd2) 100%);
       border-radius: var(--radius-lg, 0.75rem);
-      margin: 0 auto var(--spacing-5, 1.25rem);
-      color: var(--color-primary, #1f6fd2);
+      margin-bottom: var(--spacing-4, 1rem);
+      color: var(--color-white, #ffffff);
+    }
+
+    .xconnect-strategic__text {
+      font-size: var(--font-size-base, 1rem);
+      font-weight: var(--font-weight-medium, 500);
+      color: rgba(255, 255, 255, 0.95);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* Section 6: Connectivity Architecture */
+    .xconnect-architecture {
+      background-color: var(--color-background, #f7f9fc);
+    }
+
+    .xconnect-architecture__content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .xconnect-architecture__intro {
+      text-align: center;
+      margin-bottom: var(--spacing-10, 2.5rem);
+    }
+
+    .xconnect-architecture__description {
+      font-size: var(--font-size-lg, 1.125rem);
+      color: var(--color-text-body, #334155);
+      line-height: 1.75;
+    }
+
+    .xconnect-architecture__features {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-4, 1rem);
+    }
+
+    @media (min-width: 640px) {
+      .xconnect-architecture__features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .xconnect-architecture__feature {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--spacing-4, 1rem);
+      background-color: var(--color-white, #ffffff);
+      border-radius: var(--radius-lg, 0.75rem);
+      padding: var(--spacing-5, 1.25rem);
+      border: 1px solid var(--color-border-light, #f1f5f9);
       transition: all var(--transition-base, 250ms ease);
     }
 
-    .xconnect-value-card:hover .xconnect-value-card__icon {
-      background: linear-gradient(135deg, var(--color-primary, #1f6fd2) 0%, var(--color-accent, #4da3ff) 100%);
-      color: var(--color-white, #ffffff);
-      transform: scale(1.05);
+    .xconnect-architecture__feature:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
     }
 
-    .xconnect-value-card__title {
-      font-size: var(--font-size-xl, 1.25rem);
-      font-weight: var(--font-weight-semibold, 600);
-      color: var(--color-text-dark, #0f172a);
-      margin: 0 0 var(--spacing-3, 0.75rem) 0;
+    .xconnect-architecture__feature-icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(31, 111, 210, 0.1) 0%, rgba(77, 163, 255, 0.15) 100%);
+      border-radius: var(--radius-md, 0.5rem);
+      color: var(--color-primary, #1f6fd2);
+      flex-shrink: 0;
     }
 
-    .xconnect-value-card__text {
+    .xconnect-architecture__feature-text {
       font-size: var(--font-size-sm, 0.875rem);
-      color: var(--color-text-muted, #475569);
-      line-height: 1.625;
+      font-weight: var(--font-weight-medium, 500);
+      color: var(--color-text-dark, #0f172a);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* Section 7: Integration */
+    .xconnect-integration {
+      background-color: var(--color-white, #ffffff);
+    }
+
+    .xconnect-integration__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-4, 1rem);
+    }
+
+    @media (min-width: 640px) {
+      .xconnect-integration__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .xconnect-integration__grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .xconnect-integration__item {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-4, 1rem);
+      background: linear-gradient(135deg, rgba(31, 111, 210, 0.04) 0%, rgba(77, 163, 255, 0.08) 100%);
+      border-radius: var(--radius-lg, 0.75rem);
+      padding: var(--spacing-5, 1.25rem);
+      transition: all var(--transition-base, 250ms ease);
+    }
+
+    .xconnect-integration__item:hover {
+      background: linear-gradient(135deg, rgba(31, 111, 210, 0.08) 0%, rgba(77, 163, 255, 0.12) 100%);
+      transform: translateX(4px);
+    }
+
+    .xconnect-integration__item svg {
+      flex-shrink: 0;
+      color: var(--color-primary, #1f6fd2);
+    }
+
+    .xconnect-integration__text {
+      font-size: var(--font-size-sm, 0.875rem);
+      font-weight: var(--font-weight-medium, 500);
+      color: var(--color-text-dark, #0f172a);
       margin: 0;
     }
 
-    /* Stats Section */
-    .xconnect-stats {
-      background: linear-gradient(135deg, var(--color-navy, #0b1d3a) 0%, var(--color-primary-dark, #1a5fb5) 100%);
-      padding: var(--spacing-16, 4rem) 0;
+    /* Section 8: Key Benefits */
+    .xconnect-benefits {
+      background-color: var(--color-background, #f7f9fc);
     }
 
-    .xconnect-stats__grid {
+    .xconnect-benefits__grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: var(--spacing-6, 1.5rem);
     }
 
-    @media (min-width: 768px) {
-      .xconnect-stats__grid {
-        grid-template-columns: repeat(4, 1fr);
+    @media (min-width: 640px) {
+      .xconnect-benefits__grid {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
 
-    .xconnect-stats__item {
+    @media (min-width: 1024px) {
+      .xconnect-benefits__grid {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+
+    .xconnect-benefit-card {
+      background-color: var(--color-white, #ffffff);
+      border-radius: var(--radius-xl, 1rem);
+      padding: var(--spacing-6, 1.5rem);
       text-align: center;
-      padding: var(--spacing-4, 1rem);
+      border: 1px solid var(--color-border-light, #f1f5f9);
+      transition: all var(--transition-base, 250ms ease);
     }
 
-    .xconnect-stats__number {
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: var(--font-weight-bold, 700);
+    .xconnect-benefit-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px -10px rgba(11, 29, 58, 0.15);
+    }
+
+    .xconnect-benefit-card__icon {
+      width: 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--color-primary, #1f6fd2) 0%, var(--color-accent, #4da3ff) 100%);
+      border-radius: var(--radius-lg, 0.75rem);
+      margin: 0 auto var(--spacing-4, 1rem);
       color: var(--color-white, #ffffff);
-      line-height: 1;
-      margin-bottom: var(--spacing-2, 0.5rem);
+      box-shadow: 0 6px 16px rgba(31, 111, 210, 0.25);
+      transition: all var(--transition-base, 250ms ease);
     }
 
-    .xconnect-stats__label {
+    .xconnect-benefit-card:hover .xconnect-benefit-card__icon {
+      transform: scale(1.08);
+    }
+
+    .xconnect-benefit-card__title {
+      font-size: var(--font-size-base, 1rem);
+      font-weight: var(--font-weight-semibold, 600);
+      color: var(--color-text-dark, #0f172a);
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    /* Section 9: Target Customers */
+    .xconnect-customers {
+      background-color: var(--color-white, #ffffff);
+    }
+
+    .xconnect-customers__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-4, 1rem);
+    }
+
+    @media (min-width: 640px) {
+      .xconnect-customers__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .xconnect-customers__grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .xconnect-customer-card {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-4, 1rem);
+      background-color: var(--color-background, #f7f9fc);
+      border-radius: var(--radius-lg, 0.75rem);
+      padding: var(--spacing-5, 1.25rem) var(--spacing-6, 1.5rem);
+      border: 1px solid var(--color-border-light, #f1f5f9);
+      transition: all var(--transition-base, 250ms ease);
+    }
+
+    .xconnect-customer-card:hover {
+      background-color: var(--color-white, #ffffff);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-3px);
+      border-color: var(--color-primary, #1f6fd2);
+    }
+
+    .xconnect-customer-card__icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(31, 111, 210, 0.1) 0%, rgba(77, 163, 255, 0.15) 100%);
+      border-radius: var(--radius-md, 0.5rem);
+      color: var(--color-primary, #1f6fd2);
+      flex-shrink: 0;
+      transition: all var(--transition-base, 250ms ease);
+    }
+
+    .xconnect-customer-card:hover .xconnect-customer-card__icon {
+      background: linear-gradient(135deg, var(--color-primary, #1f6fd2) 0%, var(--color-accent, #4da3ff) 100%);
+      color: var(--color-white, #ffffff);
+    }
+
+    .xconnect-customer-card__text {
+      font-size: var(--font-size-base, 1rem);
+      font-weight: var(--font-weight-medium, 500);
+      color: var(--color-text-dark, #0f172a);
+      margin: 0;
+    }
+
+    /* Section 10: Leadership */
+    .xconnect-leadership {
+      background-color: var(--color-background, #f7f9fc);
+    }
+
+    .xconnect-leadership__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-8, 2rem);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .xconnect-leadership__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .xconnect-leader-card {
+      background-color: var(--color-white, #ffffff);
+      border-radius: var(--radius-2xl, 1.5rem);
+      padding: var(--spacing-8, 2rem);
+      border: 1px solid var(--color-border-light, #f1f5f9);
+      transition: all var(--transition-base, 250ms ease);
+      text-align: center;
+    }
+
+    .xconnect-leader-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 50px -12px rgba(11, 29, 58, 0.15);
+    }
+
+    .xconnect-leader-card__avatar {
+      width: 100px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--color-primary, #1f6fd2) 0%, var(--color-accent, #4da3ff) 100%);
+      border-radius: var(--radius-full, 9999px);
+      margin: 0 auto var(--spacing-5, 1.25rem);
+      color: var(--color-white, #ffffff);
+      font-size: var(--font-size-3xl, 2rem);
+      font-weight: var(--font-weight-bold, 700);
+    }
+
+    .xconnect-leader-card__name {
+      font-size: var(--font-size-xl, 1.25rem);
+      font-weight: var(--font-weight-bold, 700);
+      color: var(--color-text-dark, #0f172a);
+      margin: 0 0 var(--spacing-2, 0.5rem) 0;
+    }
+
+    .xconnect-leader-card__role {
       font-size: var(--font-size-sm, 0.875rem);
-      color: rgba(255, 255, 255, 0.7);
+      font-weight: var(--font-weight-semibold, 600);
+      color: var(--color-primary, #1f6fd2);
+      margin: 0 0 var(--spacing-4, 1rem) 0;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .xconnect-leader-card__bio {
+      font-size: var(--font-size-sm, 0.875rem);
+      color: var(--color-text-muted, #475569);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* Section 11: Registered Office */
+    .xconnect-office {
+      background-color: var(--color-white, #ffffff);
+    }
+
+    .xconnect-office__card {
+      max-width: 600px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, rgba(31, 111, 210, 0.04) 0%, rgba(77, 163, 255, 0.08) 100%);
+      border: 1px solid var(--color-border-light, #f1f5f9);
+      border-radius: var(--radius-xl, 1rem);
+      padding: var(--spacing-8, 2rem);
+      text-align: center;
+    }
+
+    .xconnect-office__icon {
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--color-primary, #1f6fd2) 0%, var(--color-accent, #4da3ff) 100%);
+      border-radius: var(--radius-lg, 0.75rem);
+      margin: 0 auto var(--spacing-5, 1.25rem);
+      color: var(--color-white, #ffffff);
+    }
+
+    .xconnect-office__title {
+      font-size: var(--font-size-lg, 1.125rem);
+      font-weight: var(--font-weight-bold, 700);
+      color: var(--color-text-dark, #0f172a);
+      margin: 0 0 var(--spacing-4, 1rem) 0;
+    }
+
+    .xconnect-office__address {
+      font-size: var(--font-size-base, 1rem);
+      color: var(--color-text-muted, #475569);
+      line-height: 1.75;
+      margin: 0;
+      font-style: normal;
     }
   </style>
 </head>
@@ -347,109 +789,102 @@
   <div class="xconnect-header-spacer"></div>
 
   <main>
-    <!-- Hero Section -->
+    <!-- Section 1: About Hero -->
     <section class="xconnect-about-hero">
       <div class="xconnect-about-hero__bg"></div>
       <div class="xconnect-container">
         <div class="xconnect-about-hero__content">
-          <div class="xconnect-about-hero__badge" data-aos="fade-up">About XConnectDC</div>
+          <div class="xconnect-about-hero__badge" data-aos="fade-up">About XCONNECT</div>
           <h1 class="xconnect-about-hero__title" data-aos="fade-up" data-aos-delay="100">
-            Empowering Enterprises with<br>
-            <span class="xconnect-about-hero__title-highlight">Future-Ready Infrastructure</span>
+            Powering India's<br>
+            <span class="xconnect-about-hero__title-highlight">Digital Infrastructure</span>
           </h1>
           <p class="xconnect-about-hero__text" data-aos="fade-up" data-aos-delay="200">
-            XConnectDC is a technology-driven infrastructure solutions provider specializing in data center, network, and OPGW connectivity services. We are committed to enabling seamless digital connectivity through robust, secure, and future-ready infrastructure.
+            XCONNECT Datacenters Pvt Ltd is a next-generation digital infrastructure company focused on building secure, scalable, and future-ready data center and connectivity platforms in India.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="xconnect-stats">
+    <!-- Section 2: Company Overview -->
+    <section class="xconnect-overview xconnect-section">
       <div class="xconnect-container">
-        <div class="xconnect-stats__grid">
-          <div class="xconnect-stats__item" data-aos="fade-up" data-aos-delay="0">
-            <div class="xconnect-stats__number">14,941</div>
-            <div class="xconnect-stats__label">KM Fiber Network</div>
+        <div class="xconnect-overview__grid">
+          <div class="xconnect-overview__content" data-aos="fade-right">
+            <span class="xconnect-eyebrow">Company Overview</span>
+            <h2 class="xconnect-section-header__title" style="margin-bottom: var(--spacing-6);">Building the Foundation of Digital India</h2>
+            <p class="xconnect-overview__text">
+              Incorporated in 2018, XCONNECT supports the rapidly growing requirements of cloud service providers, enterprises, telecom operators, OTT platforms, and digital ecosystems.
+            </p>
+            <p class="xconnect-overview__text">
+              The company combines deep domain expertise in telecom, fiber networks, and data center infrastructure to deliver reliable, high-availability solutions aligned with global best practices.
+            </p>
           </div>
-          <div class="xconnect-stats__item" data-aos="fade-up" data-aos-delay="100">
-            <div class="xconnect-stats__number">50MW</div>
-            <div class="xconnect-stats__label">Data Center Capacity</div>
-          </div>
-          <div class="xconnect-stats__item" data-aos="fade-up" data-aos-delay="200">
-            <div class="xconnect-stats__number">13</div>
-            <div class="xconnect-stats__label">Districts Covered</div>
-          </div>
-          <div class="xconnect-stats__item" data-aos="fade-up" data-aos-delay="300">
-            <div class="xconnect-stats__number">28.8 Tbps</div>
-            <div class="xconnect-stats__label">Network Capacity</div>
+          <div class="xconnect-overview__illustration" data-aos="fade-left" data-aos-delay="100">
+            <div class="xconnect-overview__visual">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor">
+                <path d="M248,128a8,8,0,0,1-8,8H223.33a88.18,88.18,0,0,1-78.71,78.71V232a8,8,0,0,1-16,0V214.71a88.18,88.18,0,0,1-78.71-78.71H32a8,8,0,0,1,0-16H49.91a88.18,88.18,0,0,1,78.71-78.71V24a8,8,0,0,1,16,0V41.29a88.18,88.18,0,0,1,78.71,78.71H240A8,8,0,0,1,248,128Zm-120,72a72,72,0,1,0-72-72A72.08,72.08,0,0,0,128,200Zm0-112a40,40,0,1,0,40,40A40,40,0,0,0,128,88Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,152Z"/>
+              </svg>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Mission & Vision Section -->
-    <section class="xconnect-mv xconnect-section">
+    <!-- Section 3: Vision & Mission -->
+    <section class="xconnect-vm xconnect-section">
       <div class="xconnect-container">
         <div class="xconnect-section-header" data-aos="fade-up">
           <span class="xconnect-eyebrow">Our Purpose</span>
-          <h2 class="xconnect-section-header__title">Mission & Vision</h2>
+          <h2 class="xconnect-section-header__title">Vision & Mission</h2>
           <p class="xconnect-section-header__subtitle">
-            Driven by purpose, guided by innovation — building the digital infrastructure of tomorrow.
+            Driving India's digital transformation through world-class infrastructure and connectivity solutions.
           </p>
         </div>
 
-        <div class="xconnect-mv__grid">
-          <div class="xconnect-mv__card" data-aos="fade-up" data-aos-delay="100">
-            <div class="xconnect-mv__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 256 256">
-                <path d="M232,128A104,104,0,1,1,128,24,104.13,104.13,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128ZM128,56a72,72,0,1,0,72,72A72.08,72.08,0,0,0,128,56Zm0,128a56,56,0,1,1,56-56A56.06,56.06,0,0,1,128,184Zm0-96a40,40,0,1,0,40,40A40,40,0,0,0,128,88Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,152Z"></path>
+        <div class="xconnect-vm__grid">
+          <!-- Vision Card -->
+          <div class="xconnect-vm__card" data-aos="fade-up" data-aos-delay="100">
+            <div class="xconnect-vm__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" viewBox="0 0 256 256">
+                <path d="M247.31,124.76c-.35-.79-8.82-19.58-27.65-38.41C194.57,61.26,162.88,48,128,48S61.43,61.26,36.34,86.35C17.51,105.18,9,124,8.69,124.76a8,8,0,0,0,0,6.5c.35.79,8.82,19.57,27.65,38.4C61.43,194.74,93.12,208,128,208s66.57-13.26,91.66-38.34c18.83-18.83,27.3-37.61,27.65-38.4A8,8,0,0,0,247.31,124.76ZM128,192c-30.78,0-57.67-11.19-79.93-33.25A133.47,133.47,0,0,1,25,128,133.33,133.33,0,0,1,48.07,97.25C70.33,75.19,97.22,64,128,64s57.67,11.19,79.93,33.25A133.46,133.46,0,0,1,231.05,128C223.84,141.46,192.43,192,128,192Zm0-112a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Z"/>
               </svg>
             </div>
-            <div class="xconnect-mv__label">Our Mission</div>
-            <h3 class="xconnect-mv__title">Enabling Seamless Connectivity</h3>
-            <p class="xconnect-mv__text">
-              To enable seamless digital connectivity through robust, secure, and future-ready infrastructure. We are committed to delivering enterprise-grade solutions that empower businesses to thrive in the digital age.
+            <div class="xconnect-vm__label">Our Vision</div>
+            <h3 class="xconnect-vm__title">Leading Digital Infrastructure Enabler</h3>
+            <p class="xconnect-vm__text">
+              To become a leading digital infrastructure enabler by developing world-class data center and interconnection ecosystems that power India's digital growth.
             </p>
-            <ul class="xconnect-mv__list">
-              <li>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
-                <span>Deliver reliable, high-performance infrastructure</span>
-              </li>
-              <li>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
-                <span>Simplify complex technology for every business</span>
-              </li>
-              <li>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
-                <span>Ensure security and compliance at every level</span>
-              </li>
-            </ul>
           </div>
 
-          <div class="xconnect-mv__card xconnect-mv__card--vision" data-aos="fade-up" data-aos-delay="200">
-            <div class="xconnect-mv__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 256 256">
-                <path d="M247.31,124.76c-.35-.79-8.82-19.58-27.65-38.41C194.57,61.26,162.88,48,128,48S61.43,61.26,36.34,86.35C17.51,105.18,9,124,8.69,124.76a8,8,0,0,0,0,6.5c.35.79,8.82,19.57,27.65,38.4C61.43,194.74,93.12,208,128,208s66.57-13.26,91.66-38.34c18.83-18.83,27.3-37.61,27.65-38.4A8,8,0,0,0,247.31,124.76ZM128,192c-30.78,0-57.67-11.19-79.93-33.25A133.47,133.47,0,0,1,25,128,133.33,133.33,0,0,1,48.07,97.25C70.33,75.19,97.22,64,128,64s57.67,11.19,79.93,33.25A133.46,133.46,0,0,1,231.05,128C223.84,141.46,192.43,192,128,192Zm0-112a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Z"></path>
+          <!-- Mission Card -->
+          <div class="xconnect-vm__card xconnect-vm__card--mission" data-aos="fade-up" data-aos-delay="200">
+            <div class="xconnect-vm__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" viewBox="0 0 256 256">
+                <path d="M232,128A104,104,0,1,1,128,24,104.13,104.13,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128ZM128,56a72,72,0,1,0,72,72A72.08,72.08,0,0,0,128,56Zm0,128a56,56,0,1,1,56-56A56.06,56.06,0,0,1,128,184Zm0-96a40,40,0,1,0,40,40A40,40,0,0,0,128,88Z"/>
               </svg>
             </div>
-            <div class="xconnect-mv__label">Our Vision</div>
-            <h3 class="xconnect-mv__title">Trusted Infrastructure Partner</h3>
-            <p class="xconnect-mv__text">
-              To become a trusted infrastructure partner for enterprises and utilities across industries. We envision positioning Andhra Pradesh as India's emerging digital hub and a strategic interconnection center.
+            <div class="xconnect-vm__label">Our Mission</div>
+            <h3 class="xconnect-vm__title">Enabling India's Digital Future</h3>
+            <p class="xconnect-vm__text">
+              To design, develop, and deliver infrastructure solutions that empower digital India.
             </p>
-            <ul class="xconnect-mv__list">
+            <ul class="xconnect-vm__list">
               <li>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
-                <span>Expand global data center connectivity</span>
+                <span>Design and develop scalable, secure, and high-availability data center infrastructure</span>
               </li>
               <li>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
-                <span>Enable AI adoption with next-gen GPU infrastructure</span>
+                <span>Enable seamless national and regional connectivity</span>
               </li>
               <li>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
-                <span>Provide sustainable, energy-efficient solutions</span>
+                <span>Adopt global standards in reliability and security</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                <span>Support enterprises, cloud platforms, and telecom operators with future-ready infrastructure</span>
               </li>
             </ul>
           </div>
@@ -457,65 +892,337 @@
       </div>
     </section>
 
-    <!-- Core Values Section -->
-    <section class="xconnect-values xconnect-section">
+    <!-- Section 4: South India NLD Interconnect Hub -->
+    <section class="xconnect-nld xconnect-section">
       <div class="xconnect-container">
         <div class="xconnect-section-header" data-aos="fade-up">
-          <span class="xconnect-eyebrow">What We Stand For</span>
-          <h2 class="xconnect-section-header__title">Our Core Values</h2>
-          <p class="xconnect-section-header__subtitle">
-            The principles that guide everything we do — from how we build our infrastructure to how we serve our customers.
+          <span class="xconnect-eyebrow">Strategic Initiative</span>
+          <h2 class="xconnect-section-header__title">South India NLD Interconnect Infrastructure Hub</h2>
+        </div>
+
+        <div class="xconnect-nld__content" data-aos="fade-up" data-aos-delay="100">
+          <p class="xconnect-nld__description">
+            XCONNECT proposes the development of a South India National Long Distance (NLD) Interconnect Infrastructure Hub — a strategic digital crossroads for Southern India. This carrier-neutral interconnection platform enables seamless exchange of data, cloud, content, and telecom traffic.
+          </p>
+          <div class="xconnect-nld__features">
+            <div class="xconnect-nld__feature">
+              <p class="xconnect-nld__feature-text">Low Latency</p>
+            </div>
+            <div class="xconnect-nld__feature">
+              <p class="xconnect-nld__feature-text">High Capacity</p>
+            </div>
+            <div class="xconnect-nld__feature">
+              <p class="xconnect-nld__feature-text">Resilient Design</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Strategic Importance -->
+    <section class="xconnect-strategic xconnect-section">
+      <div class="xconnect-container">
+        <div class="xconnect-section-header" data-aos="fade-up">
+          <span class="xconnect-eyebrow" style="color: var(--color-primary-light);">Why It Matters</span>
+          <h2 class="xconnect-section-header__title" style="color: var(--color-white);">Strategic Importance</h2>
+          <p class="xconnect-section-header__subtitle" style="color: rgba(255,255,255,0.8);">
+            Enabling the next wave of digital transformation across Southern India
           </p>
         </div>
 
-        <div class="xconnect-values__grid">
-          <div class="xconnect-value-card" data-aos="fade-up" data-aos-delay="0">
-            <div class="xconnect-value-card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256">
-                <path d="M208,40H48A16,16,0,0,0,32,56v58.78c0,89.61,75.82,119.34,91,124.39a15.53,15.53,0,0,0,10,0c15.2-5.05,91-34.78,91-124.39V56A16,16,0,0,0,208,40Zm0,74.79c0,78.42-66.35,104.62-80,109.18-13.53-4.51-80-30.69-80-109.18V56H208ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z"></path>
-              </svg>
+        <div class="xconnect-strategic__grid">
+          <div class="xconnect-strategic__card" data-aos="fade-up" data-aos-delay="0">
+            <div class="xconnect-strategic__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z"/></svg>
             </div>
-            <h3 class="xconnect-value-card__title">Reliability</h3>
-            <p class="xconnect-value-card__text">
-              We deliver infrastructure you can depend on — 24/7, 365 days a year with 99.999% uptime SLA.
+            <p class="xconnect-strategic__text">Centralized NLD interconnection for South India</p>
+          </div>
+
+          <div class="xconnect-strategic__card" data-aos="fade-up" data-aos-delay="50">
+            <div class="xconnect-strategic__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M232,128a8,8,0,0,1-8,8H204.94l-37.78,75.58A8,8,0,0,1,160,216h-.4a8,8,0,0,1-7.08-5.14L95.35,60.76,63.28,131.31A8,8,0,0,1,56,136H24a8,8,0,0,1,0-16H50.85L88.72,36.69a8,8,0,0,1,14.76.46l57.51,151,31.85-63.72A8,8,0,0,1,200,120h24A8,8,0,0,1,232,128Z"/></svg>
+            </div>
+            <p class="xconnect-strategic__text">Reduced latency and optimized routing</p>
+          </div>
+
+          <div class="xconnect-strategic__card" data-aos="fade-up" data-aos-delay="100">
+            <div class="xconnect-strategic__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M208,40H48A16,16,0,0,0,32,56v58.78c0,89.61,75.82,119.34,91,124.39a15.53,15.53,0,0,0,10,0c15.2-5.05,91-34.78,91-124.39V56A16,16,0,0,0,208,40Z"/></svg>
+            </div>
+            <p class="xconnect-strategic__text">High redundancy and reliability</p>
+          </div>
+
+          <div class="xconnect-strategic__card" data-aos="fade-up" data-aos-delay="150">
+            <div class="xconnect-strategic__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M176,232a8,8,0,0,1-8,8H88a8,8,0,0,1,0-16h80A8,8,0,0,1,176,232Zm40-128a87.55,87.55,0,0,1-33.64,69.21A16.24,16.24,0,0,0,176,186v6a16,16,0,0,1-16,16H96a16,16,0,0,1-16-16v-6a16,16,0,0,0-6.23-12.66A87.59,87.59,0,0,1,40,104.49C39.74,56.83,78.26,17.14,125.88,16A88,88,0,0,1,216,104Z"/></svg>
+            </div>
+            <p class="xconnect-strategic__text">Supports hyperscale, ISPs, cloud, and enterprises</p>
+          </div>
+
+          <div class="xconnect-strategic__card" data-aos="fade-up" data-aos-delay="200">
+            <div class="xconnect-strategic__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,16a87.87,87.87,0,0,1,64,27.64V72H136a8,8,0,0,0-8,8v40a8,8,0,0,0,8,8h32.67A32.07,32.07,0,0,1,136,152h-8a8,8,0,0,0-8,8v48.45A88.14,88.14,0,0,1,128,40Zm8,175.45V168h0a48.11,48.11,0,0,0,44.84-48H208A88.09,88.09,0,0,1,136,215.45Z"/></svg>
+            </div>
+            <p class="xconnect-strategic__text">Strengthens India's national digital backbone</p>
+          </div>
+
+          <div class="xconnect-strategic__card" data-aos="fade-up" data-aos-delay="250">
+            <div class="xconnect-strategic__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M247.31,124.76c-.35-.79-8.82-19.58-27.65-38.41C194.57,61.26,162.88,48,128,48S61.43,61.26,36.34,86.35C17.51,105.18,9,124,8.69,124.76a8,8,0,0,0,0,6.5c.35.79,8.82,19.57,27.65,38.4C61.43,194.74,93.12,208,128,208s66.57-13.26,91.66-38.34c18.83-18.83,27.3-37.61,27.65-38.4A8,8,0,0,0,247.31,124.76Z"/></svg>
+            </div>
+            <p class="xconnect-strategic__text">Strategic digital crossroads for Southern India</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Connectivity Architecture -->
+    <section class="xconnect-architecture xconnect-section">
+      <div class="xconnect-container">
+        <div class="xconnect-section-header" data-aos="fade-up">
+          <span class="xconnect-eyebrow">Technical Excellence</span>
+          <h2 class="xconnect-section-header__title">Connectivity Architecture</h2>
+        </div>
+
+        <div class="xconnect-architecture__content">
+          <div class="xconnect-architecture__intro" data-aos="fade-up" data-aos-delay="100">
+            <p class="xconnect-architecture__description">
+              The hub integrates major regional and national fiber routes including Hyderabad, Chennai, Bengaluru, Visakhapatnam, and Amaravati/Vijayawada, creating a robust interconnection ecosystem.
             </p>
           </div>
 
-          <div class="xconnect-value-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="xconnect-value-card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256">
-                <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm40-104H136V72a8,8,0,0,0-16,0v48a8,8,0,0,0,8,8h40a8,8,0,0,0,0-16Z"></path>
-              </svg>
+          <div class="xconnect-architecture__features">
+            <div class="xconnect-architecture__feature" data-aos="fade-up" data-aos-delay="150">
+              <div class="xconnect-architecture__feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M200,40H56A16,16,0,0,0,40,56V200a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V56A16,16,0,0,0,200,40ZM128,168a40,40,0,1,1,40-40A40,40,0,0,1,128,168Z"/></svg>
+              </div>
+              <p class="xconnect-architecture__feature-text">Redundant ring and mesh topology</p>
             </div>
-            <h3 class="xconnect-value-card__title">Innovation</h3>
-            <p class="xconnect-value-card__text">
-              We continuously evolve our solutions to stay ahead of technology trends and customer needs.
+
+            <div class="xconnect-architecture__feature" data-aos="fade-up" data-aos-delay="200">
+              <div class="xconnect-architecture__feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M232,128a8,8,0,0,1-8,8H204.94l-37.78,75.58A8,8,0,0,1,160,216h-.4a8,8,0,0,1-7.08-5.14L95.35,60.76,63.28,131.31A8,8,0,0,1,56,136H24a8,8,0,0,1,0-16H50.85L88.72,36.69a8,8,0,0,1,14.76.46l57.51,151,31.85-63.72A8,8,0,0,1,200,120h24A8,8,0,0,1,232,128Z"/></svg>
+              </div>
+              <p class="xconnect-architecture__feature-text">DWDM / OTN infrastructure (100G–400G+)</p>
+            </div>
+
+            <div class="xconnect-architecture__feature" data-aos="fade-up" data-aos-delay="250">
+              <div class="xconnect-architecture__feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M232,56V200a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V56a8,8,0,0,1,8-8H224A8,8,0,0,1,232,56Z"/></svg>
+              </div>
+              <p class="xconnect-architecture__feature-text">Carrier-neutral Meet-Me Rooms (MMRs)</p>
+            </div>
+
+            <div class="xconnect-architecture__feature" data-aos="fade-up" data-aos-delay="300">
+              <div class="xconnect-architecture__feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.94,7.74A80.15,80.15,0,0,1,84,168a80.15,80.15,0,0,1,66.53,35.37,8,8,0,1,0,13.94-7.74A95.83,95.83,0,0,0,117.25,157.92Z"/></svg>
+              </div>
+              <p class="xconnect-architecture__feature-text">Multi-operator and NLD license holder support</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Integration with Data Center Ecosystem -->
+    <section class="xconnect-integration xconnect-section">
+      <div class="xconnect-container">
+        <div class="xconnect-section-header" data-aos="fade-up">
+          <span class="xconnect-eyebrow">Ecosystem Integration</span>
+          <h2 class="xconnect-section-header__title">Integration with Data Center Ecosystem</h2>
+          <p class="xconnect-section-header__subtitle">
+            Comprehensive connectivity solutions for modern digital infrastructure needs
+          </p>
+        </div>
+
+        <div class="xconnect-integration__grid">
+          <div class="xconnect-integration__item" data-aos="fade-up" data-aos-delay="0">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"/></svg>
+            <p class="xconnect-integration__text">Direct interconnection for hyperscale and enterprises</p>
+          </div>
+
+          <div class="xconnect-integration__item" data-aos="fade-up" data-aos-delay="50">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"/></svg>
+            <p class="xconnect-integration__text">Cloud on-ramps and hybrid cloud connectivity</p>
+          </div>
+
+          <div class="xconnect-integration__item" data-aos="fade-up" data-aos-delay="100">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"/></svg>
+            <p class="xconnect-integration__text">OTT and content delivery optimization</p>
+          </div>
+
+          <div class="xconnect-integration__item" data-aos="fade-up" data-aos-delay="150">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"/></svg>
+            <p class="xconnect-integration__text">ISP and carrier cross-connects</p>
+          </div>
+
+          <div class="xconnect-integration__item" data-aos="fade-up" data-aos-delay="200">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"/></svg>
+            <p class="xconnect-integration__text">DR and BCP support</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 8: Key Benefits -->
+    <section class="xconnect-benefits xconnect-section">
+      <div class="xconnect-container">
+        <div class="xconnect-section-header" data-aos="fade-up">
+          <span class="xconnect-eyebrow">Advantages</span>
+          <h2 class="xconnect-section-header__title">Key Benefits</h2>
+          <p class="xconnect-section-header__subtitle">
+            Why enterprises choose XCONNECT for their digital infrastructure needs
+          </p>
+        </div>
+
+        <div class="xconnect-benefits__grid">
+          <div class="xconnect-benefit-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="xconnect-benefit-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 256 256"><path d="M232,128a8,8,0,0,1-8,8H204.94l-37.78,75.58A8,8,0,0,1,160,216h-.4a8,8,0,0,1-7.08-5.14L95.35,60.76,63.28,131.31A8,8,0,0,1,56,136H24a8,8,0,0,1,0-16H50.85L88.72,36.69a8,8,0,0,1,14.76.46l57.51,151,31.85-63.72A8,8,0,0,1,200,120h24A8,8,0,0,1,232,128Z"/></svg>
+            </div>
+            <h3 class="xconnect-benefit-card__title">Low Latency</h3>
+          </div>
+
+          <div class="xconnect-benefit-card" data-aos="fade-up" data-aos-delay="50">
+            <div class="xconnect-benefit-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 256 256"><path d="M208,40H48A16,16,0,0,0,32,56v58.78c0,89.61,75.82,119.34,91,124.39a15.53,15.53,0,0,0,10,0c15.2-5.05,91-34.78,91-124.39V56A16,16,0,0,0,208,40Z"/></svg>
+            </div>
+            <h3 class="xconnect-benefit-card__title">High Availability</h3>
+          </div>
+
+          <div class="xconnect-benefit-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="xconnect-benefit-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 256 256"><path d="M208,80H176V56a48,48,0,0,0-96,0V80H48A16,16,0,0,0,32,96V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V96A16,16,0,0,0,208,80ZM96,56a32,32,0,0,1,64,0V80H96Z"/></svg>
+            </div>
+            <h3 class="xconnect-benefit-card__title">Scalability</h3>
+          </div>
+
+          <div class="xconnect-benefit-card" data-aos="fade-up" data-aos-delay="150">
+            <div class="xconnect-benefit-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 256 256"><path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.94,7.74A80.15,80.15,0,0,1,84,168a80.15,80.15,0,0,1,66.53,35.37,8,8,0,1,0,13.94-7.74A95.83,95.83,0,0,0,117.25,157.92Z"/></svg>
+            </div>
+            <h3 class="xconnect-benefit-card__title">Carrier Neutrality</h3>
+          </div>
+
+          <div class="xconnect-benefit-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="xconnect-benefit-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 256 256"><path d="M176,232a8,8,0,0,1-8,8H88a8,8,0,0,1,0-16h80A8,8,0,0,1,176,232Zm40-128a87.55,87.55,0,0,1-33.64,69.21A16.24,16.24,0,0,0,176,186v6a16,16,0,0,1-16,16H96a16,16,0,0,1-16-16v-6a16,16,0,0,0-6.23-12.66A87.59,87.59,0,0,1,40,104.49C39.74,56.83,78.26,17.14,125.88,16A88,88,0,0,1,216,104Z"/></svg>
+            </div>
+            <h3 class="xconnect-benefit-card__title">Future Ready</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 9: Target Customers -->
+    <section class="xconnect-customers xconnect-section">
+      <div class="xconnect-container">
+        <div class="xconnect-section-header" data-aos="fade-up">
+          <span class="xconnect-eyebrow">Who We Serve</span>
+          <h2 class="xconnect-section-header__title">Target Customers</h2>
+          <p class="xconnect-section-header__subtitle">
+            Serving diverse industries with tailored infrastructure solutions
+          </p>
+        </div>
+
+        <div class="xconnect-customers__grid">
+          <div class="xconnect-customer-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="xconnect-customer-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46Z"/></svg>
+            </div>
+            <p class="xconnect-customer-card__text">Telecom Operators & NLD Providers</p>
+          </div>
+
+          <div class="xconnect-customer-card" data-aos="fade-up" data-aos-delay="50">
+            <div class="xconnect-customer-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,16a87.87,87.87,0,0,1,64,27.64V72H136a8,8,0,0,0-8,8v40a8,8,0,0,0,8,8h32.67A32.07,32.07,0,0,1,136,152h-8a8,8,0,0,0-8,8v48.45A88.14,88.14,0,0,1,128,40Z"/></svg>
+            </div>
+            <p class="xconnect-customer-card__text">ISPs</p>
+          </div>
+
+          <div class="xconnect-customer-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="xconnect-customer-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M160,40A88.09,88.09,0,0,0,81.29,88.67,64,64,0,1,0,72,216h88a88,88,0,0,0,0-176Z"/></svg>
+            </div>
+            <p class="xconnect-customer-card__text">Cloud Providers & Hyperscalers</p>
+          </div>
+
+          <div class="xconnect-customer-card" data-aos="fade-up" data-aos-delay="150">
+            <div class="xconnect-customer-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40ZM40,56H216v96H40Z"/></svg>
+            </div>
+            <p class="xconnect-customer-card__text">OTT & Content Platforms</p>
+          </div>
+
+          <div class="xconnect-customer-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="xconnect-customer-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M248,208H224V96a16,16,0,0,0-16-16H168V32a16,16,0,0,0-16-16H104A16,16,0,0,0,88,32V56H48a16,16,0,0,0-16,16V208H8a8,8,0,0,0,0,16H248a8,8,0,0,0,0-16Z"/></svg>
+            </div>
+            <p class="xconnect-customer-card__text">Large Enterprises & BFSI</p>
+          </div>
+
+          <div class="xconnect-customer-card" data-aos="fade-up" data-aos-delay="250">
+            <div class="xconnect-customer-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M240,208H224V96a16,16,0,0,0-16-16H168a8,8,0,0,0,0,16h40v32H152a8,8,0,0,0,0,16h56v32H136a8,8,0,0,0,0,16h72v16H48V96h40a8,8,0,0,0,0-16H48A16,16,0,0,0,32,96V208H16a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16ZM128,112a40,40,0,1,0-40-40A40,40,0,0,0,128,112Z"/></svg>
+            </div>
+            <p class="xconnect-customer-card__text">Government & Smart City Initiatives</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 10: Leadership -->
+    <section class="xconnect-leadership xconnect-section">
+      <div class="xconnect-container">
+        <div class="xconnect-section-header" data-aos="fade-up">
+          <span class="xconnect-eyebrow">Our Team</span>
+          <h2 class="xconnect-section-header__title">Leadership</h2>
+          <p class="xconnect-section-header__subtitle">
+            Experienced professionals driving XCONNECT's vision forward
+          </p>
+        </div>
+
+        <div class="xconnect-leadership__grid">
+          <div class="xconnect-leader-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="xconnect-leader-card__avatar">GK</div>
+            <h3 class="xconnect-leader-card__name">Gouri Shankar Korrapati</h3>
+            <p class="xconnect-leader-card__role">Director / Promoter</p>
+            <p class="xconnect-leader-card__bio">
+              A seasoned professional with extensive experience in telecom, digital infrastructure, and network operations. Provides strategic leadership and shapes long-term growth and partnerships.
             </p>
           </div>
 
-          <div class="xconnect-value-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="xconnect-value-card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256">
-                <path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.94,7.74A80.15,80.15,0,0,1,84,168a80.15,80.15,0,0,1,66.53,35.37,8,8,0,1,0,13.94-7.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,55.53,105.64,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z"></path>
-              </svg>
-            </div>
-            <h3 class="xconnect-value-card__title">Partnership</h3>
-            <p class="xconnect-value-card__text">
-              We work alongside our customers as trusted partners, not just service providers.
+          <div class="xconnect-leader-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="xconnect-leader-card__avatar">KV</div>
+            <h3 class="xconnect-leader-card__name">Korrapati Vinachand</h3>
+            <p class="xconnect-leader-card__role">Director</p>
+            <p class="xconnect-leader-card__bio">
+              An experienced entrepreneur contributing to execution strategy, operational governance, and scalable infrastructure planning.
             </p>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="xconnect-value-card" data-aos="fade-up" data-aos-delay="300">
-            <div class="xconnect-value-card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256">
-                <path d="M232,128a8,8,0,0,1-8,8H204.94l-37.78,75.58A8,8,0,0,1,160,216h-.4a8,8,0,0,1-7.08-5.14L95.35,60.76,63.28,131.31A8,8,0,0,1,56,136H24a8,8,0,0,1,0-16H50.85L88.72,36.69a8,8,0,0,1,14.76.46l57.51,151,31.85-63.72A8,8,0,0,1,200,120h24A8,8,0,0,1,232,128Z"></path>
-              </svg>
-            </div>
-            <h3 class="xconnect-value-card__title">Excellence</h3>
-            <p class="xconnect-value-card__text">
-              We strive for excellence in everything we do, from design to deployment to support.
-            </p>
+    <!-- Section 11: Registered Office -->
+    <section class="xconnect-office xconnect-section">
+      <div class="xconnect-container">
+        <div class="xconnect-section-header" data-aos="fade-up">
+          <span class="xconnect-eyebrow">Contact</span>
+          <h2 class="xconnect-section-header__title">Registered Office</h2>
+        </div>
+
+        <div class="xconnect-office__card" data-aos="fade-up" data-aos-delay="100">
+          <div class="xconnect-office__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 256 256"><path d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z"/></svg>
           </div>
+          <h3 class="xconnect-office__title">XCONNECT Datacenters Private Limited</h3>
+          <address class="xconnect-office__address">
+            D. No. 54-16-7/4B, Plot No. 7,<br>
+            First Floor, Mahen Enclave, Road No. 1,<br>
+            Central Excise Colony, Vijayawada (Urban),<br>
+            Andhra Pradesh – 520008, India
+          </address>
         </div>
       </div>
     </section>
@@ -527,12 +1234,26 @@
       <div class="xconnect-container">
         <div class="xconnect-footer__grid">
           <div class="xconnect-footer__col xconnect-footer__col--brand">
-            <a href="index.html" class="xconnect-footer__logo" aria-label="XConnectDC Home">
-              <img src="assets/images/logo-white.svg" alt="XConnectDC Logo" class="xconnect-footer__logo-img" width="160" height="40">
+            <a href="index.html" class="xconnect-footer__logo" aria-label="XCONNECT Datacenters Home">
+              <img src="assets/images/logo-white.svg" alt="XCONNECT Datacenters Logo" class="xconnect-footer__logo-img" width="160" height="40">
             </a>
             <p class="xconnect-footer__description">
-              XConnectDC is a technology-driven infrastructure solutions provider specializing in data center, network, and OPGW connectivity services.
+              XCONNECT Datacenters Pvt Ltd is a next-generation digital infrastructure company focused on building secure, scalable, and future-ready data center and connectivity platforms in India.
             </p>
+            <div class="xconnect-footer__social">
+              <a href="https://www.linkedin.com/company/xconnect-datacenters" class="xconnect-footer__social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24ZM96,176a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0ZM88,96a12,12,0,1,1,12-12A12,12,0,0,1,88,96Zm96,80a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140Z"/></svg>
+              </a>
+              <a href="https://www.facebook.com/xconnectdatacenters" class="xconnect-footer__social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm8,191.63V152h24a8,8,0,0,0,0-16H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,0-16H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0,0,16h24v63.63a88,88,0,1,1,16,0Z"/></svg>
+              </a>
+              <a href="https://www.instagram.com/xconnectdatacenters" class="xconnect-footer__social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"/></svg>
+              </a>
+              <a href="https://x.com/xconnectdc" class="xconnect-footer__social-link" aria-label="X (Twitter)" target="_blank" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M214.75,211.71l-62.6-98.38,61.77-67.95a8,8,0,0,0-11.84-10.76l-58.06,63.87L96.15,44.29A8,8,0,0,0,89.57,40H48a8,8,0,0,0-6.75,12.29l62.6,98.38-61.77,68a8,8,0,1,0,11.84,10.76l58.06-63.87,47.87,75.19A8,8,0,0,0,166.43,248H208a8,8,0,0,0,6.75-12.29ZM173.32,232,58.36,50.19a8,8,0,0,0-6.77-3.83H48L172.68,224l35.32-48.67Z"/></svg>
+              </a>
+            </div>
           </div>
 
           <div class="xconnect-footer__col">
