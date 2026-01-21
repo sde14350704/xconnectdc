@@ -18,6 +18,11 @@
 - Quick Links
 - Services list
 - Contact info
+- Social Media Links:
+  - LinkedIn: https://www.linkedin.com/company/xconnect-datacenters
+  - Facebook: https://www.facebook.com/xconnectdatacenters
+  - Instagram: https://www.instagram.com/xconnectdatacenters
+  - X (Twitter): https://x.com/xconnectdc
 - Copyright text
 
 ## JavaScript
