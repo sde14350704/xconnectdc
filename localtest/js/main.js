@@ -5,12 +5,158 @@
   Type: JavaScript
 
   This file contains:
+  - Shared component loading (header, footer, popup)
   - Utility functions
   - Scroll-based animations
   - Form handling
   - Performance optimizations
   - Accessibility enhancements
 */
+
+// ==========================================================================
+// SHARED COMPONENTS LOADER
+// Loads header, footer, and popup from separate files
+// ==========================================================================
+
+(function() {
+  'use strict';
+
+  /**
+   * Load shared components (header, footer, popup) into placeholder elements
+   * This should run before the main DOMContentLoaded handler
+   */
+  function loadSharedComponents() {
+    var components = [
+      { id: 'xconnect-header-placeholder', src: 'includes/header.html' },
+      { id: 'xconnect-footer-placeholder', src: 'includes/footer.html' },
+      { id: 'xconnect-popup-placeholder', src: 'includes/popup.html' }
+    ];
+
+    var loadPromises = components.map(function(component) {
+      var placeholder = document.getElementById(component.id);
+      if (!placeholder) return Promise.resolve();
+
+      return fetch(component.src)
+        .then(function(response) {
+          if (!response.ok) throw new Error('Failed to load ' + component.src);
+          return response.text();
+        })
+        .then(function(html) {
+          placeholder.innerHTML = html;
+          
+          // Set active nav link based on current page
+          if (component.id === 'xconnect-header-placeholder') {
+            setActiveNavLink();
+          }
+          
+          // Update copyright year in footer
+          if (component.id === 'xconnect-footer-placeholder') {
+            var yearElement = document.getElementById('current-year');
+            if (yearElement) {
+              yearElement.textContent = new Date().getFullYear();
+            }
+          }
+        })
+        .catch(function(error) {
+          console.warn('Component load warning:', error.message);
+        });
+    });
+
+    return Promise.all(loadPromises);
+  }
+
+  /**
+   * Set the active navigation link based on current page
+   */
+  function setActiveNavLink() {
+    var currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    var navLinks = document.querySelectorAll('.xconnect-nav__link, .xconnect-mobile-menu__link');
+    
+    navLinks.forEach(function(link) {
+      var href = link.getAttribute('href');
+      if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+        link.classList.add('is-active');
+      }
+    });
+  }
+
+  // Load components when DOM is ready, then initialize main functionality
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      loadSharedComponents().then(initializeApp);
+    });
+  } else {
+    loadSharedComponents().then(initializeApp);
+  }
+
+  /**
+   * Initialize header scroll behavior and mobile menu
+   */
+  function initHeaderBehavior() {
+    var header = document.getElementById('xconnect-header');
+    var navToggle = document.getElementById('xconnect-nav-toggle');
+    var mobileMenu = document.getElementById('xconnect-mobile-menu');
+
+    if (!header) return;
+
+    // Header scroll behavior - add white background and dark logo when scrolled
+    function updateHeaderOnScroll() {
+      if (window.scrollY > 50) {
+        header.classList.add('is-scrolled');
+      } else {
+        header.classList.remove('is-scrolled');
+      }
+    }
+
+    // Initial check on page load
+    updateHeaderOnScroll();
+
+    // Update on scroll
+    window.addEventListener('scroll', updateHeaderOnScroll, { passive: true });
+
+    // Mobile menu toggle
+    if (navToggle && mobileMenu) {
+      navToggle.addEventListener('click', function() {
+        var isOpen = mobileMenu.classList.contains('is-open');
+        if (isOpen) {
+          mobileMenu.classList.remove('is-open');
+          navToggle.classList.remove('is-active');
+          navToggle.setAttribute('aria-expanded', 'false');
+          document.body.classList.remove('mobile-menu-open');
+        } else {
+          mobileMenu.classList.add('is-open');
+          navToggle.classList.add('is-active');
+          navToggle.setAttribute('aria-expanded', 'true');
+          document.body.classList.add('mobile-menu-open');
+        }
+      });
+
+      // Close mobile menu when clicking links
+      var mobileMenuLinks = document.querySelectorAll('.xconnect-mobile-menu__link');
+      mobileMenuLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.remove('is-open');
+          navToggle.classList.remove('is-active');
+          navToggle.setAttribute('aria-expanded', 'false');
+          document.body.classList.remove('mobile-menu-open');
+        });
+      });
+    }
+  }
+
+  function initializeApp() {
+    // Initialize header behavior after components are loaded
+    initHeaderBehavior();
+    // Call all initialization functions after components are loaded
+    initMain();
+  }
+
+  window.XConnectDCLoader = {
+    loadSharedComponents: loadSharedComponents,
+    setActiveNavLink: setActiveNavLink,
+    initHeaderBehavior: initHeaderBehavior
+  };
+})();
 
 (function() {
   'use strict';
@@ -90,7 +236,8 @@
   // DOM READY HANDLER
   // ==========================================================================
 
-  document.addEventListener('DOMContentLoaded', function() {
+  // Expose initMain globally for the loader
+  window.initMain = function() {
 
     // ==========================================================================
     // SMOOTH SCROLL FOR ALL ANCHOR LINKS
@@ -530,6 +677,129 @@
     }
 
     // ==========================================================================
+    // CONTACT POPUP FOR FIRST-TIME VISITORS
+    // ==========================================================================
+
+    function initContactPopup() {
+      var popup = document.getElementById('xconnect-contact-popup');
+      if (!popup) return;
+
+      var STORAGE_KEY = 'xconnect_popup_dismissed';
+      var POPUP_DELAY = 3000; // Show popup after 3 seconds
+
+      // Check if user has already dismissed or submitted the popup
+      if (localStorage.getItem(STORAGE_KEY)) {
+        return;
+      }
+
+      // Show popup after delay
+      setTimeout(function() {
+        showPopup();
+      }, POPUP_DELAY);
+
+      function showPopup() {
+        popup.classList.add('is-active');
+        document.body.style.overflow = 'hidden';
+        
+        // Focus the first input for accessibility
+        var firstInput = popup.querySelector('input');
+        if (firstInput) {
+          setTimeout(function() {
+            firstInput.focus();
+          }, 300);
+        }
+      }
+
+      function hidePopup() {
+        popup.classList.remove('is-active');
+        document.body.style.overflow = '';
+        localStorage.setItem(STORAGE_KEY, 'true');
+      }
+
+      // Close button handler
+      var closeBtn = popup.querySelector('.xconnect-contact-popup__close');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', hidePopup);
+      }
+
+      // Skip button handler
+      var skipBtn = popup.querySelector('.xconnect-contact-popup__skip');
+      if (skipBtn) {
+        skipBtn.addEventListener('click', hidePopup);
+      }
+
+      // Overlay click handler
+      var overlay = popup.querySelector('.xconnect-contact-popup__overlay');
+      if (overlay) {
+        overlay.addEventListener('click', hidePopup);
+      }
+
+      // Escape key handler
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && popup.classList.contains('is-active')) {
+          hidePopup();
+        }
+      });
+
+      // Form submission handler
+      var form = popup.querySelector('.xconnect-contact-popup__form');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          var submitBtn = form.querySelector('.xconnect-contact-popup__submit');
+          var statusElement = popup.querySelector('.xconnect-contact-popup__status');
+          var originalText = submitBtn.textContent;
+
+          // Validate required fields
+          var name = form.querySelector('input[name="popup_name"]');
+          var email = form.querySelector('input[name="popup_email"]');
+          var phone = form.querySelector('input[name="popup_phone"]');
+
+          if (!name.value.trim() || !email.value.trim() || !phone.value.trim()) {
+            if (statusElement) {
+              statusElement.textContent = 'Please fill in all required fields.';
+              statusElement.className = 'xconnect-contact-popup__status xconnect-contact-popup__status--error';
+            }
+            return;
+          }
+
+          // Email validation
+          var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email.value.trim())) {
+            if (statusElement) {
+              statusElement.textContent = 'Please enter a valid email address.';
+              statusElement.className = 'xconnect-contact-popup__status xconnect-contact-popup__status--error';
+            }
+            return;
+          }
+
+          // Show loading state
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending...';
+
+          // Simulate form submission (replace with actual API call)
+          setTimeout(function() {
+            // Show success message
+            if (statusElement) {
+              statusElement.textContent = 'Thank you! We\'ll get in touch with you soon.';
+              statusElement.className = 'xconnect-contact-popup__status xconnect-contact-popup__status--success';
+            }
+
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+            form.reset();
+
+            // Close popup after success
+            setTimeout(function() {
+              hidePopup();
+            }, 2000);
+          }, 1500);
+        });
+      }
+    }
+
+    // ==========================================================================
     // INITIALIZE ALL MODULES
     // ==========================================================================
 
@@ -544,6 +814,7 @@
       initExternalLinks();
       initScrollAnimations();
       initPerformanceMonitoring();
+      initContactPopup();
 
       // Log initialization in development
       if (window.location.hostname === 'localhost' || window.location.hostname.includes('dev')) {
@@ -554,7 +825,7 @@
     // Run initialization
     init();
 
-  }); // End DOMContentLoaded
+  }; // End initMain
 
   // ==========================================================================
   // WINDOW LOAD EVENT HANDLERS

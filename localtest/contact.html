@@ -230,60 +230,8 @@
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="xconnect-header" id="xconnect-header">
-    <div class="xconnect-header__wrapper">
-      <div class="xconnect-container">
-        <nav class="xconnect-nav">
-          <a href="index.html" class="xconnect-logo" aria-label="XConnectDC Home">
-            <img src="assets/images/logo.svg" alt="XConnectDC Logo" class="xconnect-logo__image xconnect-logo__image--light" width="180" height="45">
-            <img src="assets/images/logo-dark.svg" alt="XConnectDC Logo" class="xconnect-logo__image xconnect-logo__image--dark" width="180" height="45">
-          </a>
-
-          <ul class="xconnect-nav__menu" id="xconnect-nav-menu">
-            <li class="xconnect-nav__item">
-              <a href="index.html" class="xconnect-nav__link" data-nav="home">Home</a>
-            </li>
-            <li class="xconnect-nav__item">
-              <a href="about.html" class="xconnect-nav__link" data-nav="about">About</a>
-            </li>
-            <li class="xconnect-nav__item">
-              <a href="services.html" class="xconnect-nav__link" data-nav="services">Services</a>
-            </li>
-            <li class="xconnect-nav__item">
-              <a href="contact.html" class="xconnect-nav__link is-active" data-nav="contact">Contact</a>
-            </li>
-          </ul>
-
-          <div class="xconnect-nav__cta">
-            <a href="contact.html" class="xconnect-btn xconnect-btn--primary xconnect-nav__cta-btn">Get in Touch</a>
-          </div>
-
-          <button class="xconnect-nav__toggle" id="xconnect-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-            <span class="xconnect-nav__toggle-bar"></span>
-            <span class="xconnect-nav__toggle-bar"></span>
-            <span class="xconnect-nav__toggle-bar"></span>
-          </button>
-        </nav>
-      </div>
-    </div>
-
-    <div class="xconnect-mobile-menu" id="xconnect-mobile-menu" aria-hidden="true">
-      <div class="xconnect-mobile-menu__content">
-        <ul class="xconnect-mobile-menu__list">
-          <li class="xconnect-mobile-menu__item"><a href="index.html" class="xconnect-mobile-menu__link">Home</a></li>
-          <li class="xconnect-mobile-menu__item"><a href="about.html" class="xconnect-mobile-menu__link">About</a></li>
-          <li class="xconnect-mobile-menu__item"><a href="services.html" class="xconnect-mobile-menu__link">Services</a></li>
-          <li class="xconnect-mobile-menu__item"><a href="contact.html" class="xconnect-mobile-menu__link is-active">Contact</a></li>
-        </ul>
-        <div class="xconnect-mobile-menu__cta">
-          <a href="contact.html" class="xconnect-btn xconnect-btn--primary xconnect-btn--lg">Get in Touch</a>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <div class="xconnect-header-spacer"></div>
+  <!-- Header (loaded from includes/header.html) -->
+  <div id="xconnect-header-placeholder"></div>
 
   <main>
     <!-- Hero Section -->
@@ -379,7 +327,7 @@
                 <h3 class="xconnect-contact-info__title">Office Address</h3>
               </div>
               <div class="xconnect-contact-info__content">
-                <p>XConnectDC Headquarters<br>Amaravati, Andhra Pradesh<br>India</p>
+                <p>XCONNECT Datacenters Private Limited<br>D. No. 54-16-7/4B, Plot No. 7,<br>First Floor, Mahen Enclave, Road No. 1,<br>Central Excise Colony, Vijayawada (Urban),<br>Andhra Pradesh – 520008, India</p>
               </div>
             </div>
 
@@ -419,7 +367,7 @@
                   <path d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z"></path>
                 </svg>
               </div>
-              <p class="xconnect-contact-map__text">Amaravati, Andhra Pradesh</p>
+              <p class="xconnect-contact-map__text">Vijayawada, Andhra Pradesh</p>
               <p class="xconnect-contact-map__subtext">India's Emerging Digital Hub</p>
             </div>
           </div>
@@ -428,80 +376,11 @@
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="xconnect-footer">
-    <div class="xconnect-footer__main">
-      <div class="xconnect-container">
-        <div class="xconnect-footer__grid">
-          <div class="xconnect-footer__col xconnect-footer__col--brand">
-            <a href="index.html" class="xconnect-footer__logo" aria-label="XConnectDC Home">
-              <img src="assets/images/logo-white.svg" alt="XConnectDC Logo" class="xconnect-footer__logo-img" width="160" height="40">
-            </a>
-            <p class="xconnect-footer__description">
-              XConnectDC is a technology-driven infrastructure solutions provider specializing in data center, network, and OPGW connectivity services.
-            </p>
-          </div>
+  <!-- Footer (loaded from includes/footer.html) -->
+  <div id="xconnect-footer-placeholder"></div>
 
-          <div class="xconnect-footer__col">
-            <h4 class="xconnect-footer__heading">Quick Links</h4>
-            <ul class="xconnect-footer__links">
-              <li><a href="index.html" class="xconnect-footer__link">Home</a></li>
-              <li><a href="about.html" class="xconnect-footer__link">About Us</a></li>
-              <li><a href="services.html" class="xconnect-footer__link">Services</a></li>
-              <li><a href="contact.html" class="xconnect-footer__link">Contact</a></li>
-            </ul>
-          </div>
-
-          <div class="xconnect-footer__col">
-            <h4 class="xconnect-footer__heading">Our Services</h4>
-            <ul class="xconnect-footer__links">
-              <li><a href="services.html#data-center" class="xconnect-footer__link">Data Center Solutions</a></li>
-              <li><a href="services.html#opgw" class="xconnect-footer__link">OPGW Connectivity</a></li>
-              <li><a href="services.html#network" class="xconnect-footer__link">Network Infrastructure</a></li>
-              <li><a href="services.html#managed" class="xconnect-footer__link">Managed Services</a></li>
-            </ul>
-          </div>
-
-          <div class="xconnect-footer__col">
-            <h4 class="xconnect-footer__heading">Contact Us</h4>
-            <ul class="xconnect-footer__contact">
-              <li class="xconnect-footer__contact-item">
-                <div class="xconnect-footer__contact-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 256 256">
-                    <path d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z"></path>
-                  </svg>
-                </div>
-                <span>Amaravati, Andhra Pradesh, India</span>
-              </li>
-              <li class="xconnect-footer__contact-item">
-                <div class="xconnect-footer__contact-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 256 256">
-                    <path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"></path>
-                  </svg>
-                </div>
-                <a href="mailto:info@xconnectdc.com">info@xconnectdc.com</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="xconnect-footer__bottom">
-      <div class="xconnect-container">
-        <div class="xconnect-footer__bottom-content">
-          <p class="xconnect-footer__copyright">
-            &copy; <span id="current-year">2024</span> XConnectDC. All rights reserved.
-          </p>
-          <div class="xconnect-footer__legal">
-            <a href="#" class="xconnect-footer__legal-link">Privacy Policy</a>
-            <span class="xconnect-footer__legal-divider">|</span>
-            <a href="#" class="xconnect-footer__legal-link">Terms of Service</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <!-- Contact Popup (loaded from includes/popup.html) -->
+  <div id="xconnect-popup-placeholder"></div>
 
   <!-- Back to Top Button -->
   <button class="xconnect-back-to-top" id="back-to-top" aria-label="Back to top">
@@ -525,22 +404,14 @@
       offset: 50
     });
 
-    // Update copyright year
-    document.getElementById('current-year').textContent = new Date().getFullYear();
+    // Back to top button
+    document.getElementById('back-to-top').addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 
-    // Header scroll behavior
-    const header = document.getElementById('xconnect-header');
-    const navToggle = document.getElementById('xconnect-nav-toggle');
-    const mobileMenu = document.getElementById('xconnect-mobile-menu');
-    const backToTop = document.getElementById('back-to-top');
-
+    // Show/hide back to top button
     window.addEventListener('scroll', function() {
-      if (window.scrollY > 50) {
-        header.classList.add('is-scrolled');
-      } else {
-        header.classList.remove('is-scrolled');
-      }
-
+      var backToTop = document.getElementById('back-to-top');
       if (window.scrollY > 500) {
         backToTop.classList.add('is-visible');
       } else {
@@ -548,64 +419,38 @@
       }
     });
 
-    // Mobile menu toggle
-    navToggle.addEventListener('click', function() {
-      const isOpen = mobileMenu.classList.contains('is-open');
-      if (isOpen) {
-        mobileMenu.classList.remove('is-open');
-        navToggle.classList.remove('is-active');
-        document.body.classList.remove('mobile-menu-open');
-      } else {
-        mobileMenu.classList.add('is-open');
-        navToggle.classList.add('is-active');
-        document.body.classList.add('mobile-menu-open');
-      }
-    });
-
-    // Close mobile menu when clicking links
-    document.querySelectorAll('.xconnect-mobile-menu__link').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('is-open');
-        navToggle.classList.remove('is-active');
-        document.body.classList.remove('mobile-menu-open');
-      });
-    });
-
-    // Back to top button
-    backToTop.addEventListener('click', function() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
     // Contact form handling
-    const contactForm = document.getElementById('contact-form');
-    const formStatus = document.getElementById('form-status');
+    var contactForm = document.getElementById('contact-form');
+    var formStatus = document.getElementById('form-status');
 
-    contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
 
-      const submitBtn = this.querySelector('button[type="submit"]');
-      const originalText = submitBtn.innerHTML;
+        var submitBtn = this.querySelector('button[type="submit"]');
+        var originalText = submitBtn.innerHTML;
 
-      // Show loading state
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '<span>Sending...</span>';
+        // Show loading state
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Sending...</span>';
 
-      // Simulate form submission
-      setTimeout(function() {
-        formStatus.textContent = 'Thank you! Your message has been sent successfully. We\'ll get back to you within 24 hours.';
-        formStatus.className = 'xconnect-form-status xconnect-form-status--success';
-        formStatus.style.display = 'block';
-
-        contactForm.reset();
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalText;
-
-        // Hide success message after 5 seconds
+        // Simulate form submission
         setTimeout(function() {
-          formStatus.style.display = 'none';
-        }, 5000);
-      }, 1500);
-    });
+          formStatus.textContent = 'Thank you! Your message has been sent successfully. We\'ll get back to you within 24 hours.';
+          formStatus.className = 'xconnect-form-status xconnect-form-status--success';
+          formStatus.style.display = 'block';
+
+          contactForm.reset();
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
+
+          // Hide success message after 5 seconds
+          setTimeout(function() {
+            formStatus.style.display = 'none';
+          }, 5000);
+        }, 1500);
+      });
+    }
   </script>
 </body>
 </html>
