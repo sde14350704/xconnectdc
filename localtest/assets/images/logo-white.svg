@@ -1,0 +1,22 @@
+<svg width="180" height="45" viewBox="0 0 180 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Logo Icon - Connected X -->
+  <g>
+    <!-- Circle background -->
+    <circle cx="22" cy="22" r="20" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+
+    <!-- X symbol with connection dots -->
+    <path d="M14 14L22 22M22 22L30 30M22 22L30 14M22 22L14 30" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Connection dots -->
+    <circle cx="14" cy="14" r="2.5" fill="white"/>
+    <circle cx="30" cy="14" r="2.5" fill="white"/>
+    <circle cx="14" cy="30" r="2.5" fill="white"/>
+    <circle cx="30" cy="30" r="2.5" fill="white"/>
+    <circle cx="22" cy="22" r="3" fill="#4da3ff"/>
+  </g>
+
+  <!-- Text: XConnectDC -->
+  <text x="50" y="28" font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif" font-size="20" font-weight="700" fill="#ffffff">
+    <tspan fill="#4da3ff">X</tspan><tspan fill="#ffffff">Connect</tspan><tspan fill="#4da3ff">DC</tspan>
+  </text>
+</svg>

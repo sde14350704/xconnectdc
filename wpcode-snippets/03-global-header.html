@@ -1,0 +1,546 @@
+<!--
+  XConnectDC - Global Header
+  WPCode Snippet: 03-global-header
+  Location: Site Wide Header (After <body> tag)
+  Type: HTML
+
+  Features:
+  - Sticky header with transparent-to-solid transition
+  - Responsive navigation
+  - Mobile hamburger menu
+  - Smooth scroll navigation
+-->
+
+<header class="xconnect-header" id="xconnect-header">
+  <div class="xconnect-header__wrapper">
+    <div class="xconnect-container">
+      <nav class="xconnect-nav">
+        <!-- Logo -->
+        <a href="/" class="xconnect-logo" aria-label="XConnectDC Home">
+          <img
+            src="/wp-content/uploads/2025/12/Your-paragraph-text2.svg"
+            alt="XConnectDC Logo"
+            class="xconnect-logo__image"
+            width="180"
+            height="45"
+          >
+        </a>
+
+        <!-- Desktop Navigation -->
+        <ul class="xconnect-nav__menu" id="xconnect-nav-menu">
+          <li class="xconnect-nav__item">
+            <a href="/" class="xconnect-nav__link" data-nav="home">Home</a>
+          </li>
+          <li class="xconnect-nav__item">
+            <a href="/about" class="xconnect-nav__link" data-nav="about">About</a>
+          </li>
+          <li class="xconnect-nav__item">
+            <a href="/services" class="xconnect-nav__link" data-nav="services">Services</a>
+          </li>
+          <li class="xconnect-nav__item">
+            <a href="/contact" class="xconnect-nav__link" data-nav="contact">Contact</a>
+          </li>
+        </ul>
+
+        <!-- CTA Button -->
+        <div class="xconnect-nav__cta">
+          <a href="/contact" class="xconnect-btn xconnect-btn--primary xconnect-nav__cta-btn">
+            Get in Touch
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button
+          class="xconnect-nav__toggle"
+          id="xconnect-nav-toggle"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="xconnect-mobile-menu"
+        >
+          <span class="xconnect-nav__toggle-bar"></span>
+          <span class="xconnect-nav__toggle-bar"></span>
+          <span class="xconnect-nav__toggle-bar"></span>
+        </button>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="xconnect-mobile-menu" id="xconnect-mobile-menu" aria-hidden="true">
+    <div class="xconnect-mobile-menu__content">
+      <ul class="xconnect-mobile-menu__list">
+        <li class="xconnect-mobile-menu__item">
+          <a href="/" class="xconnect-mobile-menu__link" data-nav="home">Home</a>
+        </li>
+        <li class="xconnect-mobile-menu__item">
+          <a href="/about" class="xconnect-mobile-menu__link" data-nav="about">About</a>
+        </li>
+        <li class="xconnect-mobile-menu__item">
+          <a href="/services" class="xconnect-mobile-menu__link" data-nav="services">Services</a>
+        </li>
+        <li class="xconnect-mobile-menu__item">
+          <a href="/contact" class="xconnect-mobile-menu__link" data-nav="contact">Contact</a>
+        </li>
+      </ul>
+      <div class="xconnect-mobile-menu__cta">
+        <a href="/contact" class="xconnect-btn xconnect-btn--primary xconnect-btn--lg">
+          Get in Touch
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Spacer to prevent content from hiding behind fixed header -->
+<div class="xconnect-header-spacer"></div>
+
+<style>
+/* ==========================================================================
+   HEADER STYLES
+   ========================================================================== */
+
+.xconnect-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-fixed, 300);
+  transition: all var(--transition-base, 250ms ease);
+}
+
+.xconnect-header__wrapper {
+  background-color: transparent;
+  transition: all var(--transition-base, 250ms ease);
+}
+
+/* Scrolled State */
+.xconnect-header.is-scrolled .xconnect-header__wrapper {
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+}
+
+.xconnect-header-spacer {
+  height: var(--header-height, 80px);
+}
+
+/* ==========================================================================
+   NAVIGATION
+   ========================================================================== */
+
+.xconnect-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height, 80px);
+  transition: height var(--transition-base, 250ms ease);
+}
+
+.xconnect-header.is-scrolled .xconnect-nav {
+  height: var(--header-height-scrolled, 70px);
+}
+
+/* Logo */
+.xconnect-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.xconnect-logo__image {
+  height: 40px;
+  width: auto;
+  transition: all var(--transition-base, 250ms ease);
+}
+
+.xconnect-header.is-scrolled .xconnect-logo__image {
+  height: 36px;
+}
+
+/* Navigation Menu */
+.xconnect-nav__menu {
+  display: none;
+  align-items: center;
+  gap: var(--spacing-8, 2rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 1024px) {
+  .xconnect-nav__menu {
+    display: flex;
+  }
+}
+
+.xconnect-nav__item {
+  margin: 0;
+}
+
+.xconnect-nav__link {
+  position: relative;
+  display: inline-block;
+  font-size: var(--font-size-base, 1rem);
+  font-weight: var(--font-weight-medium, 500);
+  color: var(--color-white, #ffffff);
+  text-decoration: none;
+  padding: var(--spacing-2, 0.5rem) 0;
+  transition: color var(--transition-fast, 150ms ease);
+}
+
+.xconnect-header.is-scrolled .xconnect-nav__link {
+  color: var(--color-text-dark, #0f172a);
+}
+
+.xconnect-nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary, #1f6fd2);
+  transition: width var(--transition-base, 250ms ease);
+}
+
+.xconnect-nav__link:hover::after,
+.xconnect-nav__link.is-active::after {
+  width: 100%;
+}
+
+.xconnect-nav__link:hover {
+  color: var(--color-primary-light, #4da3ff);
+}
+
+.xconnect-header.is-scrolled .xconnect-nav__link:hover {
+  color: var(--color-primary, #1f6fd2);
+}
+
+/* Navigation CTA */
+.xconnect-nav__cta {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .xconnect-nav__cta {
+    display: block;
+  }
+}
+
+.xconnect-nav__cta-btn {
+  padding: var(--spacing-2, 0.5rem) var(--spacing-5, 1.25rem);
+  font-size: var(--font-size-sm, 0.875rem);
+}
+
+/* ==========================================================================
+   MOBILE MENU TOGGLE
+   ========================================================================== */
+
+.xconnect-nav__toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+@media (min-width: 1024px) {
+  .xconnect-nav__toggle {
+    display: none;
+  }
+}
+
+.xconnect-nav__toggle-bar {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-white, #ffffff);
+  border-radius: 2px;
+  transition: all var(--transition-base, 250ms ease);
+}
+
+.xconnect-header.is-scrolled .xconnect-nav__toggle-bar {
+  background-color: var(--color-text-dark, #0f172a);
+}
+
+/* Hamburger to X Animation */
+.xconnect-nav__toggle.is-active .xconnect-nav__toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.xconnect-nav__toggle.is-active .xconnect-nav__toggle-bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.xconnect-nav__toggle.is-active .xconnect-nav__toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ==========================================================================
+   MOBILE MENU
+   ========================================================================== */
+
+.xconnect-mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-navy, #0b1d3a);
+  z-index: var(--z-modal, 500);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-slow, 350ms ease);
+}
+
+.xconnect-mobile-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.xconnect-mobile-menu__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: var(--spacing-8, 2rem);
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all var(--transition-slow, 350ms ease) 100ms;
+}
+
+.xconnect-mobile-menu.is-open .xconnect-mobile-menu__content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.xconnect-mobile-menu__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.xconnect-mobile-menu__item {
+  margin-bottom: var(--spacing-6, 1.5rem);
+}
+
+.xconnect-mobile-menu__link {
+  display: inline-block;
+  font-size: var(--font-size-2xl, 1.5rem);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--color-white, #ffffff);
+  text-decoration: none;
+  padding: var(--spacing-2, 0.5rem) var(--spacing-4, 1rem);
+  transition: all var(--transition-fast, 150ms ease);
+}
+
+.xconnect-mobile-menu__link:hover,
+.xconnect-mobile-menu__link.is-active {
+  color: var(--color-primary-light, #4da3ff);
+}
+
+.xconnect-mobile-menu__cta {
+  margin-top: var(--spacing-8, 2rem);
+}
+
+/* ==========================================================================
+   BODY LOCK (when mobile menu is open)
+   ========================================================================== */
+
+body.mobile-menu-open {
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   HERO PAGE HEADER VARIATION
+   For pages with dark hero sections, header starts transparent
+   ========================================================================== */
+
+.xconnect-header--transparent .xconnect-nav__link {
+  color: var(--color-white, #ffffff);
+}
+
+.xconnect-header--transparent.is-scrolled .xconnect-nav__link {
+  color: var(--color-text-dark, #0f172a);
+}
+
+/* ==========================================================================
+   ACTIVE PAGE INDICATOR
+   ========================================================================== */
+
+.xconnect-nav__link.is-active {
+  color: var(--color-primary-light, #4da3ff);
+}
+
+.xconnect-header.is-scrolled .xconnect-nav__link.is-active {
+  color: var(--color-primary, #1f6fd2);
+}
+</style>
+
+<script>
+(function() {
+  'use strict';
+
+  // Wait for DOM to be ready
+  document.addEventListener('DOMContentLoaded', function() {
+    const header = document.getElementById('xconnect-header');
+    const navToggle = document.getElementById('xconnect-nav-toggle');
+    const mobileMenu = document.getElementById('xconnect-mobile-menu');
+    const mobileMenuLinks = document.querySelectorAll('.xconnect-mobile-menu__link');
+    const navLinks = document.querySelectorAll('.xconnect-nav__link, .xconnect-mobile-menu__link');
+
+    if (!header || !navToggle || !mobileMenu) return;
+
+    // ==========================================================================
+    // STICKY HEADER ON SCROLL
+    // ==========================================================================
+
+    let lastScrollY = 0;
+    let ticking = false;
+
+    function updateHeader() {
+      const scrollY = window.scrollY;
+
+      if (scrollY > 50) {
+        header.classList.add('is-scrolled');
+      } else {
+        header.classList.remove('is-scrolled');
+      }
+
+      lastScrollY = scrollY;
+      ticking = false;
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        window.requestAnimationFrame(updateHeader);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Initial check
+    updateHeader();
+
+    // ==========================================================================
+    // MOBILE MENU TOGGLE
+    // ==========================================================================
+
+    function toggleMobileMenu() {
+      const isOpen = mobileMenu.classList.contains('is-open');
+
+      if (isOpen) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
+    }
+
+    function openMobileMenu() {
+      mobileMenu.classList.add('is-open');
+      navToggle.classList.add('is-active');
+      navToggle.setAttribute('aria-expanded', 'true');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('mobile-menu-open');
+    }
+
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('is-open');
+      navToggle.classList.remove('is-active');
+      navToggle.setAttribute('aria-expanded', 'false');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('mobile-menu-open');
+    }
+
+    navToggle.addEventListener('click', toggleMobileMenu);
+
+    // Close mobile menu when clicking a link
+    mobileMenuLinks.forEach(function(link) {
+      link.addEventListener('click', function() {
+        closeMobileMenu();
+      });
+    });
+
+    // Close mobile menu on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('is-open')) {
+        closeMobileMenu();
+      }
+    });
+
+    // Close mobile menu on resize (if screen becomes large)
+    window.addEventListener('resize', function() {
+      if (window.innerWidth >= 1024 && mobileMenu.classList.contains('is-open')) {
+        closeMobileMenu();
+      }
+    });
+
+    // ==========================================================================
+    // ACTIVE PAGE INDICATOR
+    // ==========================================================================
+
+    function setActiveNav() {
+      const currentPath = window.location.pathname;
+
+      navLinks.forEach(function(link) {
+        const href = link.getAttribute('href');
+
+        // Remove trailing slashes for comparison
+        const cleanPath = currentPath.replace(/\/$/, '') || '/';
+        const cleanHref = href.replace(/\/$/, '') || '/';
+
+        if (cleanPath === cleanHref) {
+          link.classList.add('is-active');
+        } else {
+          link.classList.remove('is-active');
+        }
+      });
+    }
+
+    setActiveNav();
+
+    // ==========================================================================
+    // SMOOTH SCROLL FOR ANCHOR LINKS
+    // ==========================================================================
+
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+
+        if (targetId === '#') return;
+
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+          e.preventDefault();
+
+          const headerHeight = header.offsetHeight;
+          const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
+
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+
+          // Close mobile menu if open
+          closeMobileMenu();
+        }
+      });
+    });
+
+  });
+})();
+</script>

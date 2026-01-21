@@ -1,0 +1,740 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Contact XConnectDC for IT consulting, network infrastructure, cybersecurity, cloud, and</head> managed IT services."
+    />
+    <title>Contact | XConnectDC</title>
+
+    <!-- Shared CSS (mir</title>rors localtest/index.html) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/global.css" />
+    <link rel="stylesheet" href="./css/components.css" />
+
+    <!-- AOS (optional, used in WPCode plan) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+    <!-- Contact-specific styles (kept minimal; relies on global tokens) -->
+    <style>
+      .xconnect</style>-contact-hero {
+        position: relative;
+        min-height: 45vh;
+        display: flex;
+        align-items: center;
+        padding: calc(var(--header-height, 80px) + var(--spacing-16, 4rem)) 0 var(--spacing-14, 3.5rem);
+        overflow: hidden;
+        margin-top: calc(-1 * var(--header-height, 80px));
+      }
+
+      .xconnect-contact-hero__bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+      }
+
+      .xconnect-contact-hero__bg-gradient {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          var(--color-navy, #0b1d3a) 0%,
+          #0e2544 40%,
+          #123054 70%,
+          var(--color-primary-dark, #1a5fb5) 100%
+        );
+      }
+
+      .xconnect-contact-hero__bg-pattern {
+        position: absolute;
+        inset: 0;
+        background-image:
+          radial-gradient(circle at 20% 80%, rgba(77, 163, 255, 0.08) 0%, transparent 40%),
+          radial-gradient(circle at 80% 20%, rgba(31, 111, 210, 0.08) 0%, transparent 40%);
+      }
+
+      .xconnect-contact-hero__content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        max-width: 850px;
+        margin: 0 auto;
+      }
+
+      .xconnect-contact-hero__badge {
+        display: inline-flex;
+        align-items: center;
+        background: rgba(77, 163, 255, 0.15);
+        border: 1px solid rgba(77, 163, 255, 0.3);
+        color: var(--color-primary-light, #4da3ff);
+        padding: var(--spacing-2, 0.5rem) var(--spacing-5, 1.25rem);
+        border-radius: var(--radius-full, 9999px);
+        font-size: var(--font-size-sm, 0.875rem);
+        font-weight: var(--font-weight-semibold, 600);
+        text-transform: uppercase;
+        letter-spacing: var(--letter-spacing-wider, 0.05em);
+        margin-bottom: var(--spacing-6, 1.5rem);
+      }
+
+      .xconnect-contact-hero__title {
+        font-size: var(--font-size-5xl, clamp(2.25rem, 2rem + 2.5vw, 3.25rem));
+        font-weight: var(--font-weight-bold, 700);
+        line-height: var(--line-height-tight, 1.2);
+        color: var(--color-white, #ffffff);
+        margin: 0 0 var(--spacing-6, 1.5rem) 0;
+        letter-spacing: var(--letter-spacing-tight, -0.025em);
+      }
+
+      .xconnect-contact-hero__title-highlight {
+        background: linear-gradient(135deg, var(--color-primary-light, #4da3ff) 0%, #ffffff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .xconnect-contact-hero__text {
+        font-size: var(--font-size-lg, 1.125rem);
+        line-height: var(--line-height-relaxed, 1.625);
+        color: rgba(255, 255, 255, 0.85);
+        margin: 0;
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .xconnect-contact {
+        background: var(--color-white, #ffffff);
+      }
+
+      .xconnect-contact__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--spacing-10, 2.5rem);
+        align-items: start;
+      }
+
+      @media (min-width: 1024px) {
+        .xconnect-contact__grid {
+          grid-template-columns: 1.2fr 0.8fr;
+          gap: var(--spacing-16, 4rem);
+        }
+      }
+
+      .xconnect-contact-form {
+        background: var(--color-white, #ffffff);
+        border: 1px solid var(--color-border-light, #e2e8f0);
+        border-radius: var(--radius-xl, 1rem);
+        padding: var(--spacing-8, 2rem);
+        box-shadow: var(--shadow-sm, 0 1px 2px rgba(0, 0, 0, 0.06));
+      }
+
+      .xconnect-contact-form__head h2 {
+        margin: 0 0 var(--spacing-2, 0.5rem) 0;
+      }
+
+      .xconnect-contact-form__head p {
+        margin: 0 0 var(--spacing-6, 1.5rem) 0;
+        color: var(--color-text-muted, #475569);
+      }
+
+      .xconnect-form-row {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--spacing-4, 1rem);
+      }
+
+      @media (min-width: 768px) {
+        .xconnect-form-row {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .xconnect-contact-aside {
+        display: grid;
+        gap: var(--spacing-8, 2rem);
+      }
+
+      .xconnect-contact-card {
+        background: var(--color-white, #ffffff);
+        border: 1px solid var(--color-border-light, #e2e8f0);
+        border-radius: var(--radius-xl, 1rem);
+        padding: var(--spacing-8, 2rem);
+        box-shadow: var(--shadow-sm, 0 1px 2px rgba(0, 0, 0, 0.06));
+      }
+
+      .xconnect-contact-item {
+        display: grid;
+        grid-template-columns: 40px 1fr;
+        gap: var(--spacing-4, 1rem);
+        padding: var(--spacing-4, 1rem) 0;
+        border-top: 1px solid var(--color-border-light, #f1f5f9);
+      }
+
+      .xconnect-contact-item:first-child {
+        border-top: none;
+        padding-top: 0;
+      }
+
+      .xconnect-contact-item__icon {
+        width: 40px;
+        height: 40px;
+        display: grid;
+        place-items: center;
+        border-radius: var(--radius-lg, 0.75rem);
+        background: rgba(31, 111, 210, 0.08);
+        color: var(--color-primary, #1f6fd2);
+      }
+
+      .xconnect-contact-item h4 {
+        margin: 0;
+        font-size: var(--font-size-base, 1rem);
+      }
+
+      .xconnect-contact-item p {
+        margin: var(--spacing-1, 0.25rem) 0 0 0;
+        color: var(--color-text-muted, #475569);
+      }
+
+      .xconnect-contact-item a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .xconnect-contact-item a:hover {
+        color: var(--color-primary, #1f6fd2);
+        text-decoration: underline;
+      }
+
+      .xconnect-contact-social {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-3, 0.75rem);
+        margin-top: var(--spacing-4, 1rem);
+      }
+
+      .xconnect-contact-social a {
+        width: 40px;
+        height: 40px;
+        display: grid;
+        place-items: center;
+        border-radius: var(--radius-lg, 0.75rem);
+        border: 1px solid var(--color-border-light, #e2e8f0);
+        color: var(--color-text-body, #334155);
+        background: var(--color-white, #fff);
+        transition: transform var(--transition-base, 250ms ease), border-color var(--transition-base, 250ms ease),
+          color var(--transition-base, 250ms ease);
+      }
+
+      .xconnect-contact-social a:hover {
+        transform: translateY(-2px);
+        border-color: rgba(31, 111, 210, 0.35);
+        color: var(--color-primary, #1f6fd2);
+      }
+
+      .xconnect-contact-cta {
+        background: linear-gradient(135deg, var(--color-navy, #0b1d3a) 0%, var(--color-primary-dark, #1a5fb5) 100%);
+        color: var(--color-white, #ffffff);
+        border-radius: var(--radius-2xl, 1.5rem);
+        padding: var(--spacing-10, 2.5rem);
+        text-align: left;
+      }
+
+      .xconnect-contact-cta h3 {
+        margin: 0 0 var(--spacing-2, 0.5rem) 0;
+        color: var(--color-white, #ffffff);
+      }
+
+      .xconnect-contact-cta p {
+        margin: 0 0 var(--spacing-6, 1.5rem) 0;
+        color: rgba(255, 255, 255, 0.85);
+      }
+
+      @media (max-width: 767px) {
+        .xconnect-contact-hero__title br {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body></body>
+    <!-- Shared Header -->
+    <header class="xconnect-header" role="banner">
+      <div class="xconnect-container xconnect-header__container">
+        <div class="xconnect-header__inner">
+          <nav class="xconnect-nav" aria-label="Primary navigation">
+            <a class="xconnect-nav__brand" href="./index.html" aria-label="XConnectDC Home">
+              <img
+                src="./assets/images/logo.svg"
+                alt="XConnectDC"
+                width="160"
+                height="40"
+                loading="eager"
+                decoding="async"
+              />
+            </a>
+
+            <ul class="xconnect-nav__links" role="list">
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./about.html">About</a></li>
+              <li><a href="./services.html">Services</a></li>
+              <li><a href="./contact.html" aria-current="page">Contact</a></li>
+            </ul>
+
+            <div class="xconnect-nav__cta">
+              <a class="xconnect-btn xconnect-btn--primary xconnect-btn--sm" href="./contact.html">Get a Quote</a>
+            </div>
+
+            <button class="xconnect-nav__toggle" type="button" aria-label="Toggle mobile menu" aria-expanded="false">
+              <span></span><span></span><span></span>
+            </button>
+          </nav>
+        </div>
+      </div>
+
+      <div class="xconnect-mobile-menu" hidden></div>
+        <div class="xconnect-container xconnect-mobile-menu__container">
+          <ul class="xconnect-mobile-menu__links" role="list">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./services.html">Services</a></li>
+            <li><a href="./contact.html" aria-current="page">Contact</a></li>
+          </ul>
+
+          <div class="xconnect-mobile-menu__cta">
+            <a class="xconnect-btn xconnect-btn--primary xconnect-btn--lg" href="./contact.html">Get a Quote</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="xconnect-header-spacer" aria-hidden="true"></div>
+
+    <main id="main-content">
+      <!-- Contact Hero (aligned to WPCode contact snippet: 15-contact-page.html) -->
+      <section class="xconnect-contact-hero xconnect-section xconnect-section--dark" data-aos="fade-up">
+        <div class="xconnect-contact-hero__bg" aria-hidden="true">
+          <div class="xconnect-contact-hero__bg-gradient"></div>
+          <div class="xconnect-contact-hero__bg-pattern"></div>
+        </div>
+
+        <div class="xconnect-container xconnect-contact-hero__content">
+          <div class="xconnect-contact-hero__badge">
+            <span>Contact</</span>span>
+          </div>
+
+          <h1 class="xconnect-contact-hero__title">
+            Let’s talk about
+            <br />
+            <span class="xconnect-contact-hero__title-highlight">your IT goals</span>
+          </h1>
+
+          <p class="xconnect-contact-hero__text">
+            Share a few details and we’ll respond with next steps. If you prefer, call or email us directly.
+          </p>
+        </div>
+      </section>
+
+      <!-- Contact Body -->
+      <section class="xconnect-contact xconnect-section">
+        <div class="xconnect-container">
+          <div class="xconnect-contact__grid">
+            <!-- Form (mirrors WPCode 15-contact-page.html structure closely) -->
+            <div class="xconnect-contact-form xconnect-card" data-aos="fade-up">
+              <div class="xconnect-contact-form__head">
+                <h2>Send</h2> us a message</h2>
+                <p>We</p> typically reply within 1 business day.</p>
+              </div>
+
+              <form class="xconnect-form" action="#" method="post" novalidate></form>
+                <div class="xconnect-form-row">
+                  <div class="xconnect-form-group">
+                    <label class="xconnect-label" for="contact-name">
+                      <span>Name</span>
+                    </label>
+                    <input
+                      class="xconnect-input"
+                      id="contact-name"
+                      name="name"
+                      type="text"
+                      autocomplete="name"
+                      placeholder="Your name"
+                      required
+                    />
+                  </div>
+
+                  <div class="xconnect-form-group">
+                    <label class="xconnect-label" for="contact-company">Company</label>
+                    <input
+                      class="xconnect-input"
+                      id="contact-company"
+                      name="company"
+                      type="text"
+                      autocomplete="organization"
+                      placeholder="Company name"
+                    />
+                  </div>
+                </div>
+
+                <div class="xconnect-form-row">
+                  <div class="xconnect-form-group">
+                    <label class="xconnect-label" for="contact-email">
+                      <span>Email</span>
+                    </label>
+                    <input
+                      class="xconnect-input"
+                      id="contact-email"
+                      name="email"
+                      type="email"
+                      autocomplete="email"
+                      placeholder="you@company.com"
+                      required
+                    />
+                  </div>
+
+                  <div class="xconnect-form-group">
+                    <label class="xconnect-label" for="contact-phone">Phone</label>
+                    <input
+                      class="xconnect-input"
+                      id="contact-phone"
+                      name="phone"
+                      type="tel"
+                      autocomplete="tel"
+                      placeholder="+1 (___) ___-____"
+                    />
+                  </div>
+                </div>
+
+                <div class="xconnect-form-group">
+                  <label class="xconnect-label" for="contact-service">How can we help?</label>
+                  <select class="xconnect-select" id="contact-service" name="service">
+                    <option value="">Select a service</option>
+                    <option value="it-consulting">IT Consulting & Strategy</option>
+                    <option value="network">Network Infrastructure</option>
+                    <option value="cybersecurity">Cybersecurity</option>
+                    <option value="cloud">Cloud & Collaboration</option>
+                    <option value="managed-it">Managed IT Services</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+
+                <div class="xconnect-form-group">
+                  <label class="xconnect-label" for="contact-message">
+                    <span>Message</span></span>
+                  </label>
+                  <textarea
+                    class="xconnect-textarea"
+                    id="contact-message"
+                    name="message"
+                    rows="5"
+                    placeholder="Tell us about your goals, timeline, and current environment..."
+                    required
+                  ></textarea>
+                </div>
+
+                <!-- Status placeholder (optional) -->
+                <div class="xconnect-form-status" aria-live="polite"></div>
+
+                <button class="xconnect-btn xconnect-btn--primary xconnect-btn--lg" type="submit">
+                  <span></span>Send message</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path
+                      d="M5 12h14M13 5l7 7-7 7"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </form>
+            </div>
+
+            <!-- Contact details + social -->
+            <aside class="xconnect-contact-aside" aria-label="Contact details">
+              <div class="xconnect-contact-card" data-aos="fade-up">
+                <h3 class="h3" style="margin: 0 0 var(--spacing-6, 1.5rem) 0">Contact information</h3>
+
+                <div class="xconnect-contact-item">
+                  <div class="xconnect-contact-item__icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M12 21s7-4.4 7-11a7 7 0 10-14 0c0 6.6 7 11 7 11z"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      />
+                      <path d="M12 10.5a2 2 0 110-4 2 2 0 010 4z" fill="currentColor" />
+                    </svg>
+                  </div>
+                  <div></div>
+                    <h4>Location</h4></h4>
+                    <p>Washington, DC</</p>p>
+                  </div>
+                </div>
+
+                <div class="xconnect-contact-item">
+                  <div class="xconnect-contact-item__icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.6 19.6 0 01-6-6A19.8 19.8 0 012 4.2 2 2 0 014 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.6a2 2 0 01-.4 2.1L8.6 9.6a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.4c.8.3 1.7.5 2.6.6a2 2 0 011.7 2.3z"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <div></div>
+                    <h4>Phone</</h4>h4>
+                    <p><a href="tel:+12025550123">+1 (202) 555-0123</a></p>
+                  </div>
+                </div>
+
+                <div class="xconnect-contact-item">
+                  <div class="xconnect-contact-item__icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                      <path d="M4 4h16v16H4V4z" stroke="currentColor" stroke-width="2" />
+                      <path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+                    </svg>
+                  </div>
+                  <div></div>
+                    <h4>Email</h4>
+                    <p><a href="mailto:info@xconnectdc.com">info@xconnectdc.com</a></p>
+                  </div>
+                </div>
+
+                <div class="xconnect-contact-item">
+                  <div class="xconnect-contact-item__icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 8v4l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                      <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h</div>4>Hours</h4>
+                    <p>Mon–Fri</p>: 9:00am–6:00pm</p>
+                  </div>
+                </div>
+
+                <div style="margin-top: var(--spacing-6, 1.5rem)">
+                  <h4 style="margin: 0 0 var(--spacing-3, 0.75rem) 0">Follow</h4>
+                  <div class="xconnect-contact-social" aria-label="Social links">
+                    <a href="#" aria-label="LinkedIn" rel="noopener noreferrer">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path
+                          d="M6.5 9.5V19H3.5V9.5h3zM5 8.2A1.8 1.8 0 115 4.6a1.8 1.8 0 010 3.6zM20.5 19h-3v-5.3c0-1.3-.5-2.2-1.7-2.2-1 0-1.5.7-1.8 1.3-.1.2-.1.6-.1.9V19h-3s.04-8.3 0-9.5h3v1.3c.4-.6 1.2-1.5 3-1.5 2.2 0 3.7 1.4 3.7 4.4V19z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </a>
+                    <a href="#" aria-label="Twitter/X" rel="noopener noreferrer">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path
+                          d="M18.6 2H22l-7.4 8.5L23 22h-6.6l-5.2-6.8L5.3 22H2l8-9.2L1 2h6.7l4.7 6.2L18.6 2zm-1.2 18h1.9L6.6 3.9H4.6L17.4 20z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </a>
+                    <a href="#" aria-label="YouTube" rel="noopener noreferrer">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path
+                          d="M21.8 7.2s-.2-1.5-.9-2.2c-.9-.9-2-.9-2.5-1C15.9 3.6 12 3.6 12 3.6h0s-3.9 0-6.4.4c-.5.1-1.6.1-2.5 1-.7.7-.9 2.2-.9 2.2S2 9 2 10.8v1.7c0 1.8.2 3.6.2 3.6s.2 1.5.9 2.2c.9.9 2.1.9 2.6 1 1.9.2 8.3.4 8.3.4s3.9 0 6.4-.4c.5-.1 1.6-.1 2.5-1 .7-.7.9-2.2.9-2.2s.2-1.8.2-3.6v-1.7C22 9 21.8 7.2 21.8 7.2zM10 14.9V8.6l6 3.2-6 3.1z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </a>
+                    <a href="#" aria-label="Email" rel="noopener noreferrer">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M4 4h16v16H4V4z" stroke="currentColor" stroke-width="2" />
+                        <path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CTA (aligned to WPCode contact CTA section) -->
+              <div class="xconnect-contact-cta" data-aos="fade-up">
+                <div aria-hidden="true" style="margin-bottom: var(--spacing-4, 1rem); display: inline-flex">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M5 12h14M13 5l7 7-7 7"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <h3>Prefer</h3> a quick call?</h3>
+                <p>Share your requirements and we</p>’ll recommend a practical plan.</p>
+                <a class="xconnect-btn xconnect-btn--white xconnect-btn--lg" href="tel:+12025550123">
+                  <span></span>Call us now</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path
+                      d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.6 19.6 0 01-6-6A19.8 19.8 0 012 4.2 2 2 0 014 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.6a2 2 0 01-.4 2.1L8.6 9.6a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.4c.8.3 1.7.5 2.6.6a2 2 0 011.7 2.3z"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Shared Footer -->
+    <footer class="xconnect-footer" role="contentinfo">
+      <div class="xconnect-container">
+        <div class="xconnect-footer__grid">
+          <div class="xconnect-footer__brand">
+            <a href="./index.html" aria-label="XConnectDC Home">
+              <img
+                src="./assets/images/logo-white.svg"
+                alt="XConnectDC"
+                width="160"
+                height="40"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+            <p>Enterprise-grade IT</p> solutions and consulting for organizations that need reliability, security, and clarity.</p>
+            <div class="xconnect-footer__social" aria-label="Social links">
+              <a href="#" aria-label="LinkedIn" rel="noopener noreferrer">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M6.5 9.5V19H3.5V9.5h3zM5 8.2A1.8 1.8 0 115 4.6a1.8 1.8 0 010 3.6zM20.5 19h-3v-5.3c0-1.3-.5-2.2-1.7-2.2-1 0-1.5.7-1.8 1.3-.1.2-.1.6-.1.9V19h-3s.04-8.3 0-9.5h3v1.3c.4-.6 1.2-1.5 3-1.5 2.2 0 3.7 1.4 3.7 4.4V19z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </a>
+              <a href="#" aria-label="Twitter/X" rel="noopener noreferrer">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M18.6 2H22l-7.4 8.5L23 22h-6.6l-5.2-6.8L5.3 22H2l8-9.2L1 2h6.7l4.7 6.2L18.6 2zm-1.2 18h1.9L6.6 3.9H4.6L17.4 20z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </a>
+              <a href="#" aria-label="YouTube" rel="noopener noreferrer">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M21.8 7.2s-.2-1.5-.9-2.2c-.9-.9-2-.9-2.5-1C15.9 3.6 12 3.6 12 3.6h0s-3.9 0-6.4.4c-.5.1-1.6.1-2.5 1-.7.7-.9 2.2-.9 2.2S2 9 2 10.8v1.7c0 1.8.2 3.6.2 3.6s.2 1.5.9 2.2c.9.9 2.1.9 2.6 1 1.9.2 8.3.4 8.3.4s3.9 0 6.4-.4c.5-.1 1.6-.1 2.5-1 .7-.7.9-2.2.9-2.2s.2-1.8.2-3.6v-1.7C22 9 21.8 7.2 21.8 7.2zM10 14.9V8.6l6 3.2-6 3.1z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="xconnect-footer__col">
+            <h4>Company</h</h4>4>
+            <ul role="list">
+              <li><a href="./about.html">About</a></li>
+              <li><a href="./services.html">Services</a></li>
+              <li><a href="./contact.html">Contact</a></li>
+              <li><a href="./index.html#industries">Industries</a></li>
+            </ul>
+          </div>
+
+          <div class="xconnect-footer__col">
+            <h4>Services</h4>
+            <ul role="list</h4>">
+              <li><a href="./services.html">IT Consulting</a></li>
+              <li><a href="./services.html">Network Infrastructure</a></li>
+              <li><a href="./services.html">Cybersecurity</a></li>
+              <li><a href="./services.html">Cloud Solutions</a></li>
+              <li><a href="./services.html">Managed IT</a></li>
+              <li><a href="./services.html">Project Delivery</a></li>
+            </ul>
+          </div>
+
+          <div class="xconnect-footer__col">
+            <h4>Contact</h</h4>4>
+            <ul role="list" class="xconnect-footer__contact">
+              <li>
+                <div aria-hidden="true">
+                  <svg width</li>="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 21s7-4.4 7-11a7 7 0 10-14 0c0 6.6 7 11 7 11z" stroke="currentColor" stroke-width="2" />
+                    <path d="M12 10.5a2 2 0 110-4 2 2 0 010 4z" fill="currentColor" />
+                  </svg>
+                </div>
+                <span>Washington, DC</span></span>
+              </li>
+              <li>
+                <div aria-hidden</li>="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.6 19.6 0 01-6-6A19.8 19.8 0 012 4.2 2 2 0 014 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.6a2 2 0 01-.4 2.1L8.6 9.6a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.4c.8.3 1.7.5 2.6.6a2 2 0 011.7 2.3z"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <a href="tel:+12025550123">+1 (202) 555-0123</a>
+              </li>
+              <li>
+                <</li>div aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 4h16v16H4V4z" stroke="currentColor" stroke-width="2" />
+                    <path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <a href="mailto:info@xconnectdc.com">info@xconnectdc.com</a>
+              </li>
+              <li>
+                <div aria-hidden="</li>true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 8v4l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" />
+                  </svg>
+                </div>
+                <span>Mon–Fri: 9:00am–6:</span>00pm</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="xconnect-footer__bottom">
+          <p>© <span id</p>="year"></span> XConnectDC. All rights reserved.</p>
+          <div class="xconnect-footer__legal">
+            <a href="#">Privacy</a>
+            <span aria-hidden="true">•</span>
+            <a href="#">Terms</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <button class="xconnect-back-to-top" type="button" aria-label="Back to top">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 5l7 7H5l7-7z" fill="currentColor" />
+      </svg>
+    </button>
+
+    <!-- Shared JS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="./js/main.js"></script>
+    <script>
+      if (</script>window.AOS) {
+        window.AOS.init({
+          once: true,
+          duration: 700,
+          easing: "ease-out-cubic",
+          offset: 80,
+        });
+      }
+    </script>
+  </body>
+</html>

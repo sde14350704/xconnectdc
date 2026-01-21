@@ -1,0 +1,547 @@
+<!--
+  XConnectDC - Home Page Hero Section
+  WPCode Snippet: 05-home-hero
+  Location: Page-specific (Shortcode or Auto Insert on Home)
+  Type: HTML
+
+  Features:
+  - Dark gradient background with animated elements
+  - Headline and subtext with fade-up animations
+  - CTA buttons
+  - Decorative background patterns
+  - Fully responsive design
+-->
+
+<section class="xconnect-hero" id="hero">
+  <!-- Background Elements -->
+  <div class="xconnect-hero__bg">
+    <div class="xconnect-hero__bg-gradient"></div>
+    <div class="xconnect-hero__bg-pattern"></div>
+    <div class="xconnect-hero__bg-glow xconnect-hero__bg-glow--1"></div>
+    <div class="xconnect-hero__bg-glow xconnect-hero__bg-glow--2"></div>
+    <!-- Animated Grid Lines -->
+    <div class="xconnect-hero__grid-lines">
+      <div class="xconnect-hero__grid-line"></div>
+      <div class="xconnect-hero__grid-line"></div>
+      <div class="xconnect-hero__grid-line"></div>
+      <div class="xconnect-hero__grid-line"></div>
+    </div>
+  </div>
+
+  <!-- Hero Content -->
+  <div class="xconnect-container">
+    <div class="xconnect-hero__content">
+      <!-- Badge -->
+      <div class="xconnect-hero__badge" data-aos="fade-down" data-aos-delay="0">
+        <span class="xconnect-hero__badge-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256">
+            <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path>
+          </svg>
+        </span>
+        <span>Enterprise-Grade Infrastructure</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="xconnect-hero__title" data-aos="fade-up" data-aos-delay="100">
+        Reliable Data Center &<br>
+        <span class="xconnect-hero__title-highlight">Network Infrastructure</span> Solutions
+      </h1>
+
+      <!-- Subtext -->
+      <p class="xconnect-hero__subtitle" data-aos="fade-up" data-aos-delay="200">
+        Empowering enterprises with secure, scalable, and high-availability connectivity.
+        From world-class data centers and cloud services to GPU computing, telecom,
+        and networking — we help businesses move faster with confidence.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="xconnect-hero__cta" data-aos="fade-up" data-aos-delay="300">
+        <a href="/services" class="xconnect-btn xconnect-btn--primary xconnect-btn--lg">
+          <span>Explore Solutions</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256">
+            <path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"></path>
+          </svg>
+        </a>
+        <a href="/contact" class="xconnect-btn xconnect-btn--outline-white xconnect-btn--lg">
+          <span>Contact Us</span>
+        </a>
+      </div>
+
+      <!-- Trust Indicators -->
+      <div class="xconnect-hero__trust" data-aos="fade-up" data-aos-delay="400">
+        <div class="xconnect-hero__trust-item">
+          <span class="xconnect-hero__trust-number">99.999%</span>
+          <span class="xconnect-hero__trust-label">Uptime SLA</span>
+        </div>
+        <div class="xconnect-hero__trust-divider"></div>
+        <div class="xconnect-hero__trust-item">
+          <span class="xconnect-hero__trust-number">14,941</span>
+          <span class="xconnect-hero__trust-label">KM Fiber Network</span>
+        </div>
+        <div class="xconnect-hero__trust-divider"></div>
+        <div class="xconnect-hero__trust-item">
+          <span class="xconnect-hero__trust-number">50MW</span>
+          <span class="xconnect-hero__trust-label">Data Center Capacity</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="xconnect-hero__scroll" data-aos="fade-up" data-aos-delay="500">
+    <a href="#what-we-do" class="xconnect-hero__scroll-link" aria-label="Scroll to next section">
+      <span class="xconnect-hero__scroll-text">Scroll to explore</span>
+      <div class="xconnect-hero__scroll-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+          <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm37.66-101.66a8,8,0,0,1-11.32,11.32L136,107.31V168a8,8,0,0,1-16,0V107.31l-18.34,18.35a8,8,0,0,1-11.32-11.32l32-32a8,8,0,0,1,11.32,0Z" transform="rotate(180 128 128)"></path>
+        </svg>
+      </div>
+    </a>
+  </div>
+</section>
+
+<style>
+/* ==========================================================================
+   HERO SECTION STYLES
+   ========================================================================== */
+
+.xconnect-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: calc(var(--header-height, 80px) + var(--spacing-12, 3rem)) 0 var(--spacing-12, 3rem);
+  overflow: hidden;
+  margin-top: calc(-1 * var(--header-height, 80px));
+}
+
+/* ==========================================================================
+   BACKGROUND ELEMENTS
+   ========================================================================== */
+
+.xconnect-hero__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.xconnect-hero__bg-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    var(--color-navy, #0b1d3a) 0%,
+    #0d2647 25%,
+    #102a4c 50%,
+    #0f3460 75%,
+    var(--color-primary-dark, #1a5fb5) 100%
+  );
+}
+
+.xconnect-hero__bg-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(77, 163, 255, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(31, 111, 210, 0.05) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234da3ff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+
+/* Glowing Orbs */
+.xconnect-hero__bg-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.4;
+  animation: heroGlow 8s ease-in-out infinite;
+}
+
+.xconnect-hero__bg-glow--1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(31, 111, 210, 0.6) 0%, transparent 70%);
+  top: -200px;
+  right: -100px;
+  animation-delay: 0s;
+}
+
+.xconnect-hero__bg-glow--2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(77, 163, 255, 0.5) 0%, transparent 70%);
+  bottom: -150px;
+  left: -100px;
+  animation-delay: 4s;
+}
+
+@keyframes heroGlow {
+  0%, 100% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.1) translate(20px, -20px);
+    opacity: 0.6;
+  }
+}
+
+/* Animated Grid Lines */
+.xconnect-hero__grid-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.xconnect-hero__grid-line {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, rgba(77, 163, 255, 0.2), transparent);
+  height: 1px;
+  width: 100%;
+  animation: gridLineMove 20s linear infinite;
+}
+
+.xconnect-hero__grid-line:nth-child(1) {
+  top: 20%;
+  animation-delay: 0s;
+}
+
+.xconnect-hero__grid-line:nth-child(2) {
+  top: 40%;
+  animation-delay: 5s;
+}
+
+.xconnect-hero__grid-line:nth-child(3) {
+  top: 60%;
+  animation-delay: 10s;
+}
+
+.xconnect-hero__grid-line:nth-child(4) {
+  top: 80%;
+  animation-delay: 15s;
+}
+
+@keyframes gridLineMove {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   HERO CONTENT
+   ========================================================================== */
+
+.xconnect-hero__content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Badge */
+.xconnect-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2, 0.5rem);
+  background: rgba(77, 163, 255, 0.15);
+  border: 1px solid rgba(77, 163, 255, 0.3);
+  color: var(--color-primary-light, #4da3ff);
+  padding: var(--spacing-2, 0.5rem) var(--spacing-4, 1rem);
+  border-radius: var(--radius-full, 9999px);
+  font-size: var(--font-size-sm, 0.875rem);
+  font-weight: var(--font-weight-medium, 500);
+  margin-bottom: var(--spacing-6, 1.5rem);
+}
+
+.xconnect-hero__badge-icon {
+  display: flex;
+  color: var(--color-success, #10b981);
+}
+
+/* Title */
+.xconnect-hero__title {
+  font-size: var(--font-size-5xl, clamp(2.75rem, 2rem + 3.75vw, 4rem));
+  font-weight: var(--font-weight-extrabold, 800);
+  line-height: var(--line-height-tight, 1.2);
+  color: var(--color-white, #ffffff);
+  margin-bottom: var(--spacing-6, 1.5rem);
+  letter-spacing: var(--letter-spacing-tight, -0.025em);
+}
+
+.xconnect-hero__title-highlight {
+  background: linear-gradient(135deg, var(--color-primary-light, #4da3ff) 0%, var(--color-primary, #1f6fd2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Subtitle */
+.xconnect-hero__subtitle {
+  font-size: var(--font-size-lg, 1.125rem);
+  line-height: var(--line-height-relaxed, 1.625);
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 700px;
+  margin: 0 auto var(--spacing-8, 2rem);
+}
+
+/* CTA Buttons */
+.xconnect-hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-4, 1rem);
+  margin-bottom: var(--spacing-12, 3rem);
+}
+
+/* Trust Indicators */
+.xconnect-hero__trust {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-6, 1.5rem);
+  padding-top: var(--spacing-8, 2rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.xconnect-hero__trust-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.xconnect-hero__trust-number {
+  font-size: var(--font-size-2xl, 1.5rem);
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--color-white, #ffffff);
+  line-height: 1;
+  margin-bottom: var(--spacing-1, 0.25rem);
+}
+
+.xconnect-hero__trust-label {
+  font-size: var(--font-size-sm, 0.875rem);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.xconnect-hero__trust-divider {
+  display: none;
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+@media (min-width: 640px) {
+  .xconnect-hero__trust-divider {
+    display: block;
+  }
+}
+
+/* ==========================================================================
+   SCROLL INDICATOR
+   ========================================================================== */
+
+.xconnect-hero__scroll {
+  position: absolute;
+  bottom: var(--spacing-8, 2rem);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.xconnect-hero__scroll-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-2, 0.5rem);
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: color var(--transition-fast, 150ms ease);
+}
+
+.xconnect-hero__scroll-link:hover {
+  color: var(--color-white, #ffffff);
+}
+
+.xconnect-hero__scroll-text {
+  font-size: var(--font-size-xs, 0.75rem);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wider, 0.05em);
+}
+
+.xconnect-hero__scroll-icon {
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================================================== */
+
+@media (max-width: 767px) {
+  .xconnect-hero {
+    min-height: auto;
+    padding-top: calc(var(--header-height, 80px) + var(--spacing-16, 4rem));
+    padding-bottom: var(--spacing-20, 5rem);
+  }
+
+  .xconnect-hero__title {
+    font-size: clamp(2rem, 8vw, 2.75rem);
+  }
+
+  .xconnect-hero__title br {
+    display: none;
+  }
+
+  .xconnect-hero__subtitle {
+    font-size: var(--font-size-base, 1rem);
+  }
+
+  .xconnect-hero__cta {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .xconnect-hero__cta .xconnect-btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+
+  .xconnect-hero__trust {
+    flex-direction: column;
+    gap: var(--spacing-4, 1rem);
+  }
+
+  .xconnect-hero__scroll {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .xconnect-hero__title {
+    font-size: clamp(2.5rem, 6vw, 3.25rem);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .xconnect-hero__title {
+    color: #ffffff;
+  }
+
+  .xconnect-hero__subtitle {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .xconnect-hero__badge {
+    border-color: var(--color-primary-light, #4da3ff);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .xconnect-hero__bg-glow,
+  .xconnect-hero__grid-line,
+  .xconnect-hero__scroll-icon {
+    animation: none;
+  }
+}
+</style>
+
+<script>
+(function() {
+  'use strict';
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // Parallax effect on scroll (subtle)
+    const hero = document.querySelector('.xconnect-hero');
+    const bgGlows = document.querySelectorAll('.xconnect-hero__bg-glow');
+
+    if (hero && bgGlows.length > 0 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      let ticking = false;
+
+      function updateParallax() {
+        const scrollY = window.scrollY;
+        const heroHeight = hero.offsetHeight;
+
+        if (scrollY < heroHeight) {
+          const progress = scrollY / heroHeight;
+
+          bgGlows.forEach(function(glow, index) {
+            const direction = index % 2 === 0 ? 1 : -1;
+            const translateY = progress * 50 * direction;
+            glow.style.transform = `translateY(${translateY}px)`;
+          });
+        }
+
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          window.requestAnimationFrame(updateParallax);
+          ticking = true;
+        }
+      }, { passive: true });
+    }
+
+    // Smooth scroll for anchor link
+    const scrollLink = document.querySelector('.xconnect-hero__scroll-link');
+
+    if (scrollLink) {
+      scrollLink.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+          e.preventDefault();
+          const headerHeight = document.querySelector('.xconnect-header')?.offsetHeight || 80;
+          const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
+
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    }
+  });
+})();
+</script>

@@ -1,0 +1,879 @@
+/*
+  XConnectDC - Components CSS
+  Contains styles for: Header, Footer, Navigation, and UI Components
+*/
+
+/* ==========================================================================
+   HEADER STYLES
+   ========================================================================== */
+
+.xconnect-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-fixed, 300);
+  transition: all var(--transition-base, 250ms ease);
+}
+
+.xconnect-header__wrapper {
+  background-color: transparent;
+  transition: all var(--transition-base, 250ms ease);
+}
+
+/* Scrolled State */
+.xconnect-header.is-scrolled .xconnect-header__wrapper {
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+}
+
+.xconnect-header-spacer {
+  height: var(--header-height, 80px);
+}
+
+/* ==========================================================================
+   NAVIGATION
+   ========================================================================== */
+
+.xconnect-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height, 80px);
+  transition: height var(--transition-base, 250ms ease);
+}
+
+.xconnect-header.is-scrolled .xconnect-nav {
+  height: var(--header-height-scrolled, 70px);
+}
+
+/* Logo */
+.xconnect-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.xconnect-logo__image {
+  height: 40px;
+  width: auto;
+  transition: all var(--transition-base, 250ms ease);
+}
+
+.xconnect-header.is-scrolled .xconnect-logo__image {
+  height: 36px;
+}
+
+/* Navigation Menu */
+.xconnect-nav__menu {
+  display: none;
+  align-items: center;
+  gap: var(--spacing-8, 2rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 1024px) {
+  .xconnect-nav__menu {
+    display: flex;
+  }
+}
+
+.xconnect-nav__item {
+  margin: 0;
+}
+
+.xconnect-nav__link {
+  position: relative;
+  display: inline-block;
+  font-size: var(--font-size-base, 1rem);
+  font-weight: var(--font-weight-medium, 500);
+  color: var(--color-white, #ffffff);
+  text-decoration: none;
+  padding: var(--spacing-2, 0.5rem) 0;
+  transition: color var(--transition-fast, 150ms ease);
+}
+
+.xconnect-header.is-scrolled .xconnect-nav__link {
+  color: var(--color-text-dark, #0f172a);
+}
+
+.xconnect-nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary, #1f6fd2);
+  transition: width var(--transition-base, 250ms ease);
+}
+
+.xconnect-nav__link:hover::after,
+.xconnect-nav__link.is-active::after {
+  width: 100%;
+}
+
+.xconnect-nav__link:hover {
+  color: var(--color-primary-light, #4da3ff);
+}
+
+.xconnect-header.is-scrolled .xconnect-nav__link:hover {
+  color: var(--color-primary, #1f6fd2);
+}
+
+.xconnect-nav__link.is-active {
+  color: var(--color-primary-light, #4da3ff);
+}
+
+.xconnect-header.is-scrolled .xconnect-nav__link.is-active {
+  color: var(--color-primary, #1f6fd2);
+}
+
+/* Navigation CTA */
+.xconnect-nav__cta {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .xconnect-nav__cta {
+    display: block;
+  }
+}
+
+.xconnect-nav__cta-btn {
+  padding: var(--spacing-2, 0.5rem) var(--spacing-5, 1.25rem);
+  font-size: var(--font-size-sm, 0.875rem);
+}
+
+/* ==========================================================================
+   MOBILE MENU TOGGLE
+   ========================================================================== */
+
+.xconnect-nav__toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+@media (min-width: 1024px) {
+  .xconnect-nav__toggle {
+    display: none;
+  }
+}
+
+.xconnect-nav__toggle-bar {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-white, #ffffff);
+  border-radius: 2px;
+  transition: all var(--transition-base, 250ms ease);
+}
+
+.xconnect-header.is-scrolled .xconnect-nav__toggle-bar {
+  background-color: var(--color-text-dark, #0f172a);
+}
+
+/* Hamburger to X Animation */
+.xconnect-nav__toggle.is-active .xconnect-nav__toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.xconnect-nav__toggle.is-active .xconnect-nav__toggle-bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.xconnect-nav__toggle.is-active .xconnect-nav__toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ==========================================================================
+   MOBILE MENU
+   ========================================================================== */
+
+.xconnect-mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-navy, #0b1d3a);
+  z-index: var(--z-modal, 500);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-slow, 350ms ease);
+}
+
+.xconnect-mobile-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.xconnect-mobile-menu__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: var(--spacing-8, 2rem);
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all var(--transition-slow, 350ms ease) 100ms;
+}
+
+.xconnect-mobile-menu.is-open .xconnect-mobile-menu__content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.xconnect-mobile-menu__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.xconnect-mobile-menu__item {
+  margin-bottom: var(--spacing-6, 1.5rem);
+}
+
+.xconnect-mobile-menu__link {
+  display: inline-block;
+  font-size: var(--font-size-2xl, 1.5rem);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--color-white, #ffffff);
+  text-decoration: none;
+  padding: var(--spacing-2, 0.5rem) var(--spacing-4, 1rem);
+  transition: all var(--transition-fast, 150ms ease);
+}
+
+.xconnect-mobile-menu__link:hover,
+.xconnect-mobile-menu__link.is-active {
+  color: var(--color-primary-light, #4da3ff);
+}
+
+.xconnect-mobile-menu__cta {
+  margin-top: var(--spacing-8, 2rem);
+}
+
+/* Body Lock (when mobile menu is open) */
+body.mobile-menu-open {
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   FOOTER STYLES
+   ========================================================================== */
+
+.xconnect-footer {
+  background-color: var(--color-navy, #0b1d3a);
+  color: var(--color-text-inverse, #ffffff);
+}
+
+.xconnect-footer__main {
+  padding-top: var(--spacing-16, 4rem);
+  padding-bottom: var(--spacing-12, 3rem);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.xconnect-footer__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-10, 2.5rem);
+}
+
+@media (min-width: 640px) {
+  .xconnect-footer__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .xconnect-footer__grid {
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: var(--spacing-12, 3rem);
+  }
+}
+
+/* Footer Logo */
+.xconnect-footer__logo {
+  display: inline-block;
+  margin-bottom: var(--spacing-5, 1.25rem);
+}
+
+.xconnect-footer__logo-img {
+  height: 40px;
+  width: auto;
+}
+
+.xconnect-footer__description {
+  font-size: var(--font-size-sm, 0.875rem);
+  color: rgba(255, 255, 255, 0.7);
+  line-height: var(--line-height-relaxed, 1.625);
+  margin-bottom: var(--spacing-6, 1.5rem);
+  max-width: 320px;
+}
+
+/* Social Links */
+.xconnect-footer__social {
+  display: flex;
+  gap: var(--spacing-3, 0.75rem);
+}
+
+.xconnect-footer__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md, 0.5rem);
+  color: var(--color-white, #ffffff);
+  transition: all var(--transition-base, 250ms ease);
+}
+
+.xconnect-footer__social-link:hover {
+  background-color: var(--color-primary, #1f6fd2);
+  color: var(--color-white, #ffffff);
+  transform: translateY(-2px);
+}
+
+/* Footer Headings */
+.xconnect-footer__heading {
+  font-size: var(--font-size-base, 1rem);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--color-white, #ffffff);
+  margin-bottom: var(--spacing-5, 1.25rem);
+  letter-spacing: var(--letter-spacing-wide, 0.025em);
+}
+
+/* Footer Links */
+.xconnect-footer__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.xconnect-footer__links li {
+  margin-bottom: var(--spacing-3, 0.75rem);
+}
+
+.xconnect-footer__links li:last-child {
+  margin-bottom: 0;
+}
+
+.xconnect-footer__link {
+  display: inline-block;
+  font-size: var(--font-size-sm, 0.875rem);
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: all var(--transition-fast, 150ms ease);
+  position: relative;
+}
+
+.xconnect-footer__link::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-primary-light, #4da3ff);
+  transition: width var(--transition-base, 250ms ease);
+}
+
+.xconnect-footer__link:hover {
+  color: var(--color-white, #ffffff);
+}
+
+.xconnect-footer__link:hover::before {
+  width: 100%;
+}
+
+/* Contact Items */
+.xconnect-footer__contact {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.xconnect-footer__contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-3, 0.75rem);
+  margin-bottom: var(--spacing-4, 1rem);
+  font-size: var(--font-size-sm, 0.875rem);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.xconnect-footer__contact-item:last-child {
+  margin-bottom: 0;
+}
+
+.xconnect-footer__contact-item a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color var(--transition-fast, 150ms ease);
+}
+
+.xconnect-footer__contact-item a:hover {
+  color: var(--color-white, #ffffff);
+}
+
+.xconnect-footer__contact-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--color-primary-light, #4da3ff);
+  margin-top: 1px;
+}
+
+/* Footer Bottom Bar */
+.xconnect-footer__bottom {
+  padding: var(--spacing-6, 1.5rem) 0;
+}
+
+.xconnect-footer__bottom-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-4, 1rem);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .xconnect-footer__bottom-content {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.xconnect-footer__copyright {
+  font-size: var(--font-size-sm, 0.875rem);
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+.xconnect-footer__legal {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3, 0.75rem);
+}
+
+.xconnect-footer__legal-link {
+  font-size: var(--font-size-sm, 0.875rem);
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: color var(--transition-fast, 150ms ease);
+}
+
+.xconnect-footer__legal-link:hover {
+  color: var(--color-white, #ffffff);
+}
+
+.xconnect-footer__legal-divider {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* ==========================================================================
+   BACK TO TOP BUTTON
+   ========================================================================== */
+
+.xconnect-back-to-top {
+  position: fixed;
+  bottom: var(--spacing-6, 1.5rem);
+  right: var(--spacing-6, 1.5rem);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary, #1f6fd2);
+  color: var(--color-white, #ffffff);
+  border: none;
+  border-radius: var(--radius-full, 9999px);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all var(--transition-base, 250ms ease);
+  z-index: var(--z-fixed, 300);
+  box-shadow: var(--shadow-lg);
+}
+
+.xconnect-back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.xconnect-back-to-top:hover {
+  background-color: var(--color-primary-dark, #1a5fb5);
+  transform: translateY(-3px);
+}
+
+.xconnect-back-to-top:focus {
+  outline: 2px solid var(--color-primary-light, #4da3ff);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   SERVICE CARDS (What We Do Section)
+   ========================================================================== */
+
+.xconnect-service-card {
+  background-color: var(--color-white, #ffffff);
+  border-radius: var(--radius-xl, 1rem);
+  padding: var(--spacing-8, 2rem);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--color-border-light, #f1f5f9);
+  transition: all var(--transition-base, 250ms ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.xconnect-service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary, #1f6fd2), var(--color-accent, #4da3ff));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-base, 250ms ease);
+}
+
+.xconnect-service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+.xconnect-service-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Icon */
+.xconnect-service-card__icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-primary, #1f6fd2) 0%, var(--color-accent, #4da3ff) 100%);
+  border-radius: var(--radius-lg, 0.75rem);
+  margin-bottom: var(--spacing-5, 1.25rem);
+  color: var(--color-white, #ffffff);
+  box-shadow: 0 4px 14px rgba(31, 111, 210, 0.3);
+  transition: all var(--transition-base, 250ms ease);
+}
+
+.xconnect-service-card:hover .xconnect-service-card__icon {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(31, 111, 210, 0.4);
+}
+
+/* Title */
+.xconnect-service-card__title {
+  font-size: var(--font-size-lg, 1.125rem);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--color-text-dark, #0f172a);
+  margin-bottom: var(--spacing-3, 0.75rem);
+  line-height: var(--line-height-tight, 1.2);
+}
+
+/* Text */
+.xconnect-service-card__text {
+  font-size: var(--font-size-sm, 0.875rem);
+  color: var(--color-text-muted, #475569);
+  line-height: var(--line-height-relaxed, 1.625);
+  margin-bottom: var(--spacing-5, 1.25rem);
+}
+
+/* Link */
+.xconnect-service-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2, 0.5rem);
+  font-size: var(--font-size-sm, 0.875rem);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--color-primary, #1f6fd2);
+  text-decoration: none;
+  transition: all var(--transition-fast, 150ms ease);
+}
+
+.xconnect-service-card__link svg {
+  transition: transform var(--transition-fast, 150ms ease);
+}
+
+.xconnect-service-card__link:hover {
+  color: var(--color-primary-dark, #1a5fb5);
+}
+
+.xconnect-service-card__link:hover svg {
+  transform: translate(3px, -3px);
+}
+
+/* ==========================================================================
+   INDUSTRY CARDS
+   ========================================================================== */
+
+.xconnect-industry-card {
+  position: relative;
+  border-radius: var(--radius-xl, 1rem);
+  overflow: hidden;
+  background-color: var(--color-white, #ffffff);
+  border: 1px solid var(--color-border-light, #f1f5f9);
+  transition: all var(--transition-base, 250ms ease);
+  min-height: 280px;
+}
+
+.xconnect-industry-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -10px rgba(11, 29, 58, 0.15);
+  border-color: var(--color-primary, #1f6fd2);
+}
+
+/* Background Gradient Overlay */
+.xconnect-industry-card__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 50%,
+    rgba(11, 29, 58, 0.02) 100%
+  );
+  opacity: 0;
+  transition: opacity var(--transition-base, 250ms ease);
+  z-index: 0;
+}
+
+.xconnect-industry-card:hover .xconnect-industry-card__bg {
+  opacity: 1;
+}
+
+/* Content */
+.xconnect-industry-card__content {
+  position: relative;
+  z-index: 1;
+  padding: var(--spacing-6, 1.5rem);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Icon */
+.xconnect-industry-card__icon {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(31, 111, 210, 0.1) 0%, rgba(77, 163, 255, 0.1) 100%);
+  border-radius: var(--radius-lg, 0.75rem);
+  margin-bottom: var(--spacing-5, 1.25rem);
+  color: var(--color-primary, #1f6fd2);
+  transition: all var(--transition-base, 250ms ease);
+}
+
+.xconnect-industry-card:hover .xconnect-industry-card__icon {
+  background: linear-gradient(135deg, var(--color-primary, #1f6fd2) 0%, var(--color-accent, #4da3ff) 100%);
+  color: var(--color-white, #ffffff);
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(31, 111, 210, 0.3);
+}
+
+/* Title */
+.xconnect-industry-card__title {
+  font-size: var(--font-size-lg, 1.125rem);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--color-text-dark, #0f172a);
+  margin: 0 0 var(--spacing-3, 0.75rem) 0;
+  line-height: var(--line-height-tight, 1.2);
+}
+
+/* Text */
+.xconnect-industry-card__text {
+  font-size: var(--font-size-sm, 0.875rem);
+  color: var(--color-text-muted, #475569);
+  line-height: var(--line-height-relaxed, 1.625);
+  margin: 0 0 var(--spacing-4, 1rem) 0;
+  flex-grow: 1;
+}
+
+/* Features Tags */
+.xconnect-industry-card__features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2, 0.5rem);
+  margin-top: auto;
+}
+
+.xconnect-industry-card__feature {
+  display: inline-block;
+  padding: var(--spacing-1, 0.25rem) var(--spacing-3, 0.75rem);
+  font-size: var(--font-size-xs, 0.75rem);
+  font-weight: var(--font-weight-medium, 500);
+  color: var(--color-primary, #1f6fd2);
+  background-color: rgba(31, 111, 210, 0.08);
+  border-radius: var(--radius-full, 9999px);
+  transition: all var(--transition-fast, 150ms ease);
+}
+
+.xconnect-industry-card:hover .xconnect-industry-card__feature {
+  background-color: rgba(31, 111, 210, 0.15);
+}
+
+/* ==========================================================================
+   FORM VALIDATION STATES
+   ========================================================================== */
+
+.xconnect-input.is-valid,
+.xconnect-textarea.is-valid,
+.xconnect-select.is-valid {
+  border-color: var(--color-success, #10b981);
+}
+
+.xconnect-input.is-invalid,
+.xconnect-textarea.is-invalid,
+.xconnect-select.is-invalid {
+  border-color: var(--color-error, #ef4444);
+}
+
+.xconnect-form-status {
+  display: none;
+  padding: var(--spacing-3, 0.75rem) var(--spacing-4, 1rem);
+  border-radius: var(--radius-md, 0.5rem);
+  font-size: var(--font-size-sm, 0.875rem);
+  margin-bottom: var(--spacing-4, 1rem);
+}
+
+.xconnect-form-status--success {
+  display: block;
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--color-success, #10b981);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.xconnect-form-status--error {
+  display: block;
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--color-error, #ef4444);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* ==========================================================================
+   ACCESSIBILITY
+   ========================================================================== */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+body.using-mouse *:focus {
+  outline: none;
+}
+
+.reduced-motion *,
+.reduced-motion *::before,
+.reduced-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+/* ==========================================================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================================================== */
+
+@media (max-width: 639px) {
+  .xconnect-service-card {
+    padding: var(--spacing-6, 1.5rem);
+  }
+
+  .xconnect-service-card__icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .xconnect-service-card__icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .xconnect-industry-card {
+    min-height: auto;
+  }
+
+  .xconnect-industry-card__content {
+    padding: var(--spacing-5, 1.25rem);
+  }
+
+  .xconnect-industry-card__icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .xconnect-industry-card__icon svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* ==========================================================================
+   REDUCED MOTION SUPPORT
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .xconnect-service-card,
+  .xconnect-service-card::before,
+  .xconnect-service-card__icon,
+  .xconnect-service-card__link svg,
+  .xconnect-industry-card,
+  .xconnect-industry-card__icon,
+  .xconnect-industry-card__feature,
+  .xconnect-industry-card__bg,
+  .xconnect-footer__social-link,
+  .xconnect-back-to-top {
+    transition: none;
+  }
+
+  .xconnect-service-card:hover,
+  .xconnect-industry-card:hover {
+    transform: none;
+  }
+
+  .xconnect-service-card:hover .xconnect-service-card__icon,
+  .xconnect-industry-card:hover .xconnect-industry-card__icon {
+    transform: none;
+  }
+}

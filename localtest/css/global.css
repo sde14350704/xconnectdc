@@ -1,0 +1,882 @@
+/*
+  XConnectDC - Global CSS Base & Design System
+  WPCode Snippet: 02-global-css-base
+  Location: Site Wide Header
+  Type: CSS
+
+  This file contains:
+  - CSS Custom Properties (Design Tokens)
+  - Base Reset & Typography
+  - Utility Classes
+  - Component Base Styles
+  - Animation Keyframes
+  - Responsive Breakpoints
+*/
+
+/* ==========================================================================
+   1. CSS CUSTOM PROPERTIES (DESIGN TOKENS)
+   ========================================================================== */
+
+:root {
+  /* Brand Colors */
+  --color-primary: #1f6fd2;
+  --color-primary-dark: #1a5fb5;
+  --color-primary-light: #4da3ff;
+  --color-navy: #0b1d3a;
+  --color-navy-light: #132844;
+  --color-accent: #4da3ff;
+
+  /* Neutral Colors */
+  --color-white: #ffffff;
+  --color-background: #f7f9fc;
+  --color-background-alt: #eef2f7;
+  --color-border: #e2e8f0;
+  --color-border-light: #f1f5f9;
+
+  /* Text Colors */
+  --color-text-dark: #0f172a;
+  --color-text-body: #334155;
+  --color-text-muted: #475569;
+  --color-text-light: #64748b;
+  --color-text-inverse: #ffffff;
+
+  /* Semantic Colors */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+
+  /* Typography */
+  --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  --font-family-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Font Sizes - Fluid Typography */
+  --font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.8rem);
+  --font-size-sm: clamp(0.875rem, 0.8rem + 0.35vw, 0.95rem);
+  --font-size-base: clamp(1rem, 0.95rem + 0.25vw, 1.0625rem);
+  --font-size-lg: clamp(1.125rem, 1rem + 0.5vw, 1.25rem);
+  --font-size-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+  --font-size-2xl: clamp(1.5rem, 1.25rem + 1.25vw, 2rem);
+  --font-size-3xl: clamp(1.875rem, 1.5rem + 1.875vw, 2.5rem);
+  --font-size-4xl: clamp(2.25rem, 1.75rem + 2.5vw, 3.25rem);
+  --font-size-5xl: clamp(2.75rem, 2rem + 3.75vw, 4rem);
+
+  /* Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* Line Heights */
+  --line-height-tight: 1.2;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 1.75;
+
+  /* Letter Spacing */
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.025em;
+  --letter-spacing-wider: 0.05em;
+
+  /* Spacing Scale */
+  --spacing-0: 0;
+  --spacing-1: 0.25rem;   /* 4px */
+  --spacing-2: 0.5rem;    /* 8px */
+  --spacing-3: 0.75rem;   /* 12px */
+  --spacing-4: 1rem;      /* 16px */
+  --spacing-5: 1.25rem;   /* 20px */
+  --spacing-6: 1.5rem;    /* 24px */
+  --spacing-8: 2rem;      /* 32px */
+  --spacing-10: 2.5rem;   /* 40px */
+  --spacing-12: 3rem;     /* 48px */
+  --spacing-16: 4rem;     /* 64px */
+  --spacing-20: 5rem;     /* 80px */
+  --spacing-24: 6rem;     /* 96px */
+  --spacing-32: 8rem;     /* 128px */
+
+  /* Layout */
+  --container-max: 1200px;
+  --container-wide: 1400px;
+  --container-narrow: 800px;
+  --section-padding-y: clamp(3rem, 5vw, 5rem);
+  --section-padding-x: clamp(1rem, 3vw, 2rem);
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;   /* 4px */
+  --radius-md: 0.5rem;    /* 8px */
+  --radius-lg: 0.75rem;   /* 12px */
+  --radius-xl: 1rem;      /* 16px */
+  --radius-2xl: 1.5rem;   /* 24px */
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+  --shadow-glow: 0 0 20px rgba(31, 111, 210, 0.3);
+  --shadow-glow-lg: 0 0 40px rgba(31, 111, 210, 0.4);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 350ms ease;
+  --transition-slower: 500ms ease;
+
+  /* Z-Index Scale */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-popover: 600;
+  --z-tooltip: 700;
+
+  /* Header Height */
+  --header-height: 80px;
+  --header-height-scrolled: 70px;
+}
+
+/* Dark Mode Support (Optional) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Uncomment to enable auto dark mode */
+    /* --color-background: #0b1d3a;
+    --color-text-dark: #f7f9fc;
+    --color-text-body: #e2e8f0; */
+  }
+}
+
+/* ==========================================================================
+   2. CSS RESET & BASE STYLES
+   ========================================================================== */
+
+/* Box Sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margins */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  scroll-behavior: smooth;
+}
+
+/* Core body defaults */
+body {
+  min-height: 100vh;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-body);
+  background-color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Remove list styles */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   3. TYPOGRAPHY
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text-dark);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+h1, .h1 {
+  font-size: var(--font-size-5xl);
+  font-weight: var(--font-weight-extrabold);
+}
+
+h2, .h2 {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+}
+
+h3, .h3 {
+  font-size: var(--font-size-3xl);
+}
+
+h4, .h4 {
+  font-size: var(--font-size-2xl);
+}
+
+h5, .h5 {
+  font-size: var(--font-size-xl);
+}
+
+h6, .h6 {
+  font-size: var(--font-size-lg);
+}
+
+p {
+  margin-bottom: var(--spacing-4);
+  line-height: var(--line-height-relaxed);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+strong, b {
+  font-weight: var(--font-weight-semibold);
+}
+
+/* ==========================================================================
+   4. LAYOUT & CONTAINERS
+   ========================================================================== */
+
+.xconnect-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--section-padding-x);
+  padding-right: var(--section-padding-x);
+}
+
+.xconnect-container--wide {
+  max-width: var(--container-wide);
+}
+
+.xconnect-container--narrow {
+  max-width: var(--container-narrow);
+}
+
+.xconnect-section {
+  padding-top: var(--section-padding-y);
+  padding-bottom: var(--section-padding-y);
+}
+
+.xconnect-section--dark {
+  background-color: var(--color-navy);
+  color: var(--color-text-inverse);
+}
+
+.xconnect-section--dark h1,
+.xconnect-section--dark h2,
+.xconnect-section--dark h3,
+.xconnect-section--dark h4,
+.xconnect-section--dark h5,
+.xconnect-section--dark h6 {
+  color: var(--color-white);
+}
+
+.xconnect-section--light {
+  background-color: var(--color-background);
+}
+
+.xconnect-section--gradient {
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 50%, var(--color-primary-dark) 100%);
+  color: var(--color-text-inverse);
+}
+
+/* ==========================================================================
+   5. BUTTONS
+   ========================================================================== */
+
+.xconnect-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-3) var(--spacing-6);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  white-space: nowrap;
+}
+
+.xconnect-btn:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.xconnect-btn--primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+}
+
+.xconnect-btn--primary:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.xconnect-btn--secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.xconnect-btn--secondary:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.xconnect-btn--white {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  border-color: var(--color-white);
+}
+
+.xconnect-btn--white:hover {
+  background-color: var(--color-background);
+  border-color: var(--color-background);
+  color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.xconnect-btn--outline-white {
+  background-color: transparent;
+  color: var(--color-white);
+  border-color: var(--color-white);
+}
+
+.xconnect-btn--outline-white:hover {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+}
+
+.xconnect-btn--lg {
+  padding: var(--spacing-4) var(--spacing-8);
+  font-size: var(--font-size-lg);
+}
+
+.xconnect-btn--sm {
+  padding: var(--spacing-2) var(--spacing-4);
+  font-size: var(--font-size-sm);
+}
+
+/* ==========================================================================
+   6. CARDS
+   ========================================================================== */
+
+.xconnect-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-6);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+  border: 1px solid var(--color-border-light);
+}
+
+.xconnect-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+.xconnect-card--dark {
+  background-color: var(--color-navy-light);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.xconnect-card__icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--spacing-4);
+  color: var(--color-white);
+  font-size: 1.5rem;
+}
+
+.xconnect-card__title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-3);
+  color: var(--color-text-dark);
+}
+
+.xconnect-card__text {
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
+}
+
+/* ==========================================================================
+   7. GRID SYSTEM
+   ========================================================================== */
+
+.xconnect-grid {
+  display: grid;
+  gap: var(--spacing-6);
+}
+
+.xconnect-grid--2 {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.xconnect-grid--3 {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.xconnect-grid--4 {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@media (min-width: 640px) {
+  .xconnect-grid--2,
+  .xconnect-grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .xconnect-grid--3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .xconnect-grid--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .xconnect-grid--4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ==========================================================================
+   8. SECTION HEADERS
+   ========================================================================== */
+
+.xconnect-section-header {
+  text-align: center;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--spacing-12);
+}
+
+.xconnect-section-header--left {
+  text-align: left;
+  margin-left: 0;
+}
+
+.xconnect-eyebrow {
+  display: inline-block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wider);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-3);
+}
+
+.xconnect-section-header__title {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-4);
+}
+
+.xconnect-section-header__subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
+}
+
+/* ==========================================================================
+   9. BADGES & TAGS
+   ========================================================================== */
+
+.xconnect-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  padding: var(--spacing-1) var(--spacing-3);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+.xconnect-badge--primary {
+  background-color: rgba(31, 111, 210, 0.1);
+  color: var(--color-primary);
+}
+
+.xconnect-badge--success {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--color-success);
+}
+
+/* ==========================================================================
+   10. FORM ELEMENTS
+   ========================================================================== */
+
+.xconnect-form-group {
+  margin-bottom: var(--spacing-5);
+}
+
+.xconnect-label {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-2);
+}
+
+.xconnect-input,
+.xconnect-textarea,
+.xconnect-select {
+  width: 100%;
+  padding: var(--spacing-3) var(--spacing-4);
+  font-size: var(--font-size-base);
+  color: var(--color-text-dark);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.xconnect-input:focus,
+.xconnect-textarea:focus,
+.xconnect-select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(31, 111, 210, 0.15);
+}
+
+.xconnect-input::placeholder,
+.xconnect-textarea::placeholder {
+  color: var(--color-text-light);
+}
+
+.xconnect-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.xconnect-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23475569' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+/* ==========================================================================
+   11. UTILITY CLASSES
+   ========================================================================== */
+
+/* Text Alignment */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+/* Text Colors */
+.text-primary { color: var(--color-primary); }
+.text-dark { color: var(--color-text-dark); }
+.text-muted { color: var(--color-text-muted); }
+.text-white { color: var(--color-white); }
+
+/* Background Colors */
+.bg-white { background-color: var(--color-white); }
+.bg-light { background-color: var(--color-background); }
+.bg-navy { background-color: var(--color-navy); }
+.bg-primary { background-color: var(--color-primary); }
+
+/* Flexbox */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.gap-2 { gap: var(--spacing-2); }
+.gap-4 { gap: var(--spacing-4); }
+.gap-6 { gap: var(--spacing-6); }
+.gap-8 { gap: var(--spacing-8); }
+
+/* Spacing */
+.mt-0 { margin-top: 0; }
+.mt-4 { margin-top: var(--spacing-4); }
+.mt-6 { margin-top: var(--spacing-6); }
+.mt-8 { margin-top: var(--spacing-8); }
+.mb-0 { margin-bottom: 0; }
+.mb-4 { margin-bottom: var(--spacing-4); }
+.mb-6 { margin-bottom: var(--spacing-6); }
+.mb-8 { margin-bottom: var(--spacing-8); }
+
+/* Display */
+.hidden { display: none; }
+.block { display: block; }
+.inline-block { display: inline-block; }
+
+/* Responsive Display */
+@media (min-width: 768px) {
+  .md\:block { display: block; }
+  .md\:hidden { display: none; }
+  .md\:flex { display: flex; }
+}
+
+@media (min-width: 1024px) {
+  .lg\:block { display: block; }
+  .lg\:hidden { display: none; }
+  .lg\:flex { display: flex; }
+}
+
+/* ==========================================================================
+   12. ANIMATION KEYFRAMES
+   ========================================================================== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Animation Utilities */
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Animation Delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* ==========================================================================
+   13. SCROLLBAR STYLING
+   ========================================================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-text-light);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   14. SELECTION STYLING
+   ========================================================================== */
+
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* ==========================================================================
+   15. WORDPRESS/ELEMENTOR OVERRIDES
+   ========================================================================== */
+
+/* Remove Elementor default widget spacing */
+.elementor-widget:not(:last-child) {
+  margin-bottom: 0;
+}
+
+/* Ensure full-width sections work */
+.elementor-section.elementor-section-full_width {
+  max-width: 100%;
+}
+
+/* Override Elementor default colors where needed */
+.elementor-section {
+  /* Remove default Elementor padding if causing issues */
+}
+
+/* Ensure WPCode snippets display correctly */
+[data-wpcode-snippet] {
+  display: block;
+  width: 100%;
+}
+
+/* ==========================================================================
+   16. PRINT STYLES
+   ========================================================================== */
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+
+  .xconnect-header,
+  .xconnect-footer,
+  .xconnect-btn {
+    display: none;
+  }
+}
