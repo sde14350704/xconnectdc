@@ -89,14 +89,72 @@
     loadSharedComponents().then(initializeApp);
   }
 
+  /**
+   * Initialize header scroll behavior and mobile menu
+   */
+  function initHeaderBehavior() {
+    var header = document.getElementById('xconnect-header');
+    var navToggle = document.getElementById('xconnect-nav-toggle');
+    var mobileMenu = document.getElementById('xconnect-mobile-menu');
+
+    if (!header) return;
+
+    // Header scroll behavior - add white background and dark logo when scrolled
+    function updateHeaderOnScroll() {
+      if (window.scrollY > 50) {
+        header.classList.add('is-scrolled');
+      } else {
+        header.classList.remove('is-scrolled');
+      }
+    }
+
+    // Initial check on page load
+    updateHeaderOnScroll();
+
+    // Update on scroll
+    window.addEventListener('scroll', updateHeaderOnScroll, { passive: true });
+
+    // Mobile menu toggle
+    if (navToggle && mobileMenu) {
+      navToggle.addEventListener('click', function() {
+        var isOpen = mobileMenu.classList.contains('is-open');
+        if (isOpen) {
+          mobileMenu.classList.remove('is-open');
+          navToggle.classList.remove('is-active');
+          navToggle.setAttribute('aria-expanded', 'false');
+          document.body.classList.remove('mobile-menu-open');
+        } else {
+          mobileMenu.classList.add('is-open');
+          navToggle.classList.add('is-active');
+          navToggle.setAttribute('aria-expanded', 'true');
+          document.body.classList.add('mobile-menu-open');
+        }
+      });
+
+      // Close mobile menu when clicking links
+      var mobileMenuLinks = document.querySelectorAll('.xconnect-mobile-menu__link');
+      mobileMenuLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.remove('is-open');
+          navToggle.classList.remove('is-active');
+          navToggle.setAttribute('aria-expanded', 'false');
+          document.body.classList.remove('mobile-menu-open');
+        });
+      });
+    }
+  }
+
   function initializeApp() {
+    // Initialize header behavior after components are loaded
+    initHeaderBehavior();
     // Call all initialization functions after components are loaded
     initMain();
   }
 
   window.XConnectDCLoader = {
     loadSharedComponents: loadSharedComponents,
-    setActiveNavLink: setActiveNavLink
+    setActiveNavLink: setActiveNavLink,
+    initHeaderBehavior: initHeaderBehavior
   };
 })();
 
