@@ -63,6 +63,23 @@
   transition: all var(--transition-base, 250ms ease);
 }
 
+/* Logo swap on scroll - show light logo by default, dark when scrolled */
+.xconnect-logo__image--light {
+  display: block;
+}
+
+.xconnect-logo__image--dark {
+  display: none;
+}
+
+.xconnect-header.is-scrolled .xconnect-logo__image--light {
+  display: none;
+}
+
+.xconnect-header.is-scrolled .xconnect-logo__image--dark {
+  display: block;
+}
+
 .xconnect-header.is-scrolled .xconnect-logo__image {
   height: 36px;
 }
