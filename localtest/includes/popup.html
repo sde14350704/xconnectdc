@@ -1,0 +1,45 @@
+<!-- XConnectDC - Contact Popup for First-Time Visitors -->
+<div id="xconnect-contact-popup" class="xconnect-contact-popup" role="dialog" aria-labelledby="popup-title" aria-modal="true">
+  <div class="xconnect-contact-popup__overlay"></div>
+  <div class="xconnect-contact-popup__container">
+    <button class="xconnect-contact-popup__close" aria-label="Close popup">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256">
+        <path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path>
+      </svg>
+    </button>
+    <div class="xconnect-contact-popup__header">
+      <div class="xconnect-contact-popup__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256">
+          <path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"></path>
+        </svg>
+      </div>
+      <h2 id="popup-title" class="xconnect-contact-popup__title">Get in Touch With Us</h2>
+      <p class="xconnect-contact-popup__subtitle">Let us know how we can help you with your infrastructure needs</p>
+    </div>
+    <div class="xconnect-contact-popup__body">
+      <form class="xconnect-contact-popup__form">
+        <div class="xconnect-contact-popup__field">
+          <label class="xconnect-contact-popup__label" for="popup_name">Full Name <span>*</span></label>
+          <input type="text" id="popup_name" name="popup_name" class="xconnect-contact-popup__input" placeholder="Enter your name" required>
+        </div>
+        <div class="xconnect-contact-popup__field">
+          <label class="xconnect-contact-popup__label" for="popup_email">Email Address <span>*</span></label>
+          <input type="email" id="popup_email" name="popup_email" class="xconnect-contact-popup__input" placeholder="Enter your email" required>
+        </div>
+        <div class="xconnect-contact-popup__field">
+          <label class="xconnect-contact-popup__label" for="popup_phone">Phone Number <span>*</span></label>
+          <input type="tel" id="popup_phone" name="popup_phone" class="xconnect-contact-popup__input" placeholder="Enter your phone number" required>
+        </div>
+        <div class="xconnect-contact-popup__field">
+          <label class="xconnect-contact-popup__label" for="popup_message">Message (Optional)</label>
+          <textarea id="popup_message" name="popup_message" class="xconnect-contact-popup__textarea" placeholder="Tell us about your requirements"></textarea>
+        </div>
+        <div class="xconnect-contact-popup__status"></div>
+        <button type="submit" class="xconnect-contact-popup__submit">Submit Enquiry</button>
+      </form>
+    </div>
+    <div class="xconnect-contact-popup__footer">
+      <button type="button" class="xconnect-contact-popup__skip">Maybe later</button>
+    </div>
+  </div>
+</div>

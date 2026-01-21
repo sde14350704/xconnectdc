@@ -5,12 +5,100 @@
   Type: JavaScript
 
   This file contains:
+  - Shared component loading (header, footer, popup)
   - Utility functions
   - Scroll-based animations
   - Form handling
   - Performance optimizations
   - Accessibility enhancements
 */
+
+// ==========================================================================
+// SHARED COMPONENTS LOADER
+// Loads header, footer, and popup from separate files
+// ==========================================================================
+
+(function() {
+  'use strict';
+
+  /**
+   * Load shared components (header, footer, popup) into placeholder elements
+   * This should run before the main DOMContentLoaded handler
+   */
+  function loadSharedComponents() {
+    var components = [
+      { id: 'xconnect-header-placeholder', src: 'includes/header.html' },
+      { id: 'xconnect-footer-placeholder', src: 'includes/footer.html' },
+      { id: 'xconnect-popup-placeholder', src: 'includes/popup.html' }
+    ];
+
+    var loadPromises = components.map(function(component) {
+      var placeholder = document.getElementById(component.id);
+      if (!placeholder) return Promise.resolve();
+
+      return fetch(component.src)
+        .then(function(response) {
+          if (!response.ok) throw new Error('Failed to load ' + component.src);
+          return response.text();
+        })
+        .then(function(html) {
+          placeholder.innerHTML = html;
+          
+          // Set active nav link based on current page
+          if (component.id === 'xconnect-header-placeholder') {
+            setActiveNavLink();
+          }
+          
+          // Update copyright year in footer
+          if (component.id === 'xconnect-footer-placeholder') {
+            var yearElement = document.getElementById('current-year');
+            if (yearElement) {
+              yearElement.textContent = new Date().getFullYear();
+            }
+          }
+        })
+        .catch(function(error) {
+          console.warn('Component load warning:', error.message);
+        });
+    });
+
+    return Promise.all(loadPromises);
+  }
+
+  /**
+   * Set the active navigation link based on current page
+   */
+  function setActiveNavLink() {
+    var currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    var navLinks = document.querySelectorAll('.xconnect-nav__link, .xconnect-mobile-menu__link');
+    
+    navLinks.forEach(function(link) {
+      var href = link.getAttribute('href');
+      if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+        link.classList.add('is-active');
+      }
+    });
+  }
+
+  // Load components when DOM is ready, then initialize main functionality
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      loadSharedComponents().then(initializeApp);
+    });
+  } else {
+    loadSharedComponents().then(initializeApp);
+  }
+
+  function initializeApp() {
+    // Call all initialization functions after components are loaded
+    initMain();
+  }
+
+  window.XConnectDCLoader = {
+    loadSharedComponents: loadSharedComponents,
+    setActiveNavLink: setActiveNavLink
+  };
+})();
 
 (function() {
   'use strict';
@@ -90,7 +178,8 @@
   // DOM READY HANDLER
   // ==========================================================================
 
-  document.addEventListener('DOMContentLoaded', function() {
+  // Expose initMain globally for the loader
+  window.initMain = function() {
 
     // ==========================================================================
     // SMOOTH SCROLL FOR ALL ANCHOR LINKS
@@ -678,7 +767,7 @@
     // Run initialization
     init();
 
-  }); // End DOMContentLoaded
+  }; // End initMain
 
   // ==========================================================================
   // WINDOW LOAD EVENT HANDLERS
