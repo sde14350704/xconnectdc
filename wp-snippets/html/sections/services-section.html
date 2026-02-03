@@ -1,0 +1,44 @@
+<!--
+  WPCode Snippet: Services Section (What We Do)
+  Type: HTML Snippet / Shortcode
+  Shortcode: [xconnect_services]
+  
+  Description: What We Do section showcasing 4 main services with cards.
+-->
+
+<section class="xconnect-what-we-do xconnect-section" id="what-we-do">
+  <div class="xconnect-container">
+    <div class="xconnect-section-header" data-aos="fade-up">
+      <span class="xconnect-eyebrow">What We Do</span>
+      <h2 class="xconnect-section-header__title">Enterprise Infrastructure Solutions</h2>
+      <p class="xconnect-section-header__subtitle">
+        From data centers to network connectivity, we provide end-to-end infrastructure solutions that power your digital transformation.
+      </p>
+    </div>
+
+    <div class="xconnect-what-we-do__grid">
+      <!-- Service cards would be dynamically generated or from ACF fields -->
+      <div class="xconnect-service-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="xconnect-service-card__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 256 256"><path d="M88,88a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H96A8,8,0,0,1,88,88Zm8,40h64a8,8,0,0,0,0-16H96a8,8,0,0,0,0,16ZM232,56V200a16,16,0,0,1-16,16H40a16,16,0,0,1-16-16V56A16,16,0,0,1,40,40H216A16,16,0,0,1,232,56ZM40,152H216V56H40Zm0,48H216V168H40Z"></path></svg>
+        </div>
+        <h3 class="xconnect-service-card__title">Data Center Solutions</h3>
+        <p class="xconnect-service-card__text">State-of-the-art Tier III+ data center facilities with 99.999% uptime, redundant power, and advanced cooling systems.</p>
+        <a href="<?php echo home_url('/services#data-center'); ?>" class="xconnect-service-card__link">
+          <span>Learn More</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"></path></svg>
+        </a>
+      </div>
+      <!-- More service cards... -->
+    </div>
+
+    <div class="xconnect-what-we-do__more" data-aos="fade-up" data-aos-delay="400">
+      <p class="xconnect-what-we-do__more-text">
+        <strong>Looking for more?</strong> We also offer Cloud Solutions, GPU Computing, and Telecom Services.
+      </p>
+      <a href="<?php echo home_url('/services'); ?>" class="xconnect-btn xconnect-btn--secondary">
+        <span>View All Services</span>
+      </a>
+    </div>
+  </div>
+</section>

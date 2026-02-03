@@ -1,0 +1,142 @@
+/**
+ * WPCode Snippet: Contact Form 7 Styling
+ * Type: CSS Snippet
+ * Location: Site Wide Header
+ * Priority: 8
+ * 
+ * Description: Custom styling for Contact Form 7 to match the XConnectDC design system.
+ * Includes form fields, validation states, submit button, and response messages.
+ */
+
+/* Contact Form 7 - Form Wrapper */
+.wpcf7 {
+  margin: 0;
+}
+
+/* Form Fields */
+.wpcf7-form-control-wrap {
+  display: block;
+  position: relative;
+}
+
+.wpcf7-text,
+.wpcf7-email,
+.wpcf7-tel,
+.wpcf7-textarea,
+.wpcf7-select {
+  width: 100%;
+  padding: var(--spacing-3) var(--spacing-4);
+  font-size: var(--font-size-base);
+  font-family: var(--font-family-base);
+  color: var(--color-text-dark);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.wpcf7-text:focus,
+.wpcf7-email:focus,
+.wpcf7-tel:focus,
+.wpcf7-textarea:focus,
+.wpcf7-select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(31, 111, 210, 0.15);
+  background-color: var(--color-white);
+}
+
+.wpcf7-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Form Labels */
+.wpcf7 label {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-2);
+}
+
+/* Form Paragraphs */
+.wpcf7 p {
+  margin-bottom: var(--spacing-5);
+}
+
+.wpcf7 p:last-child {
+  margin-bottom: 0;
+}
+
+/* Submit Button */
+.wpcf7-submit {
+  width: 100%;
+  padding: var(--spacing-4) var(--spacing-6);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  font-family: var(--font-family-base);
+  color: var(--color-white);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.wpcf7-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(31, 111, 210, 0.3);
+}
+
+.wpcf7-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Validation Errors */
+.wpcf7-not-valid {
+  border-color: var(--color-error) !important;
+}
+
+.wpcf7-not-valid-tip {
+  color: var(--color-error);
+  font-size: var(--font-size-sm);
+  margin-top: var(--spacing-2);
+  display: block;
+}
+
+/* Response Messages */
+.wpcf7-response-output {
+  margin: var(--spacing-4) 0 0;
+  padding: var(--spacing-3) var(--spacing-4);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  border: 1px solid;
+}
+
+.wpcf7-mail-sent-ok {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--color-success);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.wpcf7-mail-sent-ng,
+.wpcf7-validation-errors {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--color-error);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+/* Spinner */
+.wpcf7-spinner {
+  margin-left: var(--spacing-3);
+  display: inline-block;
+}
+
+/* AJAX Loader */
+.wpcf7 form.submitting .wpcf7-submit {
+  opacity: 0.7;
+  cursor: wait;
+}

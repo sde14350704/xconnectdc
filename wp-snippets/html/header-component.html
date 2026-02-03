@@ -1,0 +1,66 @@
+<!--
+  WPCode Snippet: Header Component
+  Type: HTML Snippet
+  Location: Auto Insert - Before Post
+  Priority: 1
+  Insert Location: Site-wide Header
+  
+  Description: Global site header with navigation, logo, and mobile menu.
+  Use shortcode: [xconnect_header]
+-->
+
+<header class="xconnect-header" id="xconnect-header">
+  <div class="xconnect-header__wrapper">
+    <div class="xconnect-container">
+      <nav class="xconnect-nav">
+        <a href="<?php echo home_url(); ?>" class="xconnect-logo" aria-label="XConnectDC Home">
+          <?php if (has_custom_logo()) {
+            the_custom_logo();
+          } else { ?>
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg" alt="XConnectDC Logo" class="xconnect-logo__image xconnect-logo__image--light" width="180" height="45">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-dark.svg" alt="XConnectDC Logo" class="xconnect-logo__image xconnect-logo__image--dark" width="180" height="45">
+          <?php } ?>
+        </a>
+
+        <?php
+        wp_nav_menu(array(
+          'theme_location' => 'primary',
+          'container' => 'ul',
+          'menu_class' => 'xconnect-nav__menu',
+          'menu_id' => 'xconnect-nav-menu',
+          'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+          'fallback_cb' => false,
+        ));
+        ?>
+
+        <div class="xconnect-nav__cta">
+          <a href="<?php echo home_url('/contact'); ?>" class="xconnect-btn xconnect-btn--primary xconnect-nav__cta-btn">Get in Touch</a>
+        </div>
+
+        <button class="xconnect-nav__toggle" id="xconnect-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="xconnect-nav__toggle-bar"></span>
+          <span class="xconnect-nav__toggle-bar"></span>
+          <span class="xconnect-nav__toggle-bar"></span>
+        </button>
+      </nav>
+    </div>
+  </div>
+
+  <div class="xconnect-mobile-menu" id="xconnect-mobile-menu" aria-hidden="true">
+    <div class="xconnect-mobile-menu__content">
+      <?php
+      wp_nav_menu(array(
+        'theme_location' => 'mobile',
+        'container' => 'ul',
+        'menu_class' => 'xconnect-mobile-menu__list',
+        'fallback_cb' => false,
+      ));
+      ?>
+      <div class="xconnect-mobile-menu__cta">
+        <a href="<?php echo home_url('/contact'); ?>" class="xconnect-btn xconnect-btn--primary xconnect-btn--lg">Get in Touch</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="xconnect-header-spacer"></div>

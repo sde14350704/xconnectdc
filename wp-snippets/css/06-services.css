@@ -1,0 +1,92 @@
+/**
+ * WPCode Snippet: Services Page Styles
+ * Type: CSS Snippet
+ * Location: Site Wide Header
+ * Priority: 6
+ * Conditional Logic: is_page('services')
+ * 
+ * Description: Styling for Services page including hero, service grid,
+ * detailed service sections, and service cards.
+ */
+
+.xconnect-services-hero {
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-primary-dark) 100%);
+  padding: calc(var(--header-height) + var(--spacing-20)) 0 var(--spacing-20) 0;
+  color: var(--color-white);
+  text-align: center;
+}
+
+.xconnect-services-hero__title {
+  font-size: var(--font-size-5xl);
+  margin-bottom: var(--spacing-6);
+}
+
+.xconnect-services-hero__subtitle {
+  font-size: var(--font-size-xl);
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+.xconnect-services-grid {
+  padding: var(--spacing-20) 0;
+}
+
+.xconnect-services-grid__items {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-8);
+}
+
+@media (min-width: 640px) {
+  .xconnect-services-grid__items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .xconnect-services-grid__items {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.xconnect-service-detail {
+  padding: var(--spacing-16) 0;
+}
+
+.xconnect-service-detail:nth-child(even) {
+  background-color: var(--color-background);
+}
+
+.xconnect-service-detail__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-12);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .xconnect-service-detail__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-16);
+  }
+}
+
+.xconnect-service-detail__features {
+  list-style: none;
+  margin: var(--spacing-6) 0;
+  padding: 0;
+}
+
+.xconnect-service-detail__features li {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  margin-bottom: var(--spacing-4);
+  font-size: var(--font-size-base);
+}
+
+.xconnect-service-detail__features li svg {
+  flex-shrink: 0;
+  color: var(--color-success);
+}

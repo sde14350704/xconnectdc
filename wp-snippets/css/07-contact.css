@@ -1,0 +1,98 @@
+/**
+ * WPCode Snippet: Contact Page Styles
+ * Type: CSS Snippet
+ * Location: Site Wide Header
+ * Priority: 7
+ * Conditional Logic: is_page('contact')
+ * 
+ * Description: Styling for Contact page including hero, contact form layout,
+ * contact information cards, and map section.
+ */
+
+.xconnect-contact-hero {
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-primary-dark) 100%);
+  padding: calc(var(--header-height) + var(--spacing-20)) 0 var(--spacing-20) 0;
+  color: var(--color-white);
+  text-align: center;
+}
+
+.xconnect-contact-hero__title {
+  font-size: var(--font-size-5xl);
+  margin-bottom: var(--spacing-6);
+}
+
+.xconnect-contact-hero__subtitle {
+  font-size: var(--font-size-xl);
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+.xconnect-contact-section {
+  padding: var(--spacing-20) 0;
+}
+
+.xconnect-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-12);
+}
+
+@media (min-width: 1024px) {
+  .xconnect-contact-grid {
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--spacing-16);
+  }
+}
+
+.xconnect-contact-info__cards {
+  display: grid;
+  gap: var(--spacing-6);
+}
+
+.xconnect-contact-info__card {
+  background-color: var(--color-background);
+  padding: var(--spacing-6);
+  border-radius: var(--radius-xl);
+  display: flex;
+  gap: var(--spacing-4);
+}
+
+.xconnect-contact-info__card-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(31, 111, 210, 0.1);
+  color: var(--color-primary);
+  border-radius: var(--radius-lg);
+}
+
+.xconnect-contact-info__card-title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-2);
+}
+
+.xconnect-contact-info__card-text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.xconnect-contact-info__card-text a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.xconnect-contact-info__card-text a:hover {
+  text-decoration: underline;
+}
+
+.xconnect-contact-form {
+  background-color: var(--color-white);
+  padding: var(--spacing-8);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+}
