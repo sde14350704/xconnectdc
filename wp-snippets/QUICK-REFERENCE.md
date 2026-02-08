@@ -1,4 +1,5 @@
 # XConnectDC WPCode Snippets - Quick Reference Card
+## ⚠️ WPCode FREE Plan Compatible
 
 ## 📦 Installation Order
 
@@ -7,19 +8,20 @@
 Priority 1: css/01-global-variables.css     → Site Wide Header
 Priority 2: css/02-global-base.css          → Site Wide Header
 Priority 3: css/03-components.css           → Site Wide Header
-Priority 4: css/04-home.css                 → Site Wide Header [Conditional: is_front_page()]
-Priority 5: css/05-about.css                → Site Wide Header [Conditional: is_page('about')]
-Priority 6: css/06-services.css             → Site Wide Header [Conditional: is_page('services')]
-Priority 7: css/07-contact.css              → Site Wide Header [Conditional: is_page('contact')]
+Priority 4: css/04-home.css                 → Site Wide Header (loads everywhere - FREE plan)
+Priority 5: css/05-about.css                → Site Wide Header (loads everywhere - FREE plan)
+Priority 6: css/06-services.css             → Site Wide Header (loads everywhere - FREE plan)
+Priority 7: css/07-contact.css              → Site Wide Header (loads everywhere - FREE plan)
 Priority 8: css/08-forms.css                → Site Wide Header
 ```
+**Note**: FREE plan doesn't support conditional logic, so all CSS loads site-wide.
 
 ### 2️⃣ PHP Snippets
 ```
 Priority 1: php/01-enqueue-fonts-libraries.php → Run Everywhere
 Priority 2: php/02-theme-support.php           → Run Everywhere
-Priority 3: php/03-shortcode-functions.php     → Run Everywhere
 ```
+**Note**: Removed 03-shortcode-functions.php (shortcodes require Pro/Business plan)
 
 ### 3️⃣ JavaScript Snippets
 ```
@@ -28,55 +30,36 @@ Priority 2: js/02-aos-init.js        → Site Wide Footer
 Priority 3: js/03-form-handling.js   → Site Wide Footer
 ```
 
-### 4️⃣ HTML Components
+### 4️⃣ HTML Components (Manual Integration Required)
 ```
-Priority 1:  html/header-component.html  → Site Wide Header (or use [xconnect_header] shortcode)
-Priority 1:  html/footer-component.html  → Site Wide Footer (or use [xconnect_footer] shortcode)
-Priority 10: html/contact-popup.html     → Site Wide Footer
-Priority 11: html/back-to-top.html       → Site Wide Footer
-```
-
-## 🎨 Shortcodes Reference
-
-### Hero Section
-```php
-[xconnect_hero]
-
-// With attributes:
-[xconnect_hero 
-  title="Custom Title"
-  subtitle="Custom Subtitle"
-  cta_primary_text="Button Text"
-  cta_primary_url="/custom-url"]
+html/header-component.html  → Add to theme header.php or via Appearance > Customize
+html/footer-component.html  → Add to theme footer.php or via Appearance > Customize
+html/contact-popup.html     → Add as HTML snippet (Footer location)
+html/back-to-top.html       → Add as HTML snippet (Footer location)
 ```
 
-### Other Sections
-```php
-[xconnect_services]     // What We Do section
-[xconnect_why_us]       // Why XConnectDC section
-[xconnect_industries]   // Industries We Serve
-[xconnect_cta]          // Call-to-action section
+### 5️⃣ WordPress Pages (Direct HTML Paste)
 ```
+html/pages/home-page.html     → Create "Home" page, paste HTML in Code Editor
+html/pages/about-page.html    → Create "About" page, paste HTML in Code Editor
+html/pages/services-page.html → Create "Services" page, paste HTML in Code Editor
+html/pages/contact-page.html  → Create "Contact" page, paste HTML in Code Editor
+```
+**Important**: Paste HTML directly into WordPress Page Editor (Code/Text mode), NOT as WPCode snippets.
 
-### Homepage Build
-```
-[xconnect_hero]
-[xconnect_services]
-[xconnect_why_us]
-[xconnect_industries]
-[xconnect_cta]
-```
+## ⚠️ WPCode FREE Plan Limitations
 
-## 🎯 Conditional Logic Examples
+**NO Shortcodes** - Custom shortcodes require Pro/Business plan
+- Use page HTML files instead (html/pages/*.html)
+- Paste directly into WordPress page editor
 
-### Page-Specific CSS
-```php
-is_front_page()              // Homepage only
-is_page('about')             // About page only
-is_page('services')          // Services page only
-is_page('contact')           // Contact page only
-is_page(array('about','services'))  // Multiple pages
-```
+**NO Conditional Logic** - All CSS loads site-wide
+- Page-specific CSS will load on all pages
+- Small performance impact but still acceptable
+
+**HTML Components** - Require manual theme integration
+- Header/footer need theme file editing OR
+- Use "Insert Headers and Footers" plugin as alternative
 
 ## 🔧 Common Customizations
 
@@ -111,14 +94,15 @@ var POPUP_DELAY = 3000;  // Change this (milliseconds)
 ## 📝 Required WordPress Setup
 
 ### 1. Install Plugins
-- ✅ WPCode (free or pro)
+- ✅ WPCode FREE (no Pro/Business needed)
 - ✅ Contact Form 7
+- ✅ Insert Headers and Footers (optional - for header/footer components)
 
-### 2. Create Pages
-- Home (set as front page)
-- About
-- Services
-- Contact
+### 2. Create Pages & Add HTML Content
+- Home (paste html/pages/home-page.html content, set as front page)
+- About (paste html/pages/about-page.html content)
+- Services (paste html/pages/services-page.html content)
+- Contact (paste html/pages/contact-page.html content)
 
 ### 3. Create Menus
 Go to **Appearance → Menus**:
@@ -164,11 +148,11 @@ Upload to theme folder:
 3. Check jQuery conflicts
 4. Ensure scripts in footer
 
-### Shortcodes Not Rendering?
-1. Verify PHP snippet activated
-2. Check for syntax errors
-3. Clear WordPress cache
-4. Test shortcode alone
+### Page HTML Not Displaying Properly?
+1. Verify you're using Code Editor (not Visual Editor)
+2. Check that required CSS snippets are active
+3. Clear WordPress and browser cache
+4. Verify HTML was pasted completely
 
 ### Forms Not Submitting?
 1. Verify CF7 installed
