@@ -1,0 +1,151 @@
+<!--
+NOTE: This HTML is for direct paste into WordPress Page Editor (NOT WPCode)
+Page: Contact
+Instructions: 
+1. In WordPress, create a new page titled "Contact"
+2. Switch to "Code Editor" or "Text" mode (not Visual mode)
+3. Paste this entire HTML content
+4. Make sure CSS snippet 07-contact.css is already active in WPCode
+5. Publish the page
+-->
+
+<!-- Hero Section -->
+    <section class="xconnect-contact-hero">
+      <div class="xconnect-contact-hero__bg"></div>
+      <div class="xconnect-container">
+        <div class="xconnect-contact-hero__content">
+          <div class="xconnect-contact-hero__badge" data-aos="fade-up">Get in Touch</div>
+          <h1 class="xconnect-contact-hero__title" data-aos="fade-up" data-aos-delay="100">
+            Let's Build Your Digital Future
+          </h1>
+          <p class="xconnect-contact-hero__text" data-aos="fade-up" data-aos-delay="200">
+            Have questions about our services? Ready to start your project? Our team is here to help.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="xconnect-contact xconnect-section">
+      <div class="xconnect-container">
+        <div class="xconnect-contact__grid">
+          <!-- Contact Form -->
+          <div class="xconnect-contact-form-wrapper" data-aos="fade-up">
+            <h2 class="xconnect-contact-form__title">Send Us a Message</h2>
+            <p class="xconnect-contact-form__subtitle">Fill out the form below and we'll get back to you within 24 hours.</p>
+
+            <form class="xconnect-contact-form" id="contact-form">
+              <div id="form-status" class="xconnect-form-status"></div>
+
+              <div class="xconnect-contact-form__row">
+                <div class="xconnect-form-group">
+                  <label for="first-name" class="xconnect-label">First Name *</label>
+                  <input type="text" id="first-name" name="first_name" class="xconnect-input" placeholder="John" required>
+                </div>
+                <div class="xconnect-form-group">
+                  <label for="last-name" class="xconnect-label">Last Name *</label>
+                  <input type="text" id="last-name" name="last_name" class="xconnect-input" placeholder="Doe" required>
+                </div>
+              </div>
+
+              <div class="xconnect-contact-form__row">
+                <div class="xconnect-form-group">
+                  <label for="email" class="xconnect-label">Email Address *</label>
+                  <input type="email" id="email" name="email" class="xconnect-input" placeholder="john@company.com" required>
+                </div>
+                <div class="xconnect-form-group">
+                  <label for="phone" class="xconnect-label">Phone Number</label>
+                  <input type="tel" id="phone" name="phone" class="xconnect-input" placeholder="+91 98765 43210">
+                </div>
+              </div>
+
+              <div class="xconnect-form-group">
+                <label for="company" class="xconnect-label">Company Name</label>
+                <input type="text" id="company" name="company" class="xconnect-input" placeholder="Your Company">
+              </div>
+
+              <div class="xconnect-form-group">
+                <label for="service" class="xconnect-label">Service Interest</label>
+                <select id="service" name="service" class="xconnect-select">
+                  <option value="">Select a service</option>
+                  <option value="data-center">Data Center Solutions</option>
+                  <option value="opgw">OPGW Connectivity</option>
+                  <option value="network">Network Infrastructure</option>
+                  <option value="managed">Managed Services</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="xconnect-form-group">
+                <label for="message" class="xconnect-label">Your Message *</label>
+                <textarea id="message" name="message" class="xconnect-textarea" placeholder="Tell us about your requirements..." required></textarea>
+              </div>
+
+              <button type="submit" class="xconnect-btn xconnect-btn--primary xconnect-btn--lg" style="width: 100%;">
+                <span>Send Message</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256">
+                  <path d="M227.32,28.68a16,16,0,0,0-15.66-4.08l-.15,0L19.57,82.84a16,16,0,0,0-2.49,29.8L102,154l41.3,84.91a16,16,0,0,0,29.8-2.49l58.2-191.93A16,16,0,0,0,227.32,28.68ZM30.29,99.4,195.51,48.45,112.35,131.61ZM156.6,225.7l-41.3-84.91,83.15-83.15Z"></path>
+                </svg>
+              </button>
+            </form>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="xconnect-contact-info" data-aos="fade-up" data-aos-delay="100">
+            <div class="xconnect-contact-info__card">
+              <div class="xconnect-contact-info__header">
+                <div class="xconnect-contact-info__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+                    <path d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z"></path>
+                  </svg>
+                </div>
+                <h3 class="xconnect-contact-info__title">Office Address</h3>
+              </div>
+              <div class="xconnect-contact-info__content">
+                <p>XCONNECT Datacenters Private Limited<br>D. No. 54-16-7/4B, Plot No. 7,<br>First Floor, Mahen Enclave, Road No. 1,<br>Central Excise Colony, Vijayawada (Urban),<br>Andhra Pradesh – 520008, India</p>
+              </div>
+            </div>
+
+            <div class="xconnect-contact-info__card">
+              <div class="xconnect-contact-info__header">
+                <div class="xconnect-contact-info__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+                    <path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"></path>
+                  </svg>
+                </div>
+                <h3 class="xconnect-contact-info__title">Email Us</h3>
+              </div>
+              <div class="xconnect-contact-info__content">
+                <p>General Inquiries:<br><a href="mailto:info@xconnectdc.com">info@xconnectdc.com</a></p>
+                <p style="margin-top: 0.5rem;">Sales:<br><a href="mailto:sales@xconnectdc.com">sales@xconnectdc.com</a></p>
+              </div>
+            </div>
+
+            <div class="xconnect-contact-info__card">
+              <div class="xconnect-contact-info__header">
+                <div class="xconnect-contact-info__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+                    <path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z"></path>
+                  </svg>
+                </div>
+                <h3 class="xconnect-contact-info__title">Call Us</h3>
+              </div>
+              <div class="xconnect-contact-info__content">
+                <p>Sales: <a href="tel:+911234567890">+91 123 456 7890</a></p>
+                <p style="margin-top: 0.5rem;">Support: <a href="tel:+911234567891">+91 123 456 7891</a></p>
+              </div>
+            </div>
+
+            <div class="xconnect-contact-map">
+              <div class="xconnect-contact-map__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256">
+                  <path d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z"></path>
+                </svg>
+              </div>
+              <p class="xconnect-contact-map__text">Vijayawada, Andhra Pradesh</p>
+              <p class="xconnect-contact-map__subtext">India's Emerging Digital Hub</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

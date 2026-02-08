@@ -1,0 +1,292 @@
+<!--
+NOTE: This HTML is for direct paste into WordPress Page Editor (NOT WPCode)
+Page: Home
+Instructions: 
+1. In WordPress, create a new page titled "Home"
+2. Switch to "Code Editor" or "Text" mode (not Visual mode)
+3. Paste this entire HTML content
+4. Make sure CSS snippet 04-home.css is already active in WPCode
+5. Publish the page
+-->
+
+<!--
+  WPCode Snippet: Hero Section
+  Type: HTML Snippet / Shortcode
+  Shortcode: [xconnect_hero]
+  
+  Description: Homepage hero section with animated background, title, CTA buttons, and trust indicators.
+-->
+
+<section class="xconnect-hero" id="hero">
+  <div class="xconnect-hero__bg">
+    <div class="xconnect-hero__bg-gradient"></div>
+    <div class="xconnect-hero__bg-pattern"></div>
+    <div class="xconnect-hero__bg-glow xconnect-hero__bg-glow--1"></div>
+    <div class="xconnect-hero__bg-glow xconnect-hero__bg-glow--2"></div>
+    <div class="xconnect-hero__grid-lines">
+      <div class="xconnect-hero__grid-line"></div>
+      <div class="xconnect-hero__grid-line"></div>
+      <div class="xconnect-hero__grid-line"></div>
+      <div class="xconnect-hero__grid-line"></div>
+    </div>
+  </div>
+
+  <div class="xconnect-container">
+    <div class="xconnect-hero__content">
+      <div class="xconnect-hero__badge" data-aos="fade-down" data-aos-delay="0">
+        <span class="xconnect-hero__badge-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+        </span>
+        <span>Enterprise-Grade Infrastructure</span>
+      </div>
+
+      <h1 class="xconnect-hero__title" data-aos="fade-up" data-aos-delay="100">
+        Reliable Data Center &<br>
+        <span class="xconnect-hero__title-highlight">Network Infrastructure</span> Solutions
+      </h1>
+
+      <p class="xconnect-hero__subtitle" data-aos="fade-up" data-aos-delay="200">
+        Empowering enterprises with secure, scalable, and high-availability connectivity.
+        From world-class data centers and cloud services to GPU computing, telecom,
+        and networking — we help businesses move faster with confidence.
+      </p>
+
+      <div class="xconnect-hero__cta" data-aos="fade-up" data-aos-delay="300">
+        <a  href="/services" class="xconnect-btn xconnect-btn--primary xconnect-btn--lg">
+          <span>Explore Solutions</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"></path></svg>
+        </a>
+        <a  href="/contact" class="xconnect-btn xconnect-btn--outline-white xconnect-btn--lg">
+          <span>Contact Us</span>
+        </a>
+      </div>
+
+      <div class="xconnect-hero__trust" data-aos="fade-up" data-aos-delay="400">
+        <div class="xconnect-hero__trust-item">
+          <span class="xconnect-hero__trust-number">99.999%</span>
+          <span class="xconnect-hero__trust-label">Uptime SLA</span>
+        </div>
+        <div class="xconnect-hero__trust-divider"></div>
+        <div class="xconnect-hero__trust-item">
+          <span class="xconnect-hero__trust-number">14,941</span>
+          <span class="xconnect-hero__trust-label">KM Fiber Network</span>
+        </div>
+        <div class="xconnect-hero__trust-divider"></div>
+        <div class="xconnect-hero__trust-item">
+          <span class="xconnect-hero__trust-number">50MW</span>
+          <span class="xconnect-hero__trust-label">Data Center Capacity</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="xconnect-hero__scroll" data-aos="fade-up" data-aos-delay="500">
+    <a href="#what-we-do" class="xconnect-hero__scroll-link" aria-label="Scroll to next section">
+      <span class="xconnect-hero__scroll-text">Scroll to explore</span>
+      <div class="xconnect-hero__scroll-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm37.66-101.66a8,8,0,0,1-11.32,11.32L136,107.31V168a8,8,0,0,1-16,0V107.31l-18.34,18.35a8,8,0,0,1-11.32-11.32l32-32a8,8,0,0,1,11.32,0Z" transform="rotate(180 128 128)"></path></svg>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!--
+  WPCode Snippet: Services Section (What We Do)
+  Type: HTML Snippet / Shortcode
+  Shortcode: [xconnect_services]
+  
+  Description: What We Do section showcasing 4 main services with cards.
+-->
+
+<section class="xconnect-what-we-do xconnect-section" id="what-we-do">
+  <div class="xconnect-container">
+    <div class="xconnect-section-header" data-aos="fade-up">
+      <span class="xconnect-eyebrow">What We Do</span>
+      <h2 class="xconnect-section-header__title">Enterprise Infrastructure Solutions</h2>
+      <p class="xconnect-section-header__subtitle">
+        From data centers to network connectivity, we provide end-to-end infrastructure solutions that power your digital transformation.
+      </p>
+    </div>
+
+    <div class="xconnect-what-we-do__grid">
+      <!-- Service cards would be dynamically generated or from ACF fields -->
+      <div class="xconnect-service-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="xconnect-service-card__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 256 256"><path d="M88,88a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H96A8,8,0,0,1,88,88Zm8,40h64a8,8,0,0,0,0-16H96a8,8,0,0,0,0,16ZM232,56V200a16,16,0,0,1-16,16H40a16,16,0,0,1-16-16V56A16,16,0,0,1,40,40H216A16,16,0,0,1,232,56ZM40,152H216V56H40Zm0,48H216V168H40Z"></path></svg>
+        </div>
+        <h3 class="xconnect-service-card__title">Data Center Solutions</h3>
+        <p class="xconnect-service-card__text">State-of-the-art Tier III+ data center facilities with 99.999% uptime, redundant power, and advanced cooling systems.</p>
+        <a  href="/services#data-center" class="xconnect-service-card__link">
+          <span>Learn More</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"></path></svg>
+        </a>
+      </div>
+      <!-- More service cards... -->
+    </div>
+
+    <div class="xconnect-what-we-do__more" data-aos="fade-up" data-aos-delay="400">
+      <p class="xconnect-what-we-do__more-text">
+        <strong>Looking for more?</strong> We also offer Cloud Solutions, GPU Computing, and Telecom Services.
+      </p>
+      <a  href="/services" class="xconnect-btn xconnect-btn--secondary">
+        <span>View All Services</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!--
+  WPCode Snippet: Why Us Section
+  Type: HTML Snippet / Shortcode
+  Shortcode: [xconnect_why_us]
+  
+  Description: Why XConnectDC section with features and stats visualization.
+-->
+
+<section class="xconnect-why-us xconnect-section" id="why-us">
+  <div class="xconnect-container">
+    <div class="xconnect-why-us__grid">
+      <div class="xconnect-why-us__content" data-aos="fade-right">
+        <span class="xconnect-eyebrow">Why XConnectDC</span>
+        <h2 class="xconnect-section-header__title" style="text-align: left;">Trusted Infrastructure Partner</h2>
+        <p class="xconnect-section-header__subtitle" style="text-align: left;">
+          We combine cutting-edge technology with deep expertise to deliver infrastructure solutions that drive business success.
+        </p>
+
+        <ul class="xconnect-why-us__features">
+          <li class="xconnect-why-us__feature">
+            <div class="xconnect-why-us__feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M208,40H48A16,16,0,0,0,32,56v58.78c0,89.61,75.82,119.34,91,124.39a15.53,15.53,0,0,0,10,0c15.2-5.05,91-34.78,91-124.39V56A16,16,0,0,0,208,40Zm0,74.79c0,78.42-66.35,104.62-80,109.18-13.53-4.51-80-30.69-80-109.18V56H208Z"></path></svg>
+            </div>
+            <div class="xconnect-why-us__feature-content">
+              <h4 class="xconnect-why-us__feature-title">99.999% Uptime Guarantee</h4>
+              <p class="xconnect-why-us__feature-text">Industry-leading SLA with redundant systems ensuring your business never stops.</p>
+            </div>
+          </li>
+          <!-- More features... -->
+        </ul>
+
+        <div class="xconnect-why-us__cta">
+          <a  href="/about" class="xconnect-btn xconnect-btn--primary">
+            <span>Learn More About Us</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="xconnect-why-us__visual" data-aos="fade-left">
+        <div class="xconnect-why-us__visual-wrapper">
+          <div class="xconnect-why-us__visual-bg"></div>
+          <div class="xconnect-why-us__visual-pattern"></div>
+          <div class="xconnect-why-us__stats">
+            <!-- Stat cards here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--
+  WPCode Snippet: Industries Section
+  Type: HTML Snippet / Shortcode
+  Shortcode: [xconnect_industries]
+  
+  Description: Industries We Serve section with industry cards.
+-->
+
+<section class="xconnect-industries xconnect-section" id="industries">
+  <div class="xconnect-container">
+    <div class="xconnect-section-header" data-aos="fade-up">
+      <span class="xconnect-eyebrow">Industries We Serve</span>
+      <h2 class="xconnect-section-header__title">Powering Digital Transformation</h2>
+      <p class="xconnect-section-header__subtitle">
+        Our infrastructure solutions support enterprises across diverse industries with tailored connectivity and data services.
+      </p>
+    </div>
+
+    <div class="xconnect-industries__grid">
+      <!-- Industry cards would be dynamically generated -->
+      <div class="xconnect-industry-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="xconnect-industry-card__bg"></div>
+        <div class="xconnect-industry-card__content">
+          <div class="xconnect-industry-card__icon">
+            <!-- Icon SVG -->
+          </div>
+          <h3 class="xconnect-industry-card__title">Telecom & ISPs</h3>
+          <p class="xconnect-industry-card__text">High-capacity backbone connectivity and co-location services for carriers.</p>
+          <div class="xconnect-industry-card__features">
+            <span class="xconnect-industry-card__feature">Dark Fiber</span>
+            <span class="xconnect-industry-card__feature">Co-location</span>
+          </div>
+        </div>
+      </div>
+      <!-- More industry cards... -->
+    </div>
+
+    <div class="xconnect-industries__more" data-aos="fade-up">
+      <p class="xconnect-industries__more-text">
+        <strong>Also serving:</strong> BFSI, Education, Media & Entertainment, Manufacturing, and more.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!--
+  WPCode Snippet: CTA Section
+  Type: HTML Snippet / Shortcode
+  Shortcode: [xconnect_cta]
+  
+  Description: Final call-to-action section with gradient background.
+-->
+
+<section class="xconnect-cta" id="cta">
+  <div class="xconnect-cta__bg">
+    <div class="xconnect-cta__bg-gradient"></div>
+    <div class="xconnect-cta__bg-pattern"></div>
+    <div class="xconnect-cta__bg-glow xconnect-cta__bg-glow--1"></div>
+    <div class="xconnect-cta__bg-glow xconnect-cta__bg-glow--2"></div>
+  </div>
+
+  <div class="xconnect-container">
+    <div class="xconnect-cta__content">
+      <div class="xconnect-cta__badge" data-aos="fade-up">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+        <span>Ready to Transform Your Infrastructure?</span>
+      </div>
+
+      <h2 class="xconnect-cta__title" data-aos="fade-up" data-aos-delay="100">
+        Let's Build Your<br>
+        <span class="xconnect-cta__title-highlight">Digital Future Together</span>
+      </h2>
+
+      <p class="xconnect-cta__text" data-aos="fade-up" data-aos-delay="200">
+        Connect with our experts to discuss your infrastructure requirements and discover how XConnectDC can power your digital transformation.
+      </p>
+
+      <div class="xconnect-cta__buttons" data-aos="fade-up" data-aos-delay="300">
+        <a  href="/contact" class="xconnect-btn xconnect-btn--white xconnect-btn--lg">
+          <span>Get Started</span>
+        </a>
+        <a  href="/services" class="xconnect-btn xconnect-btn--outline-white xconnect-btn--lg">
+          <span>Explore Solutions</span>
+        </a>
+      </div>
+
+      <div class="xconnect-cta__trust" data-aos="fade-up" data-aos-delay="400">
+        <div class="xconnect-cta__trust-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+          <span>Free Consultation</span>
+        </div>
+        <div class="xconnect-cta__trust-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+          <span>Custom Solutions</span>
+        </div>
+        <div class="xconnect-cta__trust-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+          <span>24/7 Support</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
